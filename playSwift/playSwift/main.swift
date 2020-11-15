@@ -105,10 +105,7 @@ weakUnit4A?.tenant = grace
 
 // unowned
 
-
-/// Unowned Optional References
-
-func UnownedOptionalReferences() {
+func unownedReferences() {
     class Customer {
         let name: String
         var card: CreditCard?
@@ -149,9 +146,69 @@ func UnownedOptionalReferences() {
     }
 }
 
-UnownedOptionalReferences()
+/// Unowned Optional References
+
+func unownedOptionalRefereces() {
+    class Department {
+        var name: String
+        var courses: [Course]
+        
+        init(name: String) {
+            self.name = name
+            self.courses = []
+        }
+    }
+    
+    class Course {
+        var name: String
+        unowned var department: Department
+        unowned var nextCourse: Course?
+        
+        init(name: String, in department: Department) {
+            self.name = name
+            self.department = department
+        }
+    }
+    
+    let department: Department = Department(name: "Horticulture")
+    
+    let intro = Course(name: "Survey of Plants", in: department)
+    let intermediate = Course(name: "Growing Common Herbs", in: department)
+    let advanced = Course(name: "Caring for Tropical Plants", in: department)
+    
+    intro.nextCourse = intermediate
+    intermediate.nextCourse = advanced
+    department.courses = [intro, intermediate, advanced]
+}
 
 /// Unowned References and Implicitly Unwrapped Optional Properties
+
+func unownedReferencesAndImplicitlyUnwrappedOptionalProperties() {
+    class Country {
+        let name: String
+        var capitalCity: City!
+        
+        init(name: String, capitalName: String) {
+            self.name = name
+            self.capitalCity = City(name: capitalName, country: self)
+        }
+    }
+    
+    class City {
+        let name: String
+        unowned let country: Country
+        
+        init(name: String, country: Country) {
+            self.name = name
+            self.country = country
+        }
+    }
+    
+    let country = Country(name: "Korea", capitalName: "Seoul")
+    print("\(country.name)'s capital city is called \(country.capitalCity.name)")
+}
+
+unownedReferencesAndImplicitlyUnwrappedOptionalProperties()
 
 /// Strong Reference Cycles for Closures
 
