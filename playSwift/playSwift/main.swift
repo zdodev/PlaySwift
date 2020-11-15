@@ -137,7 +137,19 @@ func UnownedOptionalReferences() {
             print("Card #\(number) is being deinitialized")
         }
     }
+    
+    var john: Customer?
+    john = Customer(name: "John Appleseed")
+    john?.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
+    
+    john = nil
+    
+    class UnownedUnsafe {
+        unowned(unsafe) var name: Customer?
+    }
 }
+
+UnownedOptionalReferences()
 
 /// Unowned References and Implicitly Unwrapped Optional Properties
 
