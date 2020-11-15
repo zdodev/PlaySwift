@@ -77,6 +77,39 @@ unit4A = nil
 
 /// Weak References
 
+//class Apartment {
+//    let unit: String
+//    weak var tenant: Person?
+//
+//    init(unit: String) {
+//        self.unit = unit
+//    }
+//
+//    deinit {
+//        print("Apartment \(unit) is being deinitialized")
+//    }
+//}
+
+var grace: Person?
+var weakUnit4A: Apartment?
+
+grace = Person(name: "Grace Appleseed")
+weakUnit4A = Apartment(unit: "4A")
+
+grace?.apartment = weakUnit4A
+weakUnit4A?.tenant = grace
+
+func ee() {
+    class ff {
+        var gg: Int = 3
+    }
+    
+    let a = ff()
+    print(a.gg)
+}
+
+//grace = nil
+
 /// Unowned References
 
 /// Unowned Optional References
