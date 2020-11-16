@@ -98,11 +98,28 @@ private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
 
 /// Enumeration Types
 
+public enum CompassPoint {
+    case north
+    case south
+    case east
+    case west
+}
+
 /// Raw Values and Associated Values
 
 /// Nested Types
 
 /// Subclassing
+
+public class A {
+    fileprivate func someMethod() {}
+}
+
+class B: A {
+    override func someMethod() {
+        super.someMethod()
+    }
+}
 
 /// Constants, Variables, Properties, and Subscripts
 
