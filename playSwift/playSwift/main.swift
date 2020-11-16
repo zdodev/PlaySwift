@@ -86,6 +86,16 @@ private class SomePrivateClass1 {
 
 /// Function Types
 
+/*
+func someFunction() -> (SomeInternalClass, SomePrivateClass) {
+    (SomeInternalClass(), SomePrivateClass())
+}
+ */
+
+private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
+    (SomeInternalClass(), SomePrivateClass())
+}
+
 /// Enumeration Types
 
 /// Raw Values and Associated Values
