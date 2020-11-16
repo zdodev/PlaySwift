@@ -123,6 +123,8 @@ class B: A {
 
 /// Constants, Variables, Properties, and Subscripts
 
+private var privateInstance = SomePrivateClass()
+
 /// Getters and Setters
 
 /// Initializers
