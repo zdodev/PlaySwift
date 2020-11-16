@@ -11,6 +11,7 @@
 		4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */; };
 		41D4E402255AF7D80052C843 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D4E401255AF7D80052C843 /* main.swift */; };
 		41D8F2D12562141100736A63 /* MemorySafety.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8F2D02562141100736A63 /* MemorySafety.swift */; };
+		41EF68902562DA60004F07AF /* AccessControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF688F2562DA60004F07AF /* AccessControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		41D4E3FE255AF7D80052C843 /* playSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = playSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D4E401255AF7D80052C843 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		41D8F2D02562141100736A63 /* MemorySafety.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorySafety.swift; sourceTree = "<group>"; };
+		41EF688F2562DA60004F07AF /* AccessControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				41D4E401255AF7D80052C843 /* main.swift */,
+				41EF688F2562DA60004F07AF /* AccessControl.swift */,
 				4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */,
 				4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */,
 				41D8F2D02562141100736A63 /* MemorySafety.swift */,
@@ -130,6 +133,7 @@
 			files = (
 				4191EC1B256169AD0062E3B3 /* AutomaticReferenceCounting.swift in Sources */,
 				4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */,
+				41EF68902562DA60004F07AF /* AccessControl.swift in Sources */,
 				41D8F2D12562141100736A63 /* MemorySafety.swift in Sources */,
 				41D4E402255AF7D80052C843 /* main.swift in Sources */,
 			);
