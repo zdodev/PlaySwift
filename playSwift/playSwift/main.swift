@@ -51,6 +51,35 @@ class SomeInternalClass1 {
     var someInternalProperty = 0
     fileprivate var someFilePrivateProperty = 0
     private var somePrivateProperty = 0
+    
+    public func somePublicFunction() {}
+    func someInternalFunction() {}
+    fileprivate func someFilePrivateFunction() {}
+    private func somePrivateFunction() {}
+}
+
+fileprivate class SomeFilePrivateClass1 {
+    public var somePublicProperty = 0
+    var someInternalProperty = 0
+    fileprivate var someFilePrivateProperty = 0
+    private var somePrivateProperty = 0
+    
+    public func somePublicFunction() {}
+    func someInternalFunction() {}
+    fileprivate func someFilePrivateFunction() {}
+    private func somePrivateFunction() {}
+}
+
+private class SomePrivateClass1 {
+    public var somePublicProperty = 0
+    var someInternalProperty = 0
+    fileprivate var someFilePrivateProperty = 0
+    private var somePrivateProperty = 0
+    
+    public func somePublicFunction() {}
+    func someInternalFunction() {}
+    fileprivate func someFilePrivateFunction() {}
+    private func somePrivateFunction() {}
 }
 
 /// Tuple Types
