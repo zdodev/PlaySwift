@@ -127,6 +127,32 @@ private var privateInstance = SomePrivateClass()
 
 /// Getters and Setters
 
+struct TrackedString {
+    private(set) var numberOfEdits = 0
+    var value: String = "" {
+        didSet {
+            numberOfEdits += 1
+        }
+    }
+}
+
+var stringToEdit = TrackedString()
+stringToEdit.value = "This is string will be tracked."
+stringToEdit.value += " This edit will increment numberOfEdits."
+stringToEdit.value += " So will this one."
+//print("The nubmer of edits is \(stringToEdit.numberOfEdits)")
+
+public struct TrackedString1 {
+    public private(set) var numberOfEdits = 0
+    public var value: String = "" {
+        didSet {
+            numberOfEdits += 1
+        }
+    }
+    
+    public init() {}
+}
+
 /// Initializers
 
 /// Default Initializers
