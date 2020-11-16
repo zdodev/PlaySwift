@@ -169,6 +169,20 @@ public struct TrackedString1 {
 
 /// Private Members in Extensions
 
+protocol PrivateMemberProtocol {
+    func doSomething()
+}
+
+struct PrivateMemberStruct {
+    private var privateVariable = 12
+}
+
+extension PrivateMemberStruct: PrivateMemberProtocol {
+    func doSomething() {
+        print(privateVariable)
+    }
+}
+
 /// Generics
 
 /// Type Aliases
