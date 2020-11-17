@@ -120,9 +120,20 @@ func prefixAndPostfixOperators() {
     print(negative, alsoPositive)
 }
 
-prefixAndPostfixOperators()
-
 /// Compound Assignment Operators
+
+extension Vector2D {
+    static func += (left: inout Vector2D, right: Vector2D) {
+        left = left + right
+    }
+}
+
+func compoundAssignmentOperators() {
+    var original = Vector2D(x: 1.0, y: 2.0)
+    let vectorToAdd = Vector2D(x: 3.0, y: 4.0)
+    original += vectorToAdd
+    print(original)
+}
 
 /// Equivalence Operators
 
