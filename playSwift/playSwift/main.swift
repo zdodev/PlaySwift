@@ -80,8 +80,6 @@ func valueOverflow() {
     print(signedOverflow)
 }
 
-valueOverflow()
-
 /// Precedence and Associativity
 
 func precedenceAndAssociativity() {
@@ -90,7 +88,39 @@ func precedenceAndAssociativity() {
 
 /// Operator Methods
 
+struct Vector2D {
+    var x = 0.0, y = 0.0
+}
+
+extension Vector2D {
+    static func + (left: Vector2D, right: Vector2D) -> Vector2D {
+        Vector2D(x: left.x + right.x, y: left.y + right.y)
+    }
+}
+
+func operatorMethod() {
+    let vector = Vector2D(x: 3.0, y: 1.0)
+    let anotherVector = Vector2D(x: 2.0, y: 4.0)
+    let combinedVector = vector + anotherVector
+    print(combinedVector)
+}
+
 /// Prefix and Postfix Operators
+
+extension Vector2D {
+    static prefix func - (vector: Vector2D) -> Vector2D {
+        Vector2D(x: -vector.x, y: -vector.y)
+    }
+}
+
+func prefixAndPostfixOperators() {
+    let positie = Vector2D(x: 3.0, y: 4.0)
+    let negative = -positie
+    let alsoPositive = -negative
+    print(negative, alsoPositive)
+}
+
+prefixAndPostfixOperators()
 
 /// Compound Assignment Operators
 
