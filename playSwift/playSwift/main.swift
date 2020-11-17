@@ -137,6 +137,35 @@ func compoundAssignmentOperators() {
 
 /// Equivalence Operators
 
+// 의문: Equtable 프로토콜 준수 시 '==' 연산자를 정의안해도 되는 이유는?
+extension Vector2D: Equatable {
+    static func == (left: Vector2D, right: Vector2D) -> Bool {
+        left.x == right.x && left.y == right.y
+    }
+}
+
+func equivalenceOperators() {
+    let twoThree = Vector2D(x: 2.0, y: 3.0)
+    let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)
+    
+    if twoThree == anotherTwoThree {
+        print("These two vectors are equivalent.")
+    }
+    
+    struct Vector3D: Equatable {
+        var x = 0.0, y = 0.0, z = 0.0
+    }
+    
+    let twoThreeFour = Vector3D(x: 2.0, y: 3.0, z: 4.0)
+    let anotherTwoThreeFour = Vector3D(x: 2.0, y: 3.0, z: 4.0)
+    
+    if twoThreeFour == anotherTwoThreeFour {
+        print("These two vectors are aloas equivalent.")
+    }
+}
+
+// 구현이 간단한 경우 스위프트가 통합된 '==' 연산에 대한 구현을 제공한다.
+
 /// Custom Operators
 
 /// Precedence for Custom Infix Operators
