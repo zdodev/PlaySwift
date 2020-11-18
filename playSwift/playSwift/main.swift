@@ -127,3 +127,4 @@ kvo.func1()
 //kvo.child2.setValue("drakedog", forKey: "name")
 
 //https://hackernoon.com/kvo-kvc-in-swift-12f77300c387
+//https://medium.com/@Alpaca_iOSStudy/delegation-notification-그리고-kvo-82de909bd29
