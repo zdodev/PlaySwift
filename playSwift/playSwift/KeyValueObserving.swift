@@ -12,7 +12,7 @@ class MyObjectToObserve: NSObject {
 class MyObserver: NSObject {
     @objc var objectToObserve: MyObjectToObserve
     var observation: NSKeyValueObservation?
-    
+     
     init(object: MyObjectToObserve) {
         objectToObserve = object
         super.init()
