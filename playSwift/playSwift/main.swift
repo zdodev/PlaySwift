@@ -1,48 +1,24 @@
-class Fruit {
-    let fruiteName: String
-    var 수량: Int
-    
-    init(name: String) {
-        fruiteName = name
-        수량 = 10
-    }
-    
-    func addStock(amount: Int) {
-        수량 += amount
-    }
-}
+/// The Basics
 
-class FruitStock {
-    var strawberry = Fruit(name: "strawberry")
-    var banana = Fruit(name: "banana")
-    var dict = [String: Fruit]()
-    var array: [Fruit]
-    var fruit = 1
-    
-    init() {
-        dict["strawberry"] = strawberry
-        dict["banana"] = banana
-        
-        array = [strawberry, banana]
-    }
-    
-    func addStock(fruitsName: String, amount: Int) {
-        if let fruit = dict[fruitsName] {
-            fruit.addStock(amount: amount)
-        }
-    }
-    
-    func addStock1(fruitsName: Int, amount: Int) {
-        let fruit = array[fruitsName]
-        fruit.addStock(amount: amount)
-    }
-}
+/// Constants and Variables
 
-var fruitStock = FruitStock()
-fruitStock.addStock(fruitsName: "strawberry", amount: 30)
-print("딸기 \(fruitStock.strawberry.수량)")
-fruitStock.addStock(fruitsName: "banana", amount: 10)
-print("바나나 \(fruitStock.banana.수량)")
+// 상수(constant)는 값을 변경할 수 없으며, 변수(variable)은 값을 변경할 수 있습니다.
 
-fruitStock.addStock1(fruitsName: 0, amount: 50)
-print(fruitStock.array[0].수량)
+/// Declaring Constants and Variables
+
+// 상수는 키워드 'let'을 사용하여 선언하며, 변수는 키워드 'var'을 사용하여 선언합니다.
+
+// let - Let Declararion
+// Creates a variable that cannot be changed.
+let maximumNumberOfLoginAttempts = 10
+// var - Var Declaration
+// Creates a variable that can be changed.
+var currentLoginAttemp = 0
+
+let price = 100
+var age = 500
+
+// 콤마(,)를 사용하여 한 줄에 여러 상수, 변수를 선언할 수 있습니다.
+
+var x = 0.0, y = 0.0, z = 0.0
+
