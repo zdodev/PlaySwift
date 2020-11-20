@@ -27,7 +27,7 @@ class MyObserver: NSObject {
 let observed = MyObjectToObserve()
 let observer = MyObserver(object: observed)
 
-observed.updateDate()
+//observed.updateDate()
 
 class Children: NSObject {
     @objc dynamic var name: String!
@@ -120,10 +120,10 @@ class Kvo: NSObject {
 }
 
 let kvo = Kvo()
-kvo.viewWillAppear()
-kvo.child1.name = "ee"
-kvo.child1.age = 25
-kvo.func1()
+//kvo.viewWillAppear()
+//kvo.child1.name = "ee"
+//kvo.child1.age = 25
+//kvo.func1()
 //kvo.child2.setValue("drakedog", forKey: "name")
 
 //https://hackernoon.com/kvo-kvc-in-swift-12f77300c387
