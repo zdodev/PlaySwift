@@ -205,3 +205,70 @@ let hexadecimalDouble = 0xC.3p0
 let paddedDouble = 000123.456
 let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
+
+/// Numeric Type Conversion
+
+/// Integer Convension
+
+// 변수에 값을 할당할 때에는 타입이 저장할 수 있는 범위 내의 값을 할당해야 합니다.
+
+// Negative integer '-1' overflow when stored into unsigned type 'UInt8'
+// let cannotBeNegative: UInt8 = -1
+// Arithmetic operation '127 + 1' (on type 'Int8') results in an overflow
+// let tooBig: Int8 = Int8.max + 1
+
+// 같은 정수형이라도 타입이 다른 변수끼리는 연산을 할 수 없습니다.
+// 기존의 타입을 다른 타입으로 변환하려면 초기화를 사용하면 됩니다.
+
+let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let twoThousandAndOne = twoThousand + UInt16(one)
+
+// 'type(기존값)' 형식은 기존값을 새로운 type 형식으로 바꾸는 방법입니다.
+
+/// Integer and Floating-Point Conversion
+
+let three = 3
+let pointOneFourOneFiveNine = 0.14159
+let pi3 = Double(three) + pointOneFourOneFiveNine
+
+let integerPi = Int(pi)
+
+/*
+ 변수끼리의 연산과 숫자 리터럴 상수끼리의 연산의 규칙은 다릅니다.
+ */
+
+/// Type Aliases
+
+// type aliases은 기존의 타입 이름에 또 다른 이름을 생성하는 기능을 합니다.
+// 'typealias' 키워드를 사용합니다.
+// Language Reference -> Types -> Type Identifier
+
+typealias AudioSample = UInt16
+
+var maxAmplitudeFound = AudioSample.min
+
+typealias Point = (Int, Int)
+
+var point = Point(3, 4)
+
+/// Booleans
+
+// A value type whose instances are either true or false.
+// @frozen struct Bool
+// Swift는 Boolean 타입을 가지고 있습니다.
+
+let orangesAreOrange = true
+let turnipsAreDelicious = false
+
+// Boolean 타입은 조건문에서 유용하게 쓰입니다.
+
+if turnipsAreDelicious {
+    print("Mmm, tasty turnips!")
+} else {
+    print("Eww, turnips are horrible.")
+}
+
+/// Tuples
+
+
