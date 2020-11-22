@@ -271,4 +271,35 @@ if turnipsAreDelicious {
 
 /// Tuples
 
+// 튜플은 여러 가지의 값을 하나의 그룹으로 표현하는 타입이며, 어떤 타입이던지 상관이 없습니다.
 
+let http200Success: (Int, String) = (200, "Ok")
+let http404Error = (404, "Not Found")
+
+// 튜플의 각각의 값을 변수에 각각 담을 수 있습니다.
+
+let (statusCode, statusMessage) = http404Error
+print("The status code is \(statusCode)")
+print("The status message is \(statusMessage)")
+
+// '_' 특수문자를 사용하여 튜플의 원하는 값만을 추출하여 변수에 담을 수 있습니다.
+
+let (justTheStatusCode, _) = http404Error
+print("The status code is \(justTheStatusCode)")
+
+// '.(index 번호)'와 같이 튜플 내 값에 직접 접근할 수 있습니다.
+
+print("The status code is \(http404Error.0)")
+print("The status message is \(http404Error.1)")
+
+
+// 튜플 선언 시 각각의 값에 이름을 지어줄 수 있으며, 지어준 이름으로 튜플 내 값에 직접 접근할 수 있습니다.
+
+let http200Status = (statusCode: 200, description: "OK")
+print("The status code is \(http200Status.statusCode)")
+print("The status code is \(http200Status.description)")
+
+/*
+ 튜플은 함수에서 두 개 이상의 값을 반환할 때 유용할 수 있습니다. 서로 관련된 값에 그룹을 지어 표현하기 좋습니다.
+ 복잡한 값을 구성할 때에는 구조체나 클래스를 사용하는 것이 더 유용합니다.
+ */
