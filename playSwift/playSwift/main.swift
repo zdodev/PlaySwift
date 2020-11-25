@@ -341,3 +341,7 @@ var surveyAnswer: String?
 // If Statements and Forced Unwrapping
 
 // If문을 사용해서 옵셔널 변수에 값이 존재하는지 확인할 수 있습니다.
+
+if convertedNumber != nil {
+    print("convvertedNumber contains some integer value.")
+}
