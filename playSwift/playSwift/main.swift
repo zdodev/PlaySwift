@@ -16,7 +16,6 @@ let maximumNumberOfLoginAttempts = 10
 var currentLoginAttemp = 0
 
 let price = 100
-var age = 500
 
 // 콤마(,)를 사용하여 한 줄에 여러 상수, 변수를 선언할 수 있습니다.
 
@@ -472,3 +471,32 @@ do {
 }
 
 /// Assertions and Preconditions
+
+// assertion과 precondition의 조건이 true면 코드가 계속 실행된다.
+// assertion은 개발 과정에 있는 실수나 잘못된 가정들을 찾도록 해주며,
+// precondition은 문제를 찾는것을 도와줍니다.
+
+/// Debugging with Assertions
+
+// assert(_:_:file:line:) 함수를 사용하여 디버깅을 할 수 있습니다.
+
+let age = 3
+assert(age >= 0, "A person's age can't be less than zero.")
+
+// 코드 조건을 검사한 경우 assertionFailture(_:file:line:) 함수를 사용하여 디버깅 메시지를 남길 수 있습니다.
+
+if age > 10 {
+    print("Yon can ride the roller-coaster or the ferris wheel.")
+} else if age >= 0 {
+    print("You can ride the ferris wheel.")
+} else {
+    assertionFailure("A person's can't be less than zero.")
+}
+
+/// Enforcing Preconditions
+
+precondition(age >= 3, "A person's can't be less than zero.")
+
+/*
+ assert와 precondition의 차이는 assert는 debug 모드에서만 동작하며, precondition은 debug, release 모드 두 가지에서 동작합니다.
+ */
