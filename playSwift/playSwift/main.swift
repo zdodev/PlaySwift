@@ -422,3 +422,53 @@ if assumedString != nil {
 if let definiteString = assumedString {
     print(definiteString)
 }
+
+/// Error Handling
+
+// 에러 처리는 프로그램 실행 중 일어날 수 있는 에러를 처리하거나 다른 곳으로 전달할 수 있는 기능입니다.
+// 함수 정의 뒤에 'throws' 키워드를 사용하여 에러를 발생시킬 수 있다고 알린다.
+
+func canThrowAnError() throws {}
+
+
+// 에러를 발생시킬 수 있는 함수를 호출할 때는 do문 영역 내 'try' 키워드를 사용하여 호출합니다.
+// 에러가 발생하면 catch문 영역으로 실행흐름이 전달됩니다.
+
+do {
+    try canThrowAnError()
+} catch {
+    // error handling
+}
+
+// 에러 종류별로 catch문 영역을 나눌 수 있습니다.
+// 에러는 'throw' 키워드를 사용하여 발생시킬 수 있습니다.
+
+func makeASandwich() throws {
+    let one = 1
+    
+    if one == 1 {
+        throw SandwichError.outOfCleanDishes
+    } else {
+        throw SandwichError.missingIngredients
+    }
+}
+
+enum SandwichError: Error {
+    case outOfCleanDishes
+    case missingIngredients
+}
+
+func eatASandwich() {}
+func washDishes() {}
+func buyGroceries() {}
+
+do {
+    try makeASandwich()
+    eatASandwich()
+} catch SandwichError.outOfCleanDishes {
+    washDishes()
+} catch SandwichError.missingIngredients {
+    buyGroceries()
+}
+
+/// Assertions and Preconditions
