@@ -16,6 +16,7 @@ let maximumNumberOfLoginAttempts = 10
 var currentLoginAttemp = 0
 
 let price = 100
+var score = 100
 
 // 콤마(,)를 사용하여 한 줄에 여러 상수, 변수를 선언할 수 있습니다.
 
