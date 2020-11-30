@@ -393,3 +393,32 @@ if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secon
  if문 옵셔널 바인딩으로 임시로 할당된 변수는 해당 if문 영역에서만 사용할 수 있지만
  guard문 옵셔널 바인딩으로 임시로 할당된 변수는 guard문을 작성한 영역에서 사용할 수 있습니다.
  */
+
+/// Implicitly Unwrapped Optionals
+
+// 옵셔널 중에 암시적 언래핑 옵셔널이 있는데, 옵셔널 변수이지만 일반 변수처럼 사용할 수 있는 옵셔널 변수입니다.
+// 암시적 언래핑 옵셔널은 값이 항상 존재한다는 것을 확신할 수 있을 때 사용합니다. 클래스 이니셜라이저 사용 시에 유용합니다.
+
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString!
+
+let assumedString: String! = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString
+
+// 암시적 언래핑 옵셔널은 기본적으로 옵셔널로 동작하지만 옵셔널로 사용할 수 없을 경우,
+// 강제 언래핑을 수행하여 값을 추출하여 사용합니다.
+
+let optionalString = assumedString
+print("optioanlString type: \(type(of: optionalString))")
+
+// 암시적 언래핑 옵셔널도 if문을 통해 nil값을 확인할 수 있습니다.
+
+if assumedString != nil {
+    print(assumedString!)
+}
+
+// 암시적 언래핑 옵셔널도 옵셔널 바인딩을 통해 값을 추출할 수 있습니다.
+
+if let definiteString = assumedString {
+    print(definiteString)
+}
