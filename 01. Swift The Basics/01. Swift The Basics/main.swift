@@ -378,10 +378,9 @@ if convertedNumber != nil {
 
 /// Optional Binding
 
-// 또는 옵셔널 바인딩을 통해 옵셔널에 값이 존재할 경우 값을 추출하여 임시로 변수에 할당할 수 있습니다.
-// if let 또는 if var를 사용하여 옵셔널 바인딩을 할 수 있습니다.
-// 옵셔널 강제 언래핑은 값이 존재하지 않을 경우 런타임 에러가 발생하므로,
-// 옵셔널 바인딩을 통해 옵셔널 변수를 제어하는 것이 더 좋습니다.
+/*
+ 옵셔널 바인딩을 통해 옵셔널에 값이 존재할 경우 값을 추출하여 임시로 변수에 할당할 수 있습니다. if let 또는 if var를 사용하여 옵셔널 바인딩을 할 수 있습니다. 옵셔널 강제 언래핑은 값이 존재하지 않을 경우 런타임 에러가 발생하므로, 옵셔널 바인딩을 통해 옵셔널 변수를 제어하는 것이 더 좋습니다.
+ */
 
 if let actualNumber = Int(possibleNumber) {
     print("The string \"\(possibleNumber)\" has an integer value of \(actualNumber)")
@@ -413,8 +412,7 @@ if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secon
 }
 
 /*
- if문 옵셔널 바인딩으로 임시로 할당된 변수는 해당 if문 영역에서만 사용할 수 있지만
- guard문 옵셔널 바인딩으로 임시로 할당된 변수는 guard문을 작성한 영역에서 사용할 수 있습니다.
+ if문 옵셔널 바인딩으로 임시로 할당된 변수는 해당 if문 영역에서만 사용할 수 있지만 guard문 옵셔널 바인딩으로 임시로 할당된 변수는 guard문을 작성한 영역에서 사용할 수 있습니다.
  */
 
 /// Implicitly Unwrapped Optionals
