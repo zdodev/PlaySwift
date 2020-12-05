@@ -321,8 +321,7 @@ print("The status code is \(http200Status.statusCode)")
 print("The status code is \(http200Status.description)")
 
 /*
- 튜플은 함수에서 두 개 이상의 값을 반환할 때 유용할 수 있습니다. 서로 관련된 값에 그룹을 지어 표현하기 좋습니다.
- 복잡한 값을 구성할 때에는 구조체나 클래스를 사용하는 것이 더 유용합니다.
+ 튜플은 함수에서 두 개 이상의 값을 반환할 때 유용할 수 있습니다. 서로 관련된 값에 그룹을 지어 표현하기 좋습니다. 복잡한 값을 구성할 때에는 구조체나 클래스를 사용하는 것이 더 유용합니다.
  */
 
 /// Optionals
