@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		414165F72563B4820032144A /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414165F62563B4820032144A /* AdvancedOperators.swift */; };
+		41917D00257BE377005E2865 /* AdoptingCommonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41917CFF257BE377005E2865 /* AdoptingCommonProtocols.swift */; };
 		4191EC1B256169AD0062E3B3 /* AutomaticReferenceCounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */; };
 		4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */; };
 		41CE87332566307C00D94049 /* KeyValueObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CE87322566307C00D94049 /* KeyValueObserving.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		414165F62563B4820032144A /* AdvancedOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOperators.swift; sourceTree = "<group>"; };
+		41917CFF257BE377005E2865 /* AdoptingCommonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptingCommonProtocols.swift; sourceTree = "<group>"; };
 		4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticReferenceCounting.swift; sourceTree = "<group>"; };
 		4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueTypes.swift; sourceTree = "<group>"; };
 		41CE87322566307C00D94049 /* KeyValueObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueObserving.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				41D4E401255AF7D80052C843 /* main.swift */,
+				41917CFF257BE377005E2865 /* AdoptingCommonProtocols.swift */,
 				4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */,
 				4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */,
 				41D8F2D02562141100736A63 /* MemorySafety.swift */,
@@ -141,6 +144,7 @@
 				4191EC1B256169AD0062E3B3 /* AutomaticReferenceCounting.swift in Sources */,
 				4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */,
 				41EF68902562DA60004F07AF /* AccessControl.swift in Sources */,
+				41917D00257BE377005E2865 /* AdoptingCommonProtocols.swift in Sources */,
 				41CE87332566307C00D94049 /* KeyValueObserving.swift in Sources */,
 				41D8F2D12562141100736A63 /* MemorySafety.swift in Sources */,
 				41D4E402255AF7D80052C843 /* main.swift in Sources */,
