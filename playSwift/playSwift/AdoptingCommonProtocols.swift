@@ -148,3 +148,5 @@ extension MyNSObjectSubclass {
 /*
  동일하다고 판단되는 인스턴스는 동일한 해시값을 가져야 하므로 하나의 기능을 재정의 할 경우 다른 기능도 재정의하여 동일성을 유지해야 합니다.
  */
+
+// https://developer.apple.com/documentation/swift/adopting_common_protocols
