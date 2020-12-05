@@ -339,7 +339,7 @@ print(convertedNumber)
 
 /// nil
 
-// 'nil'은 값이 존재하지 않는다는 표현의 키워드입니다.
+// `nil`은 옵셔널 변수에 값이 없는 상태로 저장하기 위해 사용하는 키워드입니다. '값이 없음'을 나타냅니다.
 
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
@@ -351,6 +351,7 @@ serverResponseCode = nil
 // 옵셔널 변수 선언 시 초기값을 지정하지 않으면 자동으로 nil이 할당됩니다.
 
 var surveyAnswer: String?
+print(surveyAnswer)
 
 /*
  Swift의 nil과 Objective-C의 nil은 동일하지 않습니다. Objective-C의 nil은 존재하지 않는 객체에 대한 포인터이며,
@@ -360,16 +361,19 @@ var surveyAnswer: String?
 // If Statements and Forced Unwrapping
 
 // If문을 사용해서 옵셔널 변수에 값이 존재하는지 확인할 수 있습니다.
-// 옵셔널 변수가 nil이 아니면 옵셔널 변수 끝에 '!' 특수문자를 사용하여 옵셔널 변수의 값을 추출할 수 있습니다.
-// '!' 특수문자를 사용하여 옵셔널 변수값을 추출하는 것을 옵셔널 강제 언래핑이라고 합니다.
+
+if convertedNumber != nil {
+    print("convertedNumber contains some integer value.")
+}
+
+// 옵셔널 변수가 nil이 아니면 옵셔널 변수 끝에 `!` 특수문자를 사용하여 옵셔널 변수의 값을 추출할 수 있습니다. `!` 특수문자를 사용하여 옵셔널 변수값을 추출하는 것을 옵셔널 강제 언래핑이라고 합니다.
 
 if convertedNumber != nil {
     print("convvertedNumber contains some integer value. \(convertedNumber!)")
 }
 
 /*
- 옵셔널 변수의 값이 nil일 경우 강제 언래핑을 시도하면 런타임 에러가 발생합니다.
- 항상 옵셔널 변수에 값이 존재하는지 검증을 하고 강제 언래핑을 해야 합니다.
+ 옵셔널 변수의 값이 nil일 경우 강제 언래핑을 시도하면 런타임 에러가 발생합니다. 항상 옵셔널 변수에 값이 존재하는지 검증을 하고 강제 언래핑을 해야 합니다.
  */
 
 /// Optional Binding
