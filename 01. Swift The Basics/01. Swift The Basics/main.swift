@@ -272,10 +272,12 @@ typealias intHandler = (Int) -> ()
 func typeAliasExample(completeHandler: intHandler) {}
 
 /// Booleans
-
-// A value type whose instances are either true or false.
-// @frozen struct Bool
-// Swift는 Boolean 타입을 가지고 있습니다.
+/*
+ A value type whose instances are either true or false.
+ `@frozen struct Bool`
+ 
+ 스위프트는 `Bool`이라는 참과 거짓을 표현하는 타입을 가지고있습니다. Bool은 항상 `true` 또는 `false` 값만을 가질 수 있습니다.
+ */
 
 let orangesAreOrange = true
 let turnipsAreDelicious = false
