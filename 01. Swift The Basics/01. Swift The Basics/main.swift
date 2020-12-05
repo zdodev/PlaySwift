@@ -492,9 +492,7 @@ do {
 
 /// Assertions and Preconditions
 
-// assertion과 precondition의 조건이 true면 코드가 계속 실행된다.
-// assertion은 개발 과정에 있는 실수나 잘못된 가정들을 찾도록 해주며,
-// precondition은 문제를 찾는것을 도와줍니다.
+// assertion과 precondition의 조건이 true면 코드가 계속 실행됩니다. assertion은 개발 과정에 있는 실수나 잘못된 가정들을 찾도록 해주며, precondition은 문제를 찾는것을 도와줍니다.
 
 /// Debugging with Assertions
 
