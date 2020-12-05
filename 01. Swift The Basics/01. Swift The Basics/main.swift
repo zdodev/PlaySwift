@@ -241,9 +241,13 @@ let integerPi = Int(pi)
 /// Type Aliases
 
 /*
+ typealias - Typealias Declaration
+ Defines an alternate name for an existing type.
+ 
  타입 별명은 기존에 선언되어 있는 이름에 새로운 이름을 지정하는 것입니다.`typealias` 키워드를 사용하여 새로운 이름을 정의합니다.
+ 
+ Language Reference -> Types -> Type Identifier
  */
-// Language Reference -> Types -> Type Identifier
 
 // 기존에 정의된 UInt16 타입에 AudioSample이라는 이름을 지정합니다.
 typealias AudioSample = UInt16
