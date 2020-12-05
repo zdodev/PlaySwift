@@ -240,17 +240,32 @@ let integerPi = Int(pi)
 
 /// Type Aliases
 
-// type aliases은 기존의 타입 이름에 또 다른 이름을 생성하는 기능을 합니다.
-// 'typealias' 키워드를 사용합니다.
+/*
+ 타입 별명은 기존에 선언되어 있는 이름에 새로운 이름을 지정하는 것입니다.`typealias` 키워드를 사용하여 새로운 이름을 정의합니다.
+ */
 // Language Reference -> Types -> Type Identifier
 
+// 기존에 정의된 UInt16 타입에 AudioSample이라는 이름을 지정합니다.
 typealias AudioSample = UInt16
 
 var maxAmplitudeFound = AudioSample.min
 
+// (Int, Int) 튜플 타입에 Point라는 이름을 지정합니다.
 typealias Point = (Int, Int)
 
 var point = Point(3, 4)
+
+// 사용자가 정의한 클래스 Student 배열 타입에 Students 라는 이름을 지정합니다.
+typealias Students = [Student]
+
+class Student {}
+
+var students = Students()
+
+// 클로저에 대한 새로운 이름을 지정할 수도 있습니다.
+typealias intHandler = (Int) -> ()
+
+func typeAliasExample(completeHandler: intHandler) {}
 
 /// Booleans
 
