@@ -72,13 +72,13 @@
 			isa = PBXGroup;
 			children = (
 				41D4E401255AF7D80052C843 /* main.swift */,
-				41917CFF257BE377005E2865 /* AdoptingCommonProtocols.swift */,
 				4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */,
 				4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */,
 				41D8F2D02562141100736A63 /* MemorySafety.swift */,
 				41EF688F2562DA60004F07AF /* AccessControl.swift */,
 				414165F62563B4820032144A /* AdvancedOperators.swift */,
 				41CE87322566307C00D94049 /* KeyValueObserving.swift */,
+				41917CFF257BE377005E2865 /* AdoptingCommonProtocols.swift */,
 			);
 			path = playSwift;
 			sourceTree = "<group>";
