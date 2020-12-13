@@ -40,6 +40,6 @@ if let re = result as? BinaryOperand {
 //    }
 //}
 
-let a = "asdf"
-let b = a[a.startIndex...a.index(a.startIndex, offsetBy:0)]
-print(b)
+let positiveBinaryLimitValue = String(1_000_000_000, radix: 2)
+let a = Int("100", radix: 2)
+print(type(of: a), a)

@@ -82,8 +82,8 @@
 				41C3102E25864D1500F87BA0 /* DecimalOperation */,
 				41C3103725864D1500F87BA0 /* DecimalCalculator */,
 				41C3104425864D2A00F87BA0 /* BinaryAnalyzer */,
-				41C3104C25864D2B00F87BA0 /* BinaryCalculator */,
 				41C3104825864D2B00F87BA0 /* BinaryOperation */,
+				41C3104C25864D2B00F87BA0 /* BinaryCalculator */,
 				41C30FF12586499300F87BA0 /* Calculator */,
 				41C30FF02586499300F87BA0 /* Products */,
 			);
