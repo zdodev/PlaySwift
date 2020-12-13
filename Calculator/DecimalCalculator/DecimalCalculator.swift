@@ -15,15 +15,19 @@ struct DecimalCalculator {
                 
                 if let secondOperand = secondToken as? IntegerOperand {
                     if let firstOperand = firstToken as? IntegerOperand {
-                        intermediateCalculationToken = IntegerOperand(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        let newValue = checkIntegerMaxLength(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        intermediateCalculationToken = IntegerOperand(value: newValue)
                     } else if let firstOperand = firstToken as? RealNumberOperand {
-                        intermediateCalculationToken = RealNumberOperand(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        let newValue = checkRealNumberMaxLength(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        intermediateCalculationToken = RealNumberOperand(value: newValue)
                     }
                 } else if let secondOperand = secondToken as? RealNumberOperand {
                     if let firstOperand = firstToken as? IntegerOperand {
-                        intermediateCalculationToken = RealNumberOperand(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        let newValue = checkRealNumberMaxLength(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        intermediateCalculationToken = RealNumberOperand(value: newValue)
                     } else if let firstOperand = firstToken as? RealNumberOperand {
-                        intermediateCalculationToken = RealNumberOperand(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        let newValue = checkRealNumberMaxLength(value: DecimalCalculation.calculate(firstOperand.value, secondOperand.value, operatorToken.value))
+                        intermediateCalculationToken = RealNumberOperand(value: newValue)
                     }
                 }
                 
@@ -36,5 +40,55 @@ struct DecimalCalculator {
         
         guard let calculationResultToken = temporaryOperandStorage.pop() else { return nil }
         return calculationResultToken
+    }
+    
+    private func checkIntegerMaxLength(value: Int) -> Int {
+        var newValue = 0
+        
+        if (value > 0) {
+            let positiveIntegerLimitSize = 9
+            if (getIntegerLengthSize(value) > positiveIntegerLimitSize) {
+                newValue = value - 1_000_000_000
+            }
+        } else if (value < 0) {
+            let negativeIntegerLimitSize = 10
+            if (getIntegerLengthSize(value) > negativeIntegerLimitSize) {
+                newValue = value + 1_000_000_000
+            }
+        }
+        
+        return newValue
+    }
+    
+    private func getIntegerLengthSize(_ value: Int) -> Int {
+        String(value).count
+    }
+    
+    private func checkRealNumberMaxLength(value: Double) -> Double {
+        var newValue = 0.0
+        
+        if (value > 0) {
+            let positiveRealNumberLimitSize = 10
+            if (getRealNumberLengthSize(value) > positiveRealNumberLimitSize) {
+                let valueToString = String(value)
+                if let slicedValue = Double(valueToString[valueToString.startIndex..<valueToString.index(valueToString.startIndex, offsetBy: positiveRealNumberLimitSize)]) {
+                    newValue = slicedValue
+                }
+            }
+        } else if (value < 0) {
+            let negativeIntegerLimitSize = 11
+            if (getRealNumberLengthSize(value) > negativeIntegerLimitSize) {
+                let valueToString = String(value)
+                if let slicedValue = Double(valueToString[valueToString.startIndex..<valueToString.index(valueToString.startIndex, offsetBy: negativeIntegerLimitSize)]) {
+                    newValue = slicedValue
+                }
+            }
+        }
+        
+        return newValue
+    }
+    
+    private func getRealNumberLengthSize(_ value: Double) -> Int {
+        String(value).count
     }
 }

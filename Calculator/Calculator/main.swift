@@ -40,4 +40,6 @@ if let re = result as? BinaryOperand {
 //    }
 //}
 
-print(String(-123).count)
+let a = "asdf"
+let b = a[a.startIndex...a.index(a.startIndex, offsetBy:0)]
+print(b)

@@ -13,8 +13,7 @@ struct DecimalExpressionAnalyzer {
         for element in splitString {
             let stringElement = String(element)
             if let integer = Int(stringElement) {
-                let newInteger = checkIntegerMaxLength(value: integer)
-                tokenExpression.append(IntegerOperand(value: newInteger))
+                tokenExpression.append(IntegerOperand(value: integer))
             } else if let realNumber = Double(stringElement) {
                 tokenExpression.append(RealNumberOperand(value: realNumber))
             } else if arithmeticOperators.contains(stringElement) {
@@ -26,27 +25,5 @@ struct DecimalExpressionAnalyzer {
         }
         
         return tokenExpression
-    }
-    
-    private func checkIntegerMaxLength(value: Int) -> Int {
-        var newValue = 0
-        
-        if (value > 0) {
-            let positiveIntegerLimitSize = 10
-            if (getIntegerLengthSize(value) >= positiveIntegerLimitSize) {
-                newValue = value - 1_000_000_000
-            }
-        } else if (value < 0) {
-            let negativeIntegerLimitSize = 11
-            if (getIntegerLengthSize(value) >= negativeIntegerLimitSize) {
-                newValue = value + 1_000_000_000
-            }
-        }
-        
-        return newValue
-    }
-    
-    private func getIntegerLengthSize(_ value: Int) -> Int {
-        String(value).count
     }
 }
