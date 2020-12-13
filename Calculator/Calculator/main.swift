@@ -40,5 +40,4 @@ if let re = result as? BinaryOperand {
 //    }
 //}
 
-
-print(~0b1010 + 0b10)
+print(String(-123).count)

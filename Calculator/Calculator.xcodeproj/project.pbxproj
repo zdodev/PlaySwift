@@ -79,8 +79,8 @@
 			children = (
 				41C3102A25864CED00F87BA0 /* Data Type */,
 				41C3103325864D1500F87BA0 /* DecimalAnalyzer */,
-				41C3103725864D1500F87BA0 /* DecimalCalculator */,
 				41C3102E25864D1500F87BA0 /* DecimalOperation */,
+				41C3103725864D1500F87BA0 /* DecimalCalculator */,
 				41C3104425864D2A00F87BA0 /* BinaryAnalyzer */,
 				41C3104C25864D2B00F87BA0 /* BinaryCalculator */,
 				41C3104825864D2B00F87BA0 /* BinaryOperation */,
@@ -127,9 +127,9 @@
 		41C3103325864D1500F87BA0 /* DecimalAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
+				41C3103625864D1500F87BA0 /* DecimalToken.swift */,
 				41C3103425864D1500F87BA0 /* DecimalExpressionAnalyzer.swift */,
 				41C3103525864D1500F87BA0 /* DecimalTokenAnalyzer.swift */,
-				41C3103625864D1500F87BA0 /* DecimalToken.swift */,
 			);
 			path = DecimalAnalyzer;
 			sourceTree = "<group>";
