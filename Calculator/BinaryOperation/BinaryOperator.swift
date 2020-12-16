@@ -25,9 +25,9 @@ class BinaryOperator: BinaryToken {
             return .highest
         case .bitwistLeftShift, .bitwiseRightShift:
             return .high
-        case .bitwiseAND:
+        case .bitwiseAND, .bitwiseOR, .bitwiseXOR, .bitwiseNAND, .bitwiseNOR:
             return .middle
-        case .bitwiseOR, .bitwiseXOR, .bitwiseNAND, .bitwiseNOR, .addition, .substraction:
+        case .addition, .substraction:
             return .low
         }
     }

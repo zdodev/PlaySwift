@@ -35,22 +35,26 @@ struct BinaryCalculator {
     }
     
     private func checkBinaryMaxLength(value: Int) -> Int {
-        var newValue = 0
+        var newValue = value
+        let valueToString = String(value, radix: 2)
+        let valueLength = valueToString.count
         
         if (value > 0) {
             let positiveBinaryLimitSize = 9
             if (getBinaryLengthSize(value) > positiveBinaryLimitSize) {
-                if let positiveBinaryLimitValue = Int("1_000_000_000", radix: 2) {
-                    newValue = value - positiveBinaryLimitValue
+                if let slicedValue = Int(valueToString[valueToString.index(valueToString.startIndex, offsetBy: valueLength - positiveBinaryLimitSize)..<valueToString.endIndex]) {
+                    newValue = slicedValue
                 }
             }
         } else if (value < 0) {
             let negativeBinaryLimitSize = 10
             if (getBinaryLengthSize(value) > negativeBinaryLimitSize) {
-                if let negativeBinaryLimitValue = Int("1_000_000_000", radix: 2) {
-                    newValue = value - negativeBinaryLimitValue
+                if let slicedValue = Int(valueToString[valueToString.index(valueToString.startIndex, offsetBy: valueLength - negativeBinaryLimitSize)..<valueToString.endIndex]) {
+                    newValue = slicedValue
                 }
             }
+        } else {
+            newValue = value
         }
         
         return newValue

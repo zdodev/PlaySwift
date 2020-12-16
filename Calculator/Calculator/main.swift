@@ -1,20 +1,20 @@
 
 let expressions = [
-    "12 + 23 - 34",
+    "1000000001 + 23 - 34",
     "12 + 23 * 34 - 45",
     "12.23 + 34 * -45"
 ]
 
-//let a = DecimalExpressionAnalyzer()
-//let b = DecimalTokenAnalyzer()
-//let c = a.convertExpressionToToken(expression: expressions[2])
-//let d = b.convertInfixToPostfix(tokenExpression: c!)
-//let e = DecimalCalculator()
-//let f = e.calculate(postfixTokenExpression: d!)
+let a = DecimalExpressionAnalyzer()
+let b = DecimalTokenAnalyzer()
+let c = a.convertExpressionToToken(expression: expressions[0])
+let d = b.convertInfixToPostfix(tokenExpression: c!)
+let e = DecimalCalculator()
+let f = e.calculate(postfixTokenExpression: d!)
 
-//if let k = f as? RealNumberOperand {
-//    print(k.value, 12.23 + 34 * -45)
-//}
+if let k = f as? IntegerOperand {
+    print(k.value, 12.23 + 34 * -45)
+}
 //
 let binaryExpressions = [
     "1010 + 101 + 111",
@@ -40,6 +40,5 @@ if let re = result as? BinaryOperand {
 //    }
 //}
 
-let positiveBinaryLimitValue = String(1_000_000_000, radix: 2)
-let a = Int("100", radix: 2)
-print(type(of: a), a)
+//let str = "1234567890"
+//print(str[str.index(str.startIndex, offsetBy: 2)..<str.endIndex])

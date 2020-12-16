@@ -43,17 +43,23 @@ struct DecimalCalculator {
     }
     
     private func checkIntegerMaxLength(value: Int) -> Int {
-        var newValue = 0
+        var newValue = value
+        let valueToString = String(value)
+        let valueLength = valueToString.count
         
         if (value > 0) {
             let positiveIntegerLimitSize = 9
             if (getIntegerLengthSize(value) > positiveIntegerLimitSize) {
-                newValue = value - 1_000_000_000
+                if let slicedValue = Int(valueToString[valueToString.index(valueToString.startIndex, offsetBy: valueLength - positiveIntegerLimitSize)..<valueToString.endIndex]){
+                    newValue = slicedValue
+                }
             }
         } else if (value < 0) {
             let negativeIntegerLimitSize = 10
             if (getIntegerLengthSize(value) > negativeIntegerLimitSize) {
-                newValue = value + 1_000_000_000
+                if let slicedValue = Int(valueToString[valueToString.index(valueToString.startIndex, offsetBy: valueLength - negativeIntegerLimitSize)..<valueToString.endIndex]){
+                    newValue = slicedValue
+                }
             }
         }
         
@@ -65,7 +71,7 @@ struct DecimalCalculator {
     }
     
     private func checkRealNumberMaxLength(value: Double) -> Double {
-        var newValue = 0.0
+        var newValue = value
         
         if (value > 0) {
             let positiveRealNumberLimitSize = 10
@@ -83,6 +89,8 @@ struct DecimalCalculator {
                     newValue = slicedValue
                 }
             }
+        } else {
+            newValue = value
         }
         
         return newValue
