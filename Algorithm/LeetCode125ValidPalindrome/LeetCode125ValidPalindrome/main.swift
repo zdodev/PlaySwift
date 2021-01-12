@@ -19,7 +19,7 @@ protocol Solving {
     func isPalindrome(_ s: String) -> Bool
 }
 
-class Solution: Solving {
+class Solution1: Solving {
     func isPalindrome(_ s: String) -> Bool {
         let lowercasedString = s.lowercased()
         let newString = extractLettersAndNumbers(lowercasedString)
@@ -44,5 +44,15 @@ class Solution: Solving {
         return lowercasedString.filter {
             $0.isLetter || $0.isNumber
         }
+    }
+}
+
+class Solution2: Solving {
+    func isPalindrome(_ s: String) -> Bool {
+        let lowerString = s.lowercased()
+        let alnumString = lowerString.replacingOccurrences(of: "[^a-z0-9]", with: "", options: .regularExpression)
+        let reversedString = String(alnumString.reversed())
+        
+        return alnumString == reversedString
     }
 }

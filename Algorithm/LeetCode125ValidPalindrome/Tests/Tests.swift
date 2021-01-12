@@ -12,7 +12,7 @@ class Tests: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        solution = Solution()
+        solution = Solution2()
     }
 
     override func tearDownWithError() throws {
