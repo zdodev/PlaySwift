@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Hit the API  endpoint
-        let urlString = "http://newsapi.org/v2/everything?q=bitcoin&from=2020-11-20&sortBy=publishedAt&apiKey=userkey"
+        let urlString = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c370a1736b3b47c68687737e5986b541"
         
         let url = URL(string: urlString)
         
@@ -31,7 +31,9 @@ class ViewController: UIViewController {
                 
                 do {
                     let newsFeed = try decoder.decode(NewsFeed.self, from: data!)
-                    print(newsFeed)
+                    for i in newsFeed.articles! {
+                        print(i)
+                    }
                 } catch {
                     print("Error in JSON parsing")
                 }
