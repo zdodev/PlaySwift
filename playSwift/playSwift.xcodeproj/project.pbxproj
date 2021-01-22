@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		413E5BE3257DB4B900377F80 /* TheBasics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E5BE2257DB4B900377F80 /* TheBasics.swift */; };
 		4191EC1B256169AD0062E3B3 /* AutomaticReferenceCounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */; };
 		4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */; };
 		41C31059258655E500F87BA0 /* BasicOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C31058258655E500F87BA0 /* BasicOperators.swift */; };
@@ -28,7 +27,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		413E5BE2257DB4B900377F80 /* TheBasics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBasics.swift; sourceTree = "<group>"; };
 		4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticReferenceCounting.swift; sourceTree = "<group>"; };
 		4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueTypes.swift; sourceTree = "<group>"; };
 		41C31058258655E500F87BA0 /* BasicOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicOperators.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				41D4E401255AF7D80052C843 /* main.swift */,
-				413E5BE2257DB4B900377F80 /* TheBasics.swift */,
 				41C31058258655E500F87BA0 /* BasicOperators.swift */,
 				4198CC89255FAD2B00BB172D /* OpaqueTypes.swift */,
 				4191EC1A256169AD0062E3B3 /* AutomaticReferenceCounting.swift */,
@@ -134,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				413E5BE3257DB4B900377F80 /* TheBasics.swift in Sources */,
 				4191EC1B256169AD0062E3B3 /* AutomaticReferenceCounting.swift in Sources */,
 				4198CC8A255FAD2B00BB172D /* OpaqueTypes.swift in Sources */,
 				41C31059258655E500F87BA0 /* BasicOperators.swift in Sources */,
