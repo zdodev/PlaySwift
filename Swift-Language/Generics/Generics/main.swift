@@ -51,3 +51,25 @@ func follow<Type1, Type2>(a: Type1, b: Type2) {
 func follow<T, U, V>(a: T, b: U, c: V) {
     
 }
+
+/// Generic Types
+
+struct IntStack {
+    var items = [Int]()
+    mutating func push(_ item: Int) {
+        items.append(item)
+    }
+    mutating func pop() -> Int {
+        items.removeLast()
+    }
+}
+
+struct Stack<Element> {
+    var items = [Element]()
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        items.removeLast()
+    }
+}
