@@ -49,3 +49,123 @@ extension Color {
 
 let c = Color.red
 print("Give me a hint for c: \(c.hintFunc())")
+
+let invalidColor = Color(color: "orange")
+print("is invalidColor nil: \(invalidColor == nil)")
+
+
+struct FastCar {
+    // Can have variables and constants as stored properties.
+    var color: Color
+    let horsePower: Int
+    // Can have computed properties.
+    var watts: Float {
+        Float(horsePower) * 745.7
+    }
+    // Can have lazy variables like in classes!
+    lazy var titleCaseColorString: String = {
+        let colorString = color.rawValue
+        return colorString.prefix(1).uppercased() + colorString.lowercased().dropFirst()
+    }()
+    // A function.
+    func description() -> String {
+        "This is a \(color) car with \(horsePower) horse power!"
+    }
+    // Can create a variety of initializers.
+    init(color: Color, horsePower: Int) {
+        self.color = color
+        self.horsePower = horsePower
+    }
+    // Can define extra initializers other than the default one.
+    init?(color: String, horsePower: Int) {
+        guard let enumColor = Color(color: color) else {
+            return nil
+        }
+        self.color = enumColor
+        self.horsePower = horsePower
+    }
+}
+
+var car = FastCar(color: .red, horsePower: 250)
+print(car.description())
+print("Horse power in watts: \(car.watts)")
+print(car.titleCaseColorString)
+
+class A {
+    var a = "A"
+}
+
+func foo(_ a: A) {
+    a.a = "foo"
+}
+let a = A()
+print(a.a)
+foo(a)
+print(a.a)
+
+protocol Car {
+    var color: Color { get set }
+    var price: Int { get }
+    func turnOn()
+    mutating func drive()
+}
+
+protocol Electric {
+    mutating func recharge()
+    // precentage of the battery level, 0~100%.
+    var batteryLevel: Int { get set }
+}
+
+protocol Gas {
+    mutating func refill()
+    // # of liters the car is holding, varies b/w models.
+    var gasLevelLiters: Int { get set }
+}
+
+/*
+ In an object-oriented world (with no multiple inheritance), you may have made Electric and Gas abstract classes then used class inheritance to make both inherit from Car, and then have a specific car model be a base class. However, here both are completely separate protocols with zero coupling! This makes the entire system more flexible in how you design it.
+ */
+
+struct TeslaModelS: Car, Electric {
+    var color: Color
+    let price: Int
+    var batteryLevel: Int
+    
+    func turnOn() {
+        print("Starting all systems!")
+    }
+    
+    mutating func drive() {
+        print("Self driving engaged!")
+        batteryLevel -= 8
+    }
+    
+    mutating func recharge() {
+        print("Racharging the battery...")
+        batteryLevel = 100
+    }
+}
+
+var tesla = TeslaModelS(color: .red, price: 110000, batteryLevel: 100)
+
+struct Mustang: Car, Gas {
+    var color: Color
+    var price: Int
+    var gasLevelLiters: Int
+    
+    func turnOn() {
+        print("Starting all systems!")
+    }
+    
+    mutating func drive() {
+        print("Time do drive!")
+        gasLevelLiters -= 1
+    }
+    
+    mutating func refill() {
+        print("Filling the tank...")
+        gasLevelLiters = 25
+    }
+}
+
+var mustang = Mustang(color: .red, price: 30000, gasLevelLiters: 25)
