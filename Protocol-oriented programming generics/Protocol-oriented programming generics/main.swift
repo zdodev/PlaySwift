@@ -169,3 +169,32 @@ struct Mustang: Car, Gas {
 }
 
 var mustang = Mustang(color: .red, price: 30000, gasLevelLiters: 25)
+
+extension Electric {
+    mutating func recharge() {
+        print("Recharging the battery...")
+        batteryLevel = 100
+    }
+}
+
+// 메서드 구현을 강제하지 않음.
+protocol Default {
+//    func foo()
+}
+
+extension Default {
+    func foo() {
+        print("A default")
+    }
+}
+
+struct DefaultStruct: Default {
+    func foo() {
+        print("Inst")
+    }
+}
+// 메서드 구현을 강제하지 않았을 때 발생하는 문제점은?
+let b: Default = DefaultStruct()
+b.foo()
+
+// https://www.tensorflow.org/swift/tutorials/protocol_oriented_generics#extend_protocols_with_default_behaviors
