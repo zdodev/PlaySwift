@@ -220,3 +220,26 @@ struct OldEletric: Car, Electric {
         batteryLevel = 90
     }
 }
+
+typealias CompareableReal = Comparable & FloatingPoint
+
+// 각각 다른 제네릭 프로토콜 표현법
+func foo1<T: CompareableReal>(a: T, b: T) -> Bool {
+    a > b
+}
+
+func foo2<T: Comparable & FloatingPoint>(a: T, b: T) -> Bool {
+    a > b
+}
+
+func foo3<T>(a: T, b: T) -> Bool where T: CompareableReal {
+    a > b
+}
+
+func foo4<T>(a: T, b: T) -> Bool where T: Comparable & FloatingPoint {
+    a > b
+}
+
+func foo5<T: FloatingPoint>(a: T, b: T) -> Bool where T: Comparable {
+    a > b
+}
