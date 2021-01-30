@@ -197,4 +197,26 @@ struct DefaultStruct: Default {
 let b: Default = DefaultStruct()
 b.foo()
 
+
+
 // https://www.tensorflow.org/swift/tutorials/protocol_oriented_generics#extend_protocols_with_default_behaviors
+
+struct OldEletric: Car, Electric {
+    var color: Color
+    let price: Int
+    var batteryLevel: Int
+    
+    func turnOn() {
+        print("Starting all systems!")
+    }
+    
+    mutating func drive() {
+        print("Self driving engaged!")
+        batteryLevel -= 8
+    }
+    
+    mutating func recharge() {
+        print("Recharging the battery...")
+        batteryLevel = 90
+    }
+}
