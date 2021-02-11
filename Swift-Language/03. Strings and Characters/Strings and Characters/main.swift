@@ -198,3 +198,118 @@ var word = "cafe"
 print("the number of characters in \(word) is \(word.count)")
 word += "\u{301}"
 print("the number of characters in \(word) is \(word.count)")
+
+/// Accessing and Modifying a String
+
+let greeting = "Guten Tag!"
+print(greeting[greeting.startIndex])
+print(greeting[greeting.index(before: greeting.endIndex)])
+print(greeting[greeting.index(after: greeting.startIndex)])
+var index = greeting.index(greeting.startIndex, offsetBy: 7)
+print(greeting[index])
+
+//greeting[greeting.endIndex]
+for index in greeting.indices {
+    print("\(greeting[index]) ", terminator: "")
+}
+print("")
+
+/// Inserting and Removing
+
+var hello = "hello"
+hello.insert("!", at: hello.endIndex)
+print("hello = \(hello)")
+
+hello.insert(contentsOf: " there", at: hello.index(before: hello.endIndex))
+print("hello = \(hello)")
+
+hello.remove(at: hello.index(before: hello.endIndex))
+print("hello = \(hello)")
+
+let range = hello.index(hello.endIndex, offsetBy: -6)..<hello.endIndex
+hello.removeSubrange(range)
+print("hello = \(hello)")
+
+/// Substrings
+
+let helloworld = "Hello, world!"
+index = helloworld.firstIndex(of: ",") ?? helloworld.endIndex
+let beginning = helloworld[..<index]
+print("beginning = \(beginning)")
+let newString = String(beginning)
+print("newString = \(newString)")
+
+/// Comparing Strings
+
+/// String and Character Equality
+
+let quotationString = "We're a lot alike, you and I."
+let sameString = "We're a lot alike, you and I."
+if quotationString == sameString {
+    print("These two strings are considered equal.")
+}
+
+let eAcuteQuestion = "Voulez-vous un caf\u{E9}?"
+let combinedEAcuteQuestion = "Voulez-vous un caf\u{65}\u{301}?"
+if eAcuteQuestion == combinedEAcuteQuestion {
+    print("These two strings are considered equal.")
+}
+
+let latinCapitalLetterA: Character = "\u{41}"
+let cyrillicCapitalLetterA: Character = "\u{0410}"
+if latinCapitalLetterA != cyrillicCapitalLetterA {
+    print("There two characters are not equivalent.")
+}
+
+/// Prefix and Suffix Equality
+
+let romeoAndJuliet = [
+    "Act 1 Scene 1: Verona, A public place",
+    "Act 1 Scene 2: Capulet's mansion",
+    "Act 1 Scene 3: A room in Capulet's mansion",
+    "Act 1 Scene 4: A street outside Capulet's mansion",
+    "Act 1 Scene 5: The Great Hall in Capulet's mansion",
+    "Act 2 Scene 1: Outside Capulet's mansion",
+    "Act 2 Scene 2: Capulet's orchard",
+    "Act 2 Scene 3: Outside Friar Lawrence's cell",
+    "Act 2 Scene 4: A street in Verona",
+    "Act 2 Scene 5: Capulet's mansion",
+    "Act 2 Scene 6: Friar Lawrence's cell"
+]
+
+var act1SceneCount = 0
+for scene in romeoAndJuliet {
+    if scene.hasPrefix("Act 1 ") {
+        print(scene)
+    }
+}
+for scene in romeoAndJuliet {
+    if scene.hasSuffix("Capulet's mansion") {
+        print(scene)
+    }
+}
+
+/// Unicode Representations of Strings
+
+let string = "Dog‼🐶"
+
+/// UTF-8 Representation
+for codeUnit in string.utf8 {
+    print("\(codeUnit) ", terminator: "")
+}
+print("")
+
+/// UTF-16 Representation
+for codeUnit in string.utf16 {
+    print("\(codeUnit) ", terminator: "")
+}
+print("")
+
+/// Unicode Scalar Representation
+for scalar in string.unicodeScalars {
+    print("\(scalar.value) ", terminator: "")
+}
+
+for scalar in string.unicodeScalars {
+    print("\(scalar)")
+}
