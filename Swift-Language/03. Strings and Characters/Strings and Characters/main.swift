@@ -168,3 +168,33 @@ print("message = \(message)")
 print(#"Write an interpolated string in Swift using \(multiplier)."#)
 print(#"6 times 7 is \#(6 * 7)."#)
 
+/// Unicode
+
+/// Unicode Scalar Values
+
+/// Extended Grapheme Clusters
+
+let eAcute: Character = "\u{E9}"
+print("eAcute: \(eAcute)")
+let combinedEAcute: Character = "\u{65}\u{301}"
+print("combinedEAcute: \(combinedEAcute)")
+
+let precomposed: Character = "\u{D55C}"
+print("precomposed = \(precomposed)")
+let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"
+print("decomposed = \(decomposed)")
+let enclosedEAcute: Character = "\u{E9}\u{20DD}"
+print("enclosedEAcute = \(enclosedEAcute)")
+let regionalIndicatorForUS: Character = "\u{1F1FA}\u{1F1F8}"
+print("reginalIndicatorForUS = \(regionalIndicatorForUS)")
+print("\u{1f1f0}\u{1f1f7}")
+
+/// Counting Characters
+
+let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
+print("unusualMenagerie has \(unusualMenagerie.count) characters")
+
+var word = "cafe"
+print("the number of characters in \(word) is \(word.count)")
+word += "\u{301}"
+print("the number of characters in \(word) is \(word.count)")
