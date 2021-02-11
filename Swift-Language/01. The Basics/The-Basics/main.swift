@@ -423,6 +423,23 @@ if let definiteString = assumedString {
     print(definiteString)
 }
 
+var optional1: Int?
+var optional2: Int?
+
+func unwrap1() {
+    if let option1 = optional1 {
+        if let option2 = optional2 {
+            
+        }
+    }
+}
+
+func unwrap2() {
+    guard let o1 = optional1, let o2 = optional2 else {
+        return
+    }
+}
+
 /// Error Handling
 
 // 에러 처리는 프로그램 실행 중 일어날 수 있는 에러를 처리하거나 다른 곳으로 전달할 수 있는 기능입니다.
