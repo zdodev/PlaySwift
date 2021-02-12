@@ -192,3 +192,80 @@ let disjoint = farmAnimals.isDisjoint(with: cityAnimals)
 print("disjoint = \(disjoint)")
 
 /// Dictionaries
+
+/// Dictionary Type Shorhand Syntax
+/*
+ Dictionary<Key, Value>
+ [Key: Value]
+ */
+
+/// Creating an Empty Dictionary
+
+var namesOfIntegers = [Int: String]()
+namesOfIntegers[16] = "sixteen"
+namesOfIntegers = [:]
+print("namesOfIntegers = \(namesOfIntegers)")
+
+/// Creating a Dictionary with a Dictionary Literal
+
+var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+print("airports = \(airports)")
+
+var airports1 = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+print("airpost1 = \(airports1)")
+
+/// Accessing and Modifying a Dictionary
+
+print("The airports dictionary contains \(airports.count) items.")
+
+if airports.isEmpty {
+    print("The airports dictionary is empty.")
+} else {
+    print("The airports dictionary is not empty.")
+}
+
+airports["LHR"] = "London"
+print("airports = \(airports)")
+
+airports["LHR"] = "London Heathrow"
+print("airports = \(airports)")
+
+if let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB") {
+    print("The old value for DUB was \(oldValue).")
+}
+
+if let airportName = airports["DUB"] {
+    print("The name of the airport is \(airportName).")
+} else {
+    print("That airport is not in the airports dictionary.")
+}
+
+airports["APL"] = "Apple International"
+airports["APL"] = nil
+print("airports = \(airports)")
+
+if let removedValue = airports.removeValue(forKey: "DUB") {
+    print("The removed airport's name is \(removedValue).")
+} else {
+    print("The airports dictionary does not contain a value for DUB.")
+}
+
+/// Iterating Over a Dictionary
+
+for (airportCode, airportName) in airports {
+    print("\(airportCode): \(airportName)")
+}
+
+for airportCode in airports.keys {
+    print("Airport code: \(airportCode)")
+}
+
+for airportName in airports.values {
+    print("Airport name: \(airportName)")
+}
+
+let airportCode = [String](airports.keys)
+print("airportCode = \(airportCode)")
+
+let airportName = [String](airports.values)
+print("airportName = \(airportName)")
