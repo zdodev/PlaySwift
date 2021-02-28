@@ -1,0 +1,27 @@
+@startuml
+
+class CEO {
+    name
+    delegate: WorkDelegate
+
+    order()
+}
+
+CEO --> WorkDelegate
+
+interface WorkDelegate {
+    work(sender: CEO)
+}
+
+class Employee {
+    name
+    ceo: CEO
+
+    startWork()
+    printCEOname()
+    work(sender: CEO)
+}
+
+Employee ..|> WorkDelegate
+
+@enduml
