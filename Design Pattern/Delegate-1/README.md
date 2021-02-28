@@ -8,4 +8,4 @@
 
 CEO가 일을 시키고, 직원이 일을 하는데 직원이 자유롭게 일을 하는 구조다.
 
-![ClassDiagram](/Users/zdo/Documents/PlaySwift/Design Pattern/Delegate-1/ClassDiagram.png)
+<img width="500" alt="ClassDiagram" src="https://user-images.githubusercontent.com/67548251/109425780-6c0f6f80-7a2d-11eb-99e2-2a53e27233b8.png">
