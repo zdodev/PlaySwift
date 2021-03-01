@@ -19,3 +19,13 @@
 > https://swiftwithmajid.com/2019/05/29/the-power-of-delegate-design-pattern/
 >
 > https://www.appcoda.com/swift-delegate/
+
+---
+
+### Architecture Patterns 참고 URL
+
+> http://labs.brandi.co.kr/2018/02/21/kimjh.html
+>
+> https://medium.com/@stasost/ios-three-ways-to-pass-data-from-model-to-controller-b47cc72a4336#.a94rw8ht6
+>
+> https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52
