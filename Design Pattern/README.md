@@ -7,6 +7,10 @@
 > https://jiyeonlab.tistory.com/38
 >
 > https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52
+>
+> https://medium.com/ios-os-x-development/ios-tableview-with-mvc-a05103c01110
+>
+> https://samslow.github.io/development/2020/06/16/Design_pattern-MVC/
 
 ---
 
@@ -29,3 +33,5 @@
 > https://medium.com/@stasost/ios-three-ways-to-pass-data-from-model-to-controller-b47cc72a4336#.a94rw8ht6
 >
 > https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52
+>
+> 
