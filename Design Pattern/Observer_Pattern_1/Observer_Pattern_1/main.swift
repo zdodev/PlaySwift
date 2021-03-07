@@ -1,45 +1,45 @@
 protocol Subject {
-    func registerObserver(observer: Observer)
-    func removeObserver(observer: Observer)
-    func notifyObservers()
+    func attach(observer: Observer)
+    func detach(observer: Observer)
+    func notify()
 }
 
 protocol Observer: class {
     func update(value: Int)
 }
 
-class ConcreateSubject: Subject {
-    var observers = [Observer]()
-    var value: Int = 0
+final class ConcreteSubject: Subject {
+    private var observers = [Observer]()
+    private var value = 0
     
-    func registerObserver(observer: Observer) {
+    func attach(observer: Observer) {
         observers.append(observer)
     }
     
-    func removeObserver(observer: Observer) {
+    func detach(observer: Observer) {
         observers.removeAll(where: { element in
             element === observer
         })
     }
     
-    func notifyObservers() {
-        _ = observers.compactMap({ observer in
+    func notify() {
+        _ = observers.map({ observer in
             observer.update(value: value)
         })
     }
     
-    func updateValue(value: Int) {
+    func update(value: Int) {
         self.value = value
-        notifyObservers()
+        notify()
     }
 }
 
-class ObserverA: Observer {
-    let concreateSubject: ConcreateSubject
+final class ObserverA: Observer {
+    private let concreteSubject: ConcreteSubject
     
-    init(concreateSubject: ConcreateSubject) {
-        self.concreateSubject = concreateSubject
-        concreateSubject.registerObserver(observer: self)
+    init(concreteSubject: ConcreteSubject) {
+        self.concreteSubject = concreteSubject
+        concreteSubject.attach(observer: self)
     }
     
     func update(value: Int) {
@@ -47,12 +47,12 @@ class ObserverA: Observer {
     }
 }
 
-class ObserverB: Observer {
-    let concreateSubject: ConcreateSubject
+final class ObserverB: Observer {
+    private let concreteSubject: ConcreteSubject
     
-    init(concreateSubject: ConcreateSubject) {
-        self.concreateSubject = concreateSubject
-        concreateSubject.registerObserver(observer: self)
+    init(concreteSubject: ConcreteSubject) {
+        self.concreteSubject = concreteSubject
+        concreteSubject.attach(observer: self)
     }
     
     func update(value: Int) {
@@ -60,9 +60,11 @@ class ObserverB: Observer {
     }
 }
 
-let concreateSubject = ConcreateSubject()
-let observerA = ObserverA(concreateSubject: concreateSubject)
-let observerB = ObserverB(concreateSubject: concreateSubject)
+let concreateSubject = ConcreteSubject()
+let observerA = ObserverA(concreteSubject: concreateSubject)
+let observerB = ObserverB(concreteSubject: concreateSubject)
 
-concreateSubject.notifyObservers()
-concreateSubject.updateValue(value: 3)
+concreateSubject.update(value: 3)
+concreateSubject.detach(observer: observerB)
+concreateSubject.update(value: 5)
+ 

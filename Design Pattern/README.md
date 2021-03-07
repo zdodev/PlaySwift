@@ -1,3 +1,9 @@
+### Observer Pattern 참고 URL
+
+>https://en.wikipedia.org/wiki/Observer_pattern
+>
+>https://book.naver.com/bookdb/book_detail.nhn?bid=8942623
+
 ### MVC Pattern 참고 URL
 
 > https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html
