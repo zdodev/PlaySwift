@@ -1,5 +1,11 @@
 class Solution {
-    func result() -> Int {
-        0
+    func makeString() -> String {
+        "Hello World!"
+    }
+    
+    func result() {
+        print(makeString())
     }
 }
+
+Solution().result()

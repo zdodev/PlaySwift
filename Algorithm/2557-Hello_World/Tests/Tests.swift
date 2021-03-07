@@ -4,14 +4,14 @@ class Tests: XCTestCase {
     var solution = Solution()
     
     func testExample() throws {
-        let result = solution.text
-        let expectedText = "Hello, world"
-        XCTAssertEqual(result, 0, "테스트 통과")
+        let result = solution.makeString()
+        let expectedText = "Hello World!"
+        XCTAssertEqual(result, expectedText, "테스트 실패")
     }
 
     func testPerformanceExample() throws {
         measure {
-//            solution.result()
+            solution.makeString()
         }
     }
 }
