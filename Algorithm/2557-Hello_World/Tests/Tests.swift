@@ -11,7 +11,7 @@ class Tests: XCTestCase {
 
     func testPerformanceExample() throws {
         measure {
-            solution.makeString()
+            solution.result()
         }
     }
 }
