@@ -1,15 +1,21 @@
-### Baekjoon-10172번 개
+### 1000번 A+B
 
-- 구현 문제
+- 수학
+- 구현
+- 사칙연산
 
-### Baekjoon-10171번 고양이
+### 10172번 개
 
-- 구현 문제
+- 구현
 
-### Baekjoon-10718번 We love kriii
+### 10171번 고양이
 
-- 구현 문제
+- 구현
 
-### Baekjoon-2557번 Hello World
+### 10718번 We love kriii
 
-- 구현 문제
+- 구현
+
+### 2557번 Hello World
+
+- 구현
