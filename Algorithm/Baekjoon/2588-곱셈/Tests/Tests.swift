@@ -2,8 +2,9 @@ import XCTest
 
 class Tests: XCTestCase {
     let multiplication = Multiplication()
-    let number = 468
-    let isolatedDigits = [400, 60, 8]
+    let firstNumber = 472
+    let secondNumber = 385
+    let isolatedDigits = [3, 8, 5]
     
     func testMultiply100() {
         let value = multiplication.multiply(100, 100)
@@ -25,26 +26,38 @@ class Tests: XCTestCase {
 //    }
     
     func testIsolateUnitDigit() {
-        let value = multiplication.isolateUnitDigit(number)
+        let value = multiplication.isolateUnitDigit(secondNumber)
         let expectedValue = isolatedDigits[2]
         XCTAssertEqual(value, expectedValue, "isolateUnitDigit 실패")
     }
     
     func testIsolateTensDigit() {
-        let value = multiplication.isolateTensDigit(number)
+        let value = multiplication.isolateTensDigit(secondNumber)
         let expectedValue = isolatedDigits[1]
         XCTAssertEqual(value, expectedValue, "isolateTensDigit 실패")
     }
     
     func testIsolateHundredsDigit() {
-        let value = multiplication.isolateHundredsDigit(number)
+        let value = multiplication.isolateHundredsDigit(secondNumber)
         let expectedValue = isolatedDigits[0]
         XCTAssertEqual(value, expectedValue, "isolateHundredsDigit 실패")
     }
     
-//    func testMakeUnitDigitMultiplicationResult() {
-//        let value = multiplication.makeUnitDigitMultiplicationResult(number)
-//        let expectedValue = isolatedDigits[2]
-//        XCTAssertEqual(value, expectedValue, "unit digit 연산 실패")
-//    }
+    func testMakeUnitDigitMultiplicationResult() {
+        let value = multiplication.makeUnitDigitMultiplicationResult(firstNumber, secondNumber)
+        let expectedValue = firstNumber * isolatedDigits[2]
+        XCTAssertEqual(value, expectedValue, "unit digit 연산 실패")
+    }
+    
+    func testMakeTensDigitMultiplicationResult() {
+        let value = multiplication.makeTensDigitMultiplicationResult(firstNumber, secondNumber)
+        let expectedValue = firstNumber * isolatedDigits[1]
+        XCTAssertEqual(value, expectedValue, "tens digit 연산 실패")
+    }
+    
+    func testMakeHundredsDigitMultiplicationResult() {
+        let value = multiplication.makeHundredsDigitMultiplicationResult(firstNumber, secondNumber)
+        let expectedValue = firstNumber * isolatedDigits[0]
+        XCTAssertEqual(value, expectedValue, "hundreds digit 연산 실패")
+    }
 }

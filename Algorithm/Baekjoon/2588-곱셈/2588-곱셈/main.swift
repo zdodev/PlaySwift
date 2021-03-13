@@ -20,17 +20,52 @@ struct Multiplication {
     }
     
     func isolateTensDigit(_ number: Int) -> Int {
-        var result = number % 100
-        let unitDigit = isolateUnitDigit(result)
-        result -= unitDigit
-        return result
+        let newNumber = number % 100
+        return newNumber / 10
     }
     
     func isolateHundredsDigit(_ number: Int) -> Int {
-        (number / 100) * 100
+        number / 100
     }
     
-//    func makeUnitDigitMultiplicationResult(_ number: Int) -> Int {
-//
-//    }
+    func makeUnitDigitMultiplicationResult(_ firstNumber: Int, _ number: Int) -> Int {
+        let unitDigit = isolateUnitDigit(number)
+        return firstNumber * unitDigit
+    }
+    
+    func makeTensDigitMultiplicationResult(_ firstNumber: Int, _ number: Int) -> Int {
+        let tensDigit = isolateTensDigit(number)
+        return firstNumber * tensDigit
+    }
+    
+    func makeHundredsDigitMultiplicationResult(_ firstNumber: Int, _ number: Int) -> Int {
+        let hundredsDigit = isolateHundredsDigit(number)
+        return firstNumber * hundredsDigit
+    }
 }
+
+struct Solution {
+    private func readInteger() -> Int {
+        Int(readLine()!)!
+    }
+    
+    func result() {
+        let multiplication = Multiplication()
+        let firstNumber = readInteger()
+        let secondNubmer = readInteger()
+        
+        let unitDigitMuliplication = multiplication.makeUnitDigitMultiplicationResult(firstNumber, secondNubmer)
+        print(unitDigitMuliplication)
+        
+        let tensDigitMuliplication = multiplication.makeTensDigitMultiplicationResult(firstNumber, secondNubmer)
+        print(tensDigitMuliplication)
+        
+        let hundredsDigitMuliplication = multiplication.makeHundredsDigitMultiplicationResult(firstNumber, secondNubmer)
+        print(hundredsDigitMuliplication)
+        
+        let twoNumberMultiplication = multiplication.multiply(firstNumber, secondNubmer)
+        print(twoNumberMultiplication)
+    }
+}
+
+Solution().result()
