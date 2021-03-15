@@ -8,21 +8,10 @@ public class ListNode {
 
 struct IsPalindrome {
     func method1(_ head: ListNode?) -> Bool {
-        let array: [Int] = {
-            var array = [Int]()
-            var head = head
-            
-            while let node = head {
-                array.append(node.val)
-                head = head?.next
-            }
-            
-            return array
-        }()
-        
+        let array = listToValueArray(head)
+
         var index = 0
         for value in array.reversed() {
-            print(value, array[index])
             if value != array[index] {
                 return false
             }
@@ -30,6 +19,18 @@ struct IsPalindrome {
         }
         
         return true
+    }
+    
+    private func listToValueArray(_ head: ListNode?) -> [Int] {
+        var array = [Int]()
+        var listNode = head
+        
+        while let node = listNode {
+            array.append(node.val)
+            listNode = listNode?.next
+        }
+        
+        return array
     }
 }
 
