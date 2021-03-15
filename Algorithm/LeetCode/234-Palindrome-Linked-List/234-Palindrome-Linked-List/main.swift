@@ -21,6 +21,13 @@ struct IsPalindrome {
         return true
     }
     
+    func method2(_ head: ListNode?) -> Bool {
+        let array = listToValueArray(head)
+        let reversedArray: [Int] = array.reversed()
+        
+        return array == reversedArray
+    }
+    
     private func listToValueArray(_ head: ListNode?) -> [Int] {
         var array = [Int]()
         var listNode = head
@@ -38,6 +45,7 @@ class Solution {
     let isPalindromeSolution = IsPalindrome()
     
     func isPalindrome(_ head: ListNode?) -> Bool {
-        isPalindromeSolution.method1(head)
+//        isPalindromeSolution.method1(head)
+        isPalindromeSolution.method2(head)
     }
 }
