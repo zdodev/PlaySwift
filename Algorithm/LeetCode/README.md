@@ -1,3 +1,11 @@
+## 42번 Trapping Raing Water
+
+-   얼마나 많은 물이 쌓일 수 있는 지 계산하는 문제
+-   Array
+-   Two Pointers
+-   Dynamic Porgramming
+-   Stack
+
 ## 234번 Palindrome Linked List
 
 -   연결 리스트의 내용이 팰린드롬인지 판별하는 문제
