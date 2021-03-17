@@ -1,30 +1,16 @@
-# playSwift
-Swift 공부 저장소
-
 ## Cafe
 
 ---
 
 [객체지향의 사실과 오해](https://book.naver.com/bookdb/book_detail.nhn?bid=9145968) 책 후반부에 나오는 커피 전문점 도메인에 따라 코드를 작성해보았습니다.
 
-## Algorithm 문제 풀이
+커피 전문점 이라는 도메인에서 구성원들을 식별하고 식별한 구성원에 따라 역할을 부여하여 객체 상호간에 유기적인 협력을 통해 커피 전문점이 돌아가는 것을 볼 수 있습니다.
 
----
+해당 객체들 간의 관계를 클래스 다이어그램으로 작성해보았습니다.
 
--   [백준](https://www.acmicpc.net)
--   [LeetCode](https://leetcode.com)
+<img width="288" alt="Screen Shot 2021-03-17 at 11 12 15 PM" src="https://user-images.githubusercontent.com/67548251/111483727-67aabc80-8778-11eb-98c6-cfe035e9267b.png">
 
-## Design Pattern - Observer Pattern 구현
+손님, 메뉴판, 메뉴, 바리스타, 커피 역할을 하는 객체와 책임, 그리고 의존성을 가시적으로 확인할 수 있습니다.
 
-Observer pattern은 객체의 상태 변화를 관찰하는 Observer들의 목록을 이벤트 발생자 객체에 등록하여 상태 변화가 있을 때마다 메서드 등을 통해 Observer에게 알리도록 하는 디자인 패턴이다.
-
-## Observer Pattern의 구현 사례
-
-- 외부에서 발생한 이벤트에 대한 응답 처리.
-- 객체의 속성 값 변화에 따른 응답 처리.
-- MVC 패턴에서 모델과 뷰 사이를 느슨히 연결하기 위해 사용.
-
----
-
-## Delegate Pattern 구현
+직접 코드를 작성하고 클래스 다이어그램을 작성하면서 객체지향 프로그래밍에 대한 이해를 더 높일 수 있었습니다.
 
