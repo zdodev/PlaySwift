@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		419C7D2825BD59E400931F52 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419C7D2725BD59E400931F52 /* main.swift */; };
+		41B6AB7F2602449F008A93DC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B6AB7E2602449F008A93DC /* Customer.swift */; };
+		41B6AB82260244BA008A93DC /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B6AB81260244BA008A93DC /* MenuItem.swift */; };
+		41B6AB85260244CC008A93DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B6AB84260244CC008A93DC /* Menu.swift */; };
+		41B6AB88260244DD008A93DC /* Barista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B6AB87260244DD008A93DC /* Barista.swift */; };
+		41B6AB8B260244E7008A93DC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B6AB8A260244E7008A93DC /* Coffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,11 @@
 /* Begin PBXFileReference section */
 		419C7D2425BD59E400931F52 /* Cafe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cafe; sourceTree = BUILT_PRODUCTS_DIR; };
 		419C7D2725BD59E400931F52 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		41B6AB7E2602449F008A93DC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		41B6AB81260244BA008A93DC /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		41B6AB84260244CC008A93DC /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		41B6AB87260244DD008A93DC /* Barista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barista.swift; sourceTree = "<group>"; };
+		41B6AB8A260244E7008A93DC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				419C7D2725BD59E400931F52 /* main.swift */,
+				41B6AB8A260244E7008A93DC /* Coffee.swift */,
+				41B6AB87260244DD008A93DC /* Barista.swift */,
+				41B6AB84260244CC008A93DC /* Menu.swift */,
+				41B6AB81260244BA008A93DC /* MenuItem.swift */,
+				41B6AB7E2602449F008A93DC /* Customer.swift */,
 			);
 			path = Cafe;
 			sourceTree = "<group>";
@@ -119,7 +134,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B6AB7F2602449F008A93DC /* Customer.swift in Sources */,
+				41B6AB82260244BA008A93DC /* MenuItem.swift in Sources */,
 				419C7D2825BD59E400931F52 /* main.swift in Sources */,
+				41B6AB88260244DD008A93DC /* Barista.swift in Sources */,
+				41B6AB85260244CC008A93DC /* Menu.swift in Sources */,
+				41B6AB8B260244E7008A93DC /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
