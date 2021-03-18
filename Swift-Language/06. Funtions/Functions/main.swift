@@ -1,11 +1,13 @@
-//
-//  main.swift
-//  Functions
-//
-//  Created by Zero DotOne on 2021/03/19.
-//
+/// Defining and Calling Functions
 
-import Foundation
+func greet(person: String) -> String {
+    let greeting = "Hello, " + person + "!"
+    return greeting
+}
+print(greet(person: "Anna"))
+print(greet(person: "Brian"))
 
-print("Hello, World!")
-
+func greetAgain(person: String) -> String {
+    return "Hello again, " + person + "!"
+}
+print(greetAgain(person: "Anna"))
