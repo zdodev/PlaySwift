@@ -1,3 +1,7 @@
+# gitignore.io 추가사항
+# macOS, linux, swift, xcode, vapor.
+# Vapor project 생성 시 default gitignore 내용 추가.
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
