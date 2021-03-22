@@ -80,3 +80,17 @@ func anotherGreeting(for person: String) -> String {
     return "Hello, " + person + "!"
 }
 print(anotherGreeting(for: "Dave"))
+
+// MARK: - Function argument labels and paramter names
+
+func someFunction(firstParameterName: Int, secondParameterName: Int) {
+}
+someFunction(firstParameterName: 1, secondParameterName: 2)
+
+func someFunction(argumentLabel parameterName: Int) {
+}
+
+func greet(person: String, from hometown: String) -> String {
+    return "Hello \(person)! Glad you colud visit from \(hometown)"
+}
+print(greet(person: "Bill", from: "Cupertino"))
