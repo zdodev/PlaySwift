@@ -129,3 +129,8 @@ func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     a = b
     b = temporaryA
 }
+
+var someInt = 3
+var anotherInt = 108
+swapTwoInts(&someInt, &anotherInt)
+print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
