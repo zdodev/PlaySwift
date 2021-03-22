@@ -81,11 +81,13 @@ func anotherGreeting(for person: String) -> String {
 }
 print(anotherGreeting(for: "Dave"))
 
-// MARK: - Function argument labels and paramter names
+// MARK: - Function argument labels and parameter names
 
 func someFunction(firstParameterName: Int, secondParameterName: Int) {
 }
 someFunction(firstParameterName: 1, secondParameterName: 2)
+
+// MARK: Specifying argument labels
 
 func someFunction(argumentLabel parameterName: Int) {
 }
@@ -94,3 +96,36 @@ func greet(person: String, from hometown: String) -> String {
     return "Hello \(person)! Glad you colud visit from \(hometown)"
 }
 print(greet(person: "Bill", from: "Cupertino"))
+
+// MARK: Omitting argument labels
+
+func someFunction(_ firstParameterName: Int, secondParameterName: Int) {
+}
+someFunction(1, secondParameterName: 2)
+
+// MARK: Default parameter values
+
+func someFunction(parameterWithoutDefault: Int, parameterWithDefault: Int = 12) {
+}
+someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6)
+someFunction(parameterWithoutDefault: 4)
+
+// MARK: Variadic Parameters
+
+func arithmeticMean(_ numbers: Double...) -> Double {
+    var total: Double = 0
+    for number in numbers {
+        total += number
+    }
+    return total / Double(numbers.count)
+}
+print(arithmeticMean(1, 2, 3, 4, 5))
+print(arithmeticMean(3, 8.25, 18.75))
+
+// MARK: In-Out Parameters
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
