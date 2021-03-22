@@ -21,7 +21,7 @@ func sayHelloWorld() -> String {
 }
 print(sayHelloWorld())
 
-// MARK: Functions with Multiple Paramters
+// MARK: Functions with Multiple Parameters
 
 func greet(person: String, alreadyGreeted: Bool) -> String {
     if alreadyGreeted {
@@ -31,3 +31,22 @@ func greet(person: String, alreadyGreeted: Bool) -> String {
     }
 }
 print(greet(person: "Tim", alreadyGreeted: true))
+
+// MARK: Functions without return values
+
+func greet1(person: String) {
+    print("Hello, \(person)!")
+}
+greet1(person: "Dave")
+
+func printAndCount(string: String) -> Int {
+    print(string)
+    return string.count
+}
+
+func printWithoutCounting(string: String) {
+    let _ = printAndCount(string: string)
+}
+
+print(printAndCount(string: "hello, world"))
+printWithoutCounting(string: "hello, world")
