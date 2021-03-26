@@ -131,6 +131,20 @@ func swapTwoInts(_ a: inout Int, _ b: inout Int) {
 }
 
 var someInt = 3
-var anotherInt = 108
+var anotherInt = 107
 swapTwoInts(&someInt, &anotherInt)
 print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
+
+// MARK:- Function Types
+
+func addTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+func printHelloWorld() {
+    print("hello, world")
+}
