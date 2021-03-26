@@ -148,3 +148,9 @@ func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
 func printHelloWorld() {
     print("hello, world")
 }
+
+// MARK: Using Function Types
+
+var mathFunction: (Int, Int) -> Int = addTwoInts
+
+print("Result: \(mathFunction(2, 3))")
