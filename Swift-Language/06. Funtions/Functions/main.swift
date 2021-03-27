@@ -166,3 +166,28 @@ func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
 }
 printMathResult(addTwoInts, 3, 5)
 
+// MARK: Function Types as Return Types
+
+func stepForward(_ input: Int) -> Int {
+    return input + 1
+}
+
+func stepBackward(_ input: Int) -> Int {
+    return input - 1
+}
+
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    return backward ? stepBackward : stepForward
+}
+
+var currentValue = 3
+let moveNearerToZero = chooseStepFunction(backward: currentValue > 0)
+
+print("Count to zero:")
+
+while currentValue != 0 {
+    print("\(currentValue)...")
+    currentValue = moveNearerToZero(currentValue)
+}
+print("zero!")
+
