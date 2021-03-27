@@ -191,3 +191,23 @@ while currentValue != 0 {
 }
 print("zero!")
 
+// MARK: - Nested Functions
+
+func chooseStepFunction1(backward: Bool) -> (Int) -> Int {
+    func stepForward(input: Int) -> Int {
+        return input + 1
+    }
+    func stepBackward(input: Int) -> Int {
+        return input - 1
+    }
+    return backward ? stepBackward : stepForward
+}
+
+var currentValue1 = -4
+let moveNearerToZero1 = chooseStepFunction1(backward: currentValue1 > 0)
+
+while currentValue1 != 0 {
+    print("\(currentValue1)")
+    currentValue1 = moveNearerToZero1(currentValue1)
+}
+print("zero!")
