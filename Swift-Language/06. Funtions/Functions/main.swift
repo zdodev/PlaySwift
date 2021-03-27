@@ -152,5 +152,10 @@ func printHelloWorld() {
 // MARK: Using Function Types
 
 var mathFunction: (Int, Int) -> Int = addTwoInts
-
 print("Result: \(mathFunction(2, 3))")
+
+mathFunction = multiplyTwoInts
+print("Result: \(mathFunction(2, 3))")
+
+let anotherMathFunction = addTwoInts
+
