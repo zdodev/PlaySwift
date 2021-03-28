@@ -124,17 +124,80 @@ loadPicture(from: "server") { picture in
     print("실패")
 }
 
+// MARK: - Capturing Values
+
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+    var runningTotal = 0
+    
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
+    }
+    
+    return incrementer
+}
+
+let incrementByTen = makeIncrementer(forIncrement: 10)
+print(incrementByTen())
+print(incrementByTen())
+print(incrementByTen())
+
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+print(incrementBySeven())
+
+print(incrementByTen())
+
+// MARK: - Closures are Reference Types
+
+let alsoIncrementByTen = incrementByTen
+print(alsoIncrementByTen())
+print(incrementByTen())
+
+// MARK: Escaping Closures
 
 var completionHandlers: [() -> Void] = []
-var fun: () -> Void = {}
+
 func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
-//    completionHandlers.append(completionHandler)
-    fun = completionHandler
+    completionHandlers.append(completionHandler)
 }
-var a = 3
-someFunctionWithEscapingClosure {
-    a = 4
+
+func someFunctionWithNonescapingClosure(closure: () -> Void) {
+    closure()
 }
+
+/*
+ Escaping Closure에 self를 명시적으로 선언해야 하는 이유
+ Escaping closure는 외부 변수에서 저장되고 사용할 수 있는데, 이때 캡처한 변수를 확실하게 알려주기 위해서 self를 사용해야 한다.
+ 
+ 일반 closure는 함수 내부에서 클로저가 실행되기 때문에 내부에 있는 프로퍼티를 사용한다는 것을 확신할 수 있기 때문에 명시하지 않아도 된다.
+ 
+ self를 명시하는 방법
+ 프로퍼티 접근 시 self를 사용한다. 또는
+ 클로저 파라미터 정의 부분에서 [self]를 명시한다.
+ */
+
+class SomeClass {
+    var x = 0
+    
+    func doSomething() {
+        someFunctionWithEscapingClosure { self.x = 100 }
+        someFunctionWithEscapingClosure { [self] in
+            x = 100 }
+        someFunctionWithNonescapingClosure { x = 200 }
+    }
+}
+
+let instance = SomeClass()
+instance.doSomething()
+print(instance.x)
+
+completionHandlers.first?()
+print(instance.x)
+
+//var a = 3
+//someFunctionWithEscapingClosure {
+//    a = 4
+//}
 
 var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 //print(customersInLine.count)
