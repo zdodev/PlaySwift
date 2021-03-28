@@ -244,6 +244,8 @@ print("customersInLine: \(customersInLine.count)")
 // autoclosures는 파라미터가 없어야 한다.
 
 func serve(customer customerProvider: @autoclosure () -> String) {
+    // customerProvider를 실행하기 전까지 remove를 실행하지 않는다.
+    // customerProvider를 실행해야 비로소 remove가 실행되면서 배열의 요소가 하나 줄어든다.
     print("now serving \(customerProvider())!")
 }
 serve(customer: customersInLine.remove(at: 0))
