@@ -181,8 +181,6 @@ class SomeClass {
     
     func doSomething() {
         someFunctionWithEscapingClosure { self.x = 100 }
-        someFunctionWithEscapingClosure { [self] in
-            x = 100 }
         someFunctionWithNonescapingClosure { x = 200 }
     }
 }
@@ -194,58 +192,59 @@ print(instance.x)
 completionHandlers.first?()
 print(instance.x)
 
-//var a = 3
-//someFunctionWithEscapingClosure {
-//    a = 4
-//}
+class SomeOtherClass {
+    var x = 10
+    
+    func doSomething() {
+        someFunctionWithEscapingClosure { [self] in
+            x = 100
+        }
+        someFunctionWithNonescapingClosure { x = 200 }
+    }
+}
+
+/*
+ 구조체와 열거형의 경우 self에 대해 항상 암시적으로 참조합니다. 구조체와 열거형의 경우 변경 가능성에 대해서 공유하지 않으므로, escaping closure가 변경 가능성이 있는 참조로 캡처할 수 없습니다.
+ */
+
+import Foundation
+
+struct SomeStruct {
+    var x = 10
+    
+    // mutating의 경우 self가 변경 가능하기 때문에 escaping closure가 구조체에 대해 self를 캡처할 수 없다.
+    mutating func doSomething() {
+        someFunctionWithNonescapingClosure { x = 200 }
+//        someFunctionWithEscapingClosure { self.x = 100 } error
+    }
+}
+
+// MARK: - Autoclosures
 
 var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
-//print(customersInLine.count)
+print("customersInLine: \(customersInLine.count)")
 
 let customerProvider = {
     customersInLine.remove(at: 0)
 }
-//print(customersInLine.count)
+print("customersInLine: \(customersInLine.count)")
 
-//customerProvider()
-//print(customersInLine.count)
+print("Now serving \(customerProvider())!")
+print("customersInLine: \(customersInLine.count)")
+
+func serve(customer customerProvider: () -> String) {
+    print("Now serving \(customerProvider())!")
+}
+serve {
+    customersInLine.remove(at: 0)
+}
+print("customersInLine: \(customersInLine.count)")
+
+// () -> String 타입을 마치 String인 것처럼 호출할 수 있다.
+// autoclosures는 파라미터가 없어야 한다.
 
 func serve(customer customerProvider: @autoclosure () -> String) {
-    print(customerProvider())
+    print("now serving \(customerProvider())!")
 }
-
-//serve(customer: {
-//    customersInLine.remove(at: 0)
-//})
-
-//serve(customer: c)
-
-func calculator(n1: Int, n2: Int, operation: (Int, Int) -> Int) -> Int {
-    operation(n1, n2)
-}
-
-func add(no1: Int, no2: Int) -> Int {
-    no1 + no2
-}
-
-func multiply(no1: Int, no2: Int) -> Int {
-    no1 * no2
-}
-
-print(calculator(n1: 2, n2: 3, operation: add))
-print(calculator(n1: 2, n2: 3, operation: multiply))
-
-print(calculator(n1: 2, n2: 3) {
-    $0 * $1
-})
-
-let array = [6, 2, 3, 9, 4, 1]
-
-func addOnt(n1: Int) -> Int {
-    n1 + 1
-}
-
-print(array.map {
-    $0 + 1
-})
-
+serve(customer: customersInLine.remove(at: 0))
+print("customersInLine: \(customersInLine.count)")
