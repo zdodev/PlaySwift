@@ -71,14 +71,59 @@ reversedNames = names.sorted(by: {
 
 reversedNames = names.sorted(by: >)
 
-// 후행 클로저
+// MARK: - Trailing Closures
+
 func someFunctionThatTakesAClosure(closure: () -> Void) {
     closure()
 }
 
-someFunctionThatTakesAClosure {
+someFunctionThatTakesAClosure() {
     print("closure")
 }
+
+reversedNames = names.sorted() {
+    $0 > $1
+}
+
+reversedNames = names.sorted {
+    $0 > $1
+}
+
+let digitNames = [
+    0: "Zero", 1: "One", 2: "Two", 3: "Three", 4: "Four",
+    5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
+]
+
+let numbers = [16, 58, 510]
+
+let strings = numbers.map { (number) -> String in
+    var number = number
+    var output = ""
+    repeat {
+        output = digitNames[number % 10]! + output
+        number /= 10
+    } while number > 0
+    return output
+}
+
+print(strings)
+
+// 함수가 다중 클로저 인자를 가질 경우, 첫 번째 클로저의 인자명을 생략하며 두 번째 클로저부터 인자명을 붙여서 호출합니다.
+
+func loadPicture(from server: String?, completion: (String) -> Void, onFailure: () -> Void) {
+    if let picture = server {
+        completion(picture)
+    } else {
+        onFailure()
+    }
+}
+
+loadPicture(from: "server") { picture in
+    print("success: \(picture)")
+} onFailure: {
+    print("실패")
+}
+
 
 var completionHandlers: [() -> Void] = []
 var fun: () -> Void = {}
