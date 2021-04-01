@@ -1,75 +1,41 @@
-/// The Problem that Generics Solve
+// MARK: - Generics
 
-// 두 Int형 인자의 값을 서로 바꾸는 함수
-func swapTwoInts(_ a: inout Int, _ b: inout Int) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
-}
+// MARK: - The Problem that Generics Solve
 
-// 두 String형 인자의 값을 서로 바꾸는 함수
-func swapTwoStrings(_ a: inout String, _ b: inout String) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
-}
+// MARK: - Generic Functions
 
-// 두 Double형 인자의 값을 서로 바꾸는 함수
-func swapToDoubles(_ a: inout Double, _ b: inout Double) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
-}
+// MARK: - Type Parameters
 
-/// Generic Functions
+// MARK: - Naming Type Parameters
 
-func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
-}
+// MARK: - Generic Types
 
-var someInt = 3
-var anotherInt = 107
-swapTwoValues(&someInt, &anotherInt)
-print(someInt, anotherInt)
+// MARK: - Extending a Generic Type
 
-/// Type Parameters
+// MARK: - Extending a Generic Type
 
-func follow<TypeParameters>(a: TypeParameters) {
-    
-}
+// MARK: - Type Constraints
 
-// multiple type parameters
+// MARK: Type Constraint Syntax
 
-func follow<Type1, Type2>(a: Type1, b: Type2) {
-    
-}
+// MARK: Type Constraints in Action
 
-/// Naming Type Parameters
+// MARK: - Associated Types
 
-func follow<T, U, V>(a: T, b: U, c: V) {
-    
-}
+// MARK: Associated Types in Action
 
-/// Generic Types
+// MARK: Extending an Existing Type to Specify an Associated Type
 
-struct IntStack {
-    var items = [Int]()
-    mutating func push(_ item: Int) {
-        items.append(item)
-    }
-    mutating func pop() -> Int {
-        items.removeLast()
-    }
-}
+// MARK: Adding Constraints to an Associated Type
 
-struct Stack<Element> {
-    var items = [Element]()
-    mutating func push(_ item: Element) {
-        items.append(item)
-    }
-    mutating func pop() -> Element {
-        items.removeLast()
-    }
-}
+// MARK: Using a Protocol in Its Associated Type's Contraints
+
+// MARK: - Generic Where Clauses
+
+// MARK: - Extensions with a Generic Where Clause
+
+// MARK: - Contextual Where Clauses
+
+// MARK: - Associated Types with a Generic Where Clause
+
+// MARK: - Generic Subscripts
