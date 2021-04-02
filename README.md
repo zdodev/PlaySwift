@@ -1,6 +1,6 @@
 # playSwift
 
-Swift 공부 저장소
+Swift 놀이 공간
 
 ## Swift Language 
 
