@@ -1,0 +1,16 @@
+struct Solution {
+    func solution() {
+        print("     /~\\")
+        print("    ( oo|")
+        print("    _\\=/_")
+        print("   /  _  \\")
+        print("  //|/.\\|\\\\")
+        print(" ||  \\ /  ||")
+        print("============")
+        print("|          |")
+        print("|          |")
+        print("|          |")
+    }
+}
+
+Solution().solution()
