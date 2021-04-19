@@ -7,3 +7,5 @@
 ---
 
 >   [Wikipedia Linked list](https://en.wikipedia.org/wiki/Linked_list)
+>
+>   [Types of Linked List and Operation on Linked List](https://afteracademy.com/blog/types-of-linked-list-and-operation-on-linked-list)

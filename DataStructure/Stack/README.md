@@ -25,3 +25,5 @@
 ---
 
 >   [Wikipedia Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+>
+>   [Stack and its basic Operations](https://afteracademy.com/blog/stack-and-its-basic-operations)
