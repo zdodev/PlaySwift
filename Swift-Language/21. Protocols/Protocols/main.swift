@@ -462,10 +462,165 @@ beginConcert(in: seattle)
 
 // MARK: - Checking for Protocol Conformance
 
+// is 연산은 인스턴스가 프로토콜을 준수할 경우 ture, 아니면 false를 반환합니다.
+// as? 연산은 프로토콜 타입에 대한 옵셔널을 반환하는데 인스턴스가 해당 프로토콜을 준수하지 않은 경우 nil이 반환됩니다.
+
+protocol HasArea {
+    var area: Double { get }
+}
+
+class Circle: HasArea {
+    let pi = 3.1415927
+    var radius: Double
+    var area: Double {
+        return pi * radius * radius
+    }
+    init(radius: Double) {
+        self.radius = radius
+    }
+}
+
+class Country: HasArea {
+    var area: Double
+    init(area: Double) {
+        self.area = area
+    }
+}
+
+class Animal {
+    var legs: Int
+    init(legs: Int) {
+        self.legs = legs
+    }
+}
+
+let objects: [AnyObject] = [
+    Circle(radius: 2.0),
+    Country(area: 243_610),
+    Animal(legs: 4)
+]
+
+for object in objects {
+    // as? 연산으로 프로토콜 다운캐스팅을 시도합니다.
+    // 다른 타입과 마찬가지로 프로토콜도 형변환 대상이 될 수 있습니다.
+    if let objectWithArea = object as? HasArea {
+        print("Area is \(objectWithArea.area)")
+    } else {
+        print("Something that doesn't have an area")
+    }
+}
+
 // MARK: - Optional Protocol Requirements
 
+// 옵셔널 프로토콜 요구사항은 요구사항을 선택적으로 구현하도록 하는 기능입니다.
+// @objc 클래스를 상속한 클래스만이 @objc 프로토콜을 채택할 수 있습니다.
+
+// 프로토콜의 선택적 구현사항은 Foundation 프레임워크가 필요합니다.
+import Foundation
+
+// 프로토콜의 선택적 구현사항은 @objc 키워드를 선언해야 합니다.
+// 선택적 구현사항이므로 타입이 옵셔널로 선언됩니다.
+@objc protocol CounterDataSource {
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
+}
+
+class Counter {
+    var count = 0
+    var dataSource: CounterDataSource?
+    // UIKit의 delegate와 dataSource는 이렇게 구현하고 있지 않을까 생각이 듭니다.
+    func increment() {
+        if let amount = dataSource?.increment?(forCount: count) {
+            count += amount
+        } else if let amount = dataSource?.fixedIncrement {
+            count += amount
+        }
+    }
+}
+
+class ThreeSource: CounterDataSource {
+    let fixedIncrement = 3
+}
+
+var counter = Counter()
+counter.dataSource = ThreeSource()
+for _ in 1...4 {
+    counter.increment()
+    print(counter.count)
+}
+
+class TowardsZeroSource: CounterDataSource {
+    func increment(forCount count: Int) -> Int {
+        if count == 0 {
+            return 0
+        } else if count < 0 {
+            return 1
+        } else {
+            return -1
+        }
+    }
+}
+
+counter.count = -4
+counter.dataSource = TowardsZeroSource()
+for _ in 1...5 {
+    counter.increment()
+    print(counter.count)
+}
+
 // MARK: - Protocol Extensions
+// 메서드, 이니셜라이저, 서브스크립트, 연산 프로퍼티 속성 구현을 제공하도록 프로토콜을 확장할 수 있습니다. 프로토콜 스스로 동작 방식에 대해 정의하도록 합니다.
+
+// 프로토콜을 확장하여 스스로 요구 메서드를 직접 구현하여 제공할 수 있습니다.
+extension RandomNumberGenerator {
+    func randomBool() -> Bool {
+        random() > 0.5
+    }
+}
+
+// 프로토콜 확장에서 구현한 메서드를 별 다른 정의 없이 사용할 수 있습니다.
+let generator1 = LinearCongruentialGenerator()
+print("Here's a random number: \(generator1.random())")
+
+// 다만 프로토콜 익스텐션은 새로운 요구사항을 추가할 수는 없습니다. 새로운 기능이나 기본 구현 사항을 제공할 수 있습니다.
 
 // MARK: Providing Default Implementations
+// 프로토콜 익스텐션에서 해당 프로토콜의 요구사항을 기본 구현을 제공하기 위해 사용할 수 있습니다.
+extension PrettyTextRepresentable {
+    var prettyTextualDescription: String {
+        textualDescription
+    }
+}
 
-// MARK: Adding Constraints to Protocol Extensions
+struct Pretty: PrettyTextRepresentable {
+    var textualDescription: String {
+        "textualDescription 구현"
+    }
+}
+
+let pretty = Pretty()
+// PrettyTextRepresentable 프로토콜의 요구사항인 prettyTextualDescription을 구현하지 않았지만 기본 구현을 통해서 사용할 수 있다.
+// 그리고 기본 구현은 기존 요구사항의 내용을 가져다 쓸 수 있다.
+print(pretty.prettyTextualDescription)
+
+// MARK: Adding Constraints to Protocol Extensions(where)
+// 프로토콜 익스텐션을 정의할 때 익스텐션에 정의한 메서드와 속성을 사용하기 전에 만족해야할 조건을 지정할 수 있습니다.
+
+// Collection 프로토콜에서 Element가 Equatable을 만족해야 allEqual 메서드를 사용할 수 있다.
+extension Collection where Element: Equatable {
+    func allEqual() -> Bool {
+        for element in self {
+            if element != self.first {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+let equalNumbers = [100, 100, 100, 100, 100]
+let differentNumbers = [100, 100, 200, 100, 200]
+
+// 배열은 Collection을 준수하고 또 Element는 Equatable을 준수하고 있으니 Collection 익스텐션의 allEqual() 메서드를 사용할 수 있습니다.
+print(equalNumbers.allEqual())
+print(differentNumbers.allEqual())
