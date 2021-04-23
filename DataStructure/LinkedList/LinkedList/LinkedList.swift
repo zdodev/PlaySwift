@@ -1,14 +1,13 @@
 class Node<T> {
     let data: T
     fileprivate var next: Node?
-    weak var previous: Node?
     
     init(_ data: T) {
         self.data = data
     }
 }
 
-struct LinkedList<T> {
+struct LinkedList<T: Equatable> {
     private var head: Node<T>?
     private var tail: Node<T>?
     
@@ -16,7 +15,6 @@ struct LinkedList<T> {
         let newNode = Node(value)
         
         if let tailNode = tail {
-            newNode.previous = tailNode
             tailNode.next = newNode
         } else {
             head = newNode
@@ -25,22 +23,18 @@ struct LinkedList<T> {
         tail = newNode
     }
     
-    func nodeAt(index: Int) -> Node<T>? {
-        if index >= 0 {
-            var node = head
-            var i = index
-            
-            while node != nil {
-                if i == 0 {
-                    return node
-                }
-                i -= 1
-                node = node!.next
+    func remove(value: T) {
+        var currentNode = head
+
+        while currentNode?.next != nil {
+            if let data = currentNode?.next?.data, data == value {
+                currentNode?.next = currentNode?.next?.next
+            } else {
+                currentNode = currentNode?.next
             }
         }
-        
-        return nil
     }
+    
     
     func isEmpty() -> Bool {
         head == nil
@@ -50,12 +44,12 @@ struct LinkedList<T> {
 extension LinkedList: CustomStringConvertible {
     var description: String {
         var text = "["
-        var node = head
+        var currentNode = head
         
-        while node != nil {
-            text += "\(node!.data)"
-            node = node!.next
-            if node != nil {
+        while currentNode != nil {
+            text += "\(currentNode!.data)"
+            currentNode = currentNode!.next
+            if currentNode != nil {
                 text += ", "
             }
         }
