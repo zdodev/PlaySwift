@@ -1,3 +1,7 @@
+### 6763번 Speed fines are not fine!
+
+- 구현
+
 ### 5928번 Content Timing
 
 - 수학
