@@ -1,3 +1,9 @@
+### 6768번 Don't pass me the ball
+
+- 수학
+- 조합론
+- 사칙연산
+
 ### 6764번 Sounds fishy!
 
 - 구현
