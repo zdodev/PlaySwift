@@ -1,3 +1,7 @@
+### 6778번 Which Alien?
+
+- 구현
+
 ### 6768번 Don't pass me the ball
 
 - 수학
