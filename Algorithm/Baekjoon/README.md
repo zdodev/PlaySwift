@@ -1,3 +1,7 @@
+### 8710번 Koszykarz
+
+- 수학
+
 ### 6778번 Which Alien?
 
 - 구현
