@@ -13,7 +13,7 @@
 
 // open access, public access: 다른 모듈에 있는 소스 파일에서도 접근할 수 있습니다.
 
-// internal access: 모듈 내에서 접근할 수 있습니다.
+// internal access: 모듈 내에서 접근할 수 있습니다. 기본 접근 수준입니다.
 
 // file-private access: 선언된 소스 파일내에서 접근할 수 있습니다.
 
@@ -52,92 +52,171 @@ internal class SomeInternalClass {}
 fileprivate class SomeFilePrivateClass {}
 private class SomePrivateClass {}
 
+// 함수
 public func somePublicFunction() {}
 internal func someInternalFunction() {}
 fileprivate func someFilePrivateFunction() {}
 private func somePrivateFunction() {}
 
+// 변수, 상수
 public let someOpenConstant = 0
 internal let someInternalConstant = 0
 fileprivate let someFilePrivateConstant = 0
 private let somePrivateConstant = 0
 
-/// Custom Types
+//MARK: - Custom Types
+/*
+ 타입의 접근 제어 수준은 타입의 멤버에도 영향을 미칩니다. 타입의 접근 수준을 private이나 fileprivate으로 정의하면 멤버의 기본 접근 수준도 private이나 fileprivate이 됩니다.
+ 타입의 접근 수준보다 높은 접근 수준을 가진 개체를 선언하는 것은 가능합니다만, 의미가 있을까 싶습니다.
+ */
 
+// open 접근 수준
+open class SomeOpenClass1 {
+    open var someOpenProperty = 0
+    public var somePublicProperty = 0
+    var someInternalProperty = 0
+    fileprivate var someFilePrivateProperty = 0
+    private var somePrivateProperty = 0
+    
+    open func someOpenPublicFunction() {}
+    public func somePublicFunction() {}
+    func someInternalFunction() {}
+    fileprivate func someFilePrivateFunction() {}
+    private func somePrivateFunction() {}
+}
+
+// public 접근 수준
 public class SomePublicClass1 {
     public var somePublicProperty = 0
     var someInternalProperty = 0
     fileprivate var someFilePrivateProperty = 0
     private var somePrivateProperty = 0
     
+    open func someOpenPublicFunction() {}
     public func somePublicFunction() {}
     func someInternalFunction() {}
     fileprivate func someFilePrivateFunction() {}
     private func somePrivateFunction() {}
 }
 
+// internal 접근 수준
 class SomeInternalClass1 {
-    public var somePublicProperty = 0
     var someInternalProperty = 0
     fileprivate var someFilePrivateProperty = 0
     private var somePrivateProperty = 0
     
-    public func somePublicFunction() {}
     func someInternalFunction() {}
     fileprivate func someFilePrivateFunction() {}
     private func somePrivateFunction() {}
 }
 
+// fileprivate 접근 수준
 fileprivate class SomeFilePrivateClass1 {
-    public var somePublicProperty = 0
     var someInternalProperty = 0
     fileprivate var someFilePrivateProperty = 0
     private var somePrivateProperty = 0
     
-    public func somePublicFunction() {}
     func someInternalFunction() {}
     fileprivate func someFilePrivateFunction() {}
     private func somePrivateFunction() {}
 }
 
+// private 접근 수준
 private class SomePrivateClass1 {
-    public var somePublicProperty = 0
     var someInternalProperty = 0
     fileprivate var someFilePrivateProperty = 0
     private var somePrivateProperty = 0
     
-    public func somePublicFunction() {}
     func someInternalFunction() {}
     fileprivate func someFilePrivateFunction() {}
     private func somePrivateFunction() {}
 }
 
-/// Tuple Types
-
-/// Function Types
-
+//MARK: Tuple Types
 /*
-func someFunction() -> (SomeInternalClass, SomePrivateClass) {
-    (SomeInternalClass(), SomePrivateClass())
-}
+ 튜플은 튜플에 사용된 타입 중 접근 수준이 가장 낮은 타입으로 설정됩니다. 튜플은 튜플을 이루는 타입에 의해 접근 수준이 자동으로 결정됩니다.
  */
 
-private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
-    (SomeInternalClass(), SomePrivateClass())
+// 튜플 타입의 수준이 public 이므로 public 튜플 선언 가능
+public let somePublicTuple = (1, SomePublicClass1())
+
+// 튜플 타입의 수준이 internal 이므로 internal 튜플 선언 가능
+let someInternalTuple = (1, SomeInternalClass1())
+
+// 튜플 타입의 수준이 fileprivate 이므로 fileprivate 튜플 선언 가능
+fileprivate let someFilePrivateTuple = (1, SomeFilePrivateClass1())
+
+// SomePrivateClass1 범위가 현재 소스코드
+fileprivate let someFilePrivateTuple1 = (1, SomePrivateClass1())
+
+// 튜플 타입의 수준이 private 이므로 private 튜플 선언 가능
+private let somePrivateTuple1 = (1, SomePrivateClass1())
+
+//MARK: Function Types
+/*
+ 함수는 매개 변수 타입과 반환 타입 중 접근 수준이 가장 낮은 타입으로 설정됩니다.
+ */
+
+// 반환 타입이 public 이므로 public 함수 선언 가능
+public func somePublicFunction1() -> SomePublicClass1 {
+    SomePublicClass1()
 }
 
-/// Enumeration Types
-
-public enum CompassPoint {
-    case north
-    case south
-    case east
-    case west
+// 반환 타입이 internal 이므로 internal 함수 선언 가능
+func someInternalFunction1() -> SomeInternalClass1 {
+    SomeInternalClass1()
 }
 
-/// Raw Values and Associated Values
+// 반환 타입이 fileprivate 이므로 fileprivate 함수 선언 가능
+fileprivate func someFilePrivateFunction1() -> SomeFilePrivateClass1 {
+    SomeFilePrivateClass1()
+}
 
-/// Nested Types
+// SomePrivateClass1 범위가 현재 소스코드
+fileprivate func someFilePrivateFunction1() -> SomePrivateClass1 {
+    SomePrivateClass1()
+}
+
+// 반환 타입이 private 이므로 private 함수 선언 가능
+private func somePrivateFunction1() -> SomePrivateClass1 {
+    SomePrivateClass1()
+}
+
+//MARK: Enumeration Types
+/*
+ 열거형의 case는 열거형의 접근 수준과 동일합니다. 개별 접근 수준을 가질 수 없습니다.
+ */
+
+public enum SomePublicEnumeration {
+    case open
+}
+
+enum SomeInternalEnumeration {
+    case open
+}
+
+fileprivate enum SomeFilePrivateEnumeration {
+    case open
+}
+
+private enum SomePrivateEnumeration {
+    case open
+}
+
+//MARK: Raw Values and Associated Values
+/*
+ raw values 및 associated values로 사용된 타입은 열거형의 접근 수준만큼 높아야 합니다.
+ */
+
+//MARK: Nested Types
+/*
+ 자신을 담은 타입이 public이 아니라면 자신을 담은 타입과 똑같습니다. public 안에서 정의한 중첩 타입은 자동으로 internal 접근 수준을 가집니다.
+ */
+
+// public: 외부 모듈에 공개할 것인가
+// internal: 내부 모듈에 공개할 것인가
+// fileprivate: 소스파일 내부에 공개할 것인가
+// private: 나만 사용할 것인가
 
 /// Subclassing
 
