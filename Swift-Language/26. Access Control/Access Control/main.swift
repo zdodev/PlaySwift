@@ -331,9 +331,12 @@ private protocol somePrivateProtocol {
 struct Excel: somePrivateProtocol {
 }
 
-/// Extensions
+//MARK: - Extensions
+/*
+ 익스텐션에 추가한 타입 어떠한 멤버든 확장 중인 원본 타입에서 선언한 타입 멤버와 똑같은 기본 접근 수준을 가집니다.
+ */
 
-/// Private Members in Extensions
+//MARK: Private Members in Extensions
 
 protocol PrivateMemberProtocol {
     func doSomething()
@@ -344,11 +347,18 @@ struct PrivateMemberStruct {
 }
 
 extension PrivateMemberStruct: PrivateMemberProtocol {
+    // 익스텐션에서 private 프로퍼티 접근
     func doSomething() {
         print(privateVariable)
     }
 }
 
-/// Generics
+//MARK: - Generics
+/*
+ 제네릭은 제네릭 타입, 함수 자신, 타입 매개변수에 대한 어떤 타입 구속 조건의 접근 수준 중에서의 최소값입니다.
+ */
 
-/// Type Aliases
+//MARK: - Type Aliases
+/*
+ 타입 별칭은 별명을 붙인 타입의 접근 수준보다 낮거나 같은 접근 수준을 가질 수 있습니다.
+ */
