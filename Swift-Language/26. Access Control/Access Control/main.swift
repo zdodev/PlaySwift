@@ -1,18 +1,47 @@
-/// Access Control
+//MARK: - Access Control
+/*
+ 접근 제어는 코드에 접근할 수 있는 범위를 지정하는 것입니다.
+ */
 
-/// Modules and Source Files
+//MARK: - Modules and Source Files
+/*
+ Swift의 접근 제어 모델은 모듈과 소스 파일에 기초합니다. Xcode는 build target은 별도의 모듈로 취급합니다.
+ 소스 파일은 모듈 안에 Swift 소스 코드 파일을 말합니다.
+ */
 
-/// Access Levels
+//MARK: - Access Levels
 
-/// Guiding Principle of Access Levels
+// open access, public access: 다른 모듈에 있는 소스 파일에서도 접근할 수 있습니다.
 
-/// Default Access Levels
+// internal access: 모듈 내에서 접근할 수 있습니다.
 
-/// Access Levels for Single-Target Apps
+// file-private access: 선언된 소스 파일내에서 접근할 수 있습니다.
 
-/// Access Levels for Frameworks
+// private access: 자신을 둘러싼 선언과 익스텐션 내에서 접근할 수 있습니다.
 
-/// Access Levels for Unit Test Targets
+//MARK: Guiding Principle of Access Levels
+/*
+ Swift는 어떤 개체도 더 낮은 접근 수준을 가진 다른 개체를 써서 정의할 수 없습니다.
+ public 변수는 internal, file-private, private 타입을 가지도록 정의할 수 없습니다.
+ 함수는 자신의 매개 변수 타입 및 반환 타입보다 더 높은 접근 수준을 가질 수 없습니다.
+ */
+
+//MARK: Default Access Levels
+// 접근 수준을 명시하지 않으면 기본적으로 internal 수준으로 설정됩니다.
+
+//MARK: Access Levels for Single-Target Apps
+// 외부에서 사용할 모듈이 아니므로 internal 접근 수준이면 충분합니다.
+// 세부 구현 사항을 숨기기 위해 fileprivate과 private을 사용합니다.
+
+//MARK: Access Levels for Frameworks
+/*
+ 외부에서 사용할 모듈이기 때문에 외부 인터페이스를 open이나 public으로 설정합니다. API 부분만 open과 public으로 설정합니다.
+ */
+
+//MARK: Access Levels for Unit Test Targets
+/*
+ 단위 테스트 대상은 @testable import 선언을 하면 internal 개체에 접근할 수 있습니다.
+ */
 
 /// Access Control Syntax
 
