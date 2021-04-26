@@ -280,13 +280,19 @@ public struct TackedString1 {
     }
 }
 
-/// Initializers
+//MARK: - Initializers
+/*
+ 이니셜라이저는 초기화하는 타입보다 더 낮거나 같은 접근 수준을 설정할 수 있습니다. 단, 필수 이니셜라이저는 자신의 클래스 접근 수준과 동일한 수준을 가져야 합니다.
+ */
 
-/// Default Initializers
+//MARK: Default Initializers
+/*
+ 디폴트 이니셜라이저는 public으로 정의하지 않는 한 자신의 타입과 동일한 접근 수준을 가집니다. public의 경우 internal 수준을 가집니다.
+ */
 
-/// Default Memberwise Initializers for Structure Types
+//MARK: Default Memberwise Initializers for Structure Types
 
-/// Protocols
+//MARK: - Protocols
 
 /// Protocol Inheritance
 
