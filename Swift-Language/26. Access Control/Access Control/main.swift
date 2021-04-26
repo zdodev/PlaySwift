@@ -218,15 +218,29 @@ private enum SomePrivateEnumeration {
 // fileprivate: 소스파일 내부에 공개할 것인가
 // private: 나만 사용할 것인가
 
-/// Subclassing
+//MARK: - Subclassing
+/*
+ 현재 접근 상황에서 접근할 수 있으며 동일 모듈에서 하위 클래스로 정의한 어떤 클래스든 하위 클래스로 만들 수 있습니다.
+ 하위 클래스는 자신의 상위 클래스보다 더 높은 접근 수준을 가질 수 없습니다.
+ */
 
+/*
+ 상위 클래스의 접근 수준보다 더 높게 오버라이드를 하거나 더 낮게 오버라이드를 할 수 있습니다.
+ */
 public class A {
-    fileprivate func someMethod() {}
+    public func someMethod() {}
+    fileprivate func someFilePrivateMethod() {}
 }
 
 class B: A {
+    // 접근 수준을 더 낮게
     override func someMethod() {
         super.someMethod()
+    }
+    
+    // 접근 수준을 더 높게
+    override func someFilePrivateMethod() {
+        super.someFilePrivateMethod()
     }
 }
 
