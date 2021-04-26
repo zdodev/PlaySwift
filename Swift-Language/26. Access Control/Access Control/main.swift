@@ -293,10 +293,43 @@ public struct TackedString1 {
 //MARK: Default Memberwise Initializers for Structure Types
 
 //MARK: - Protocols
+/*
+ 정해진 접근 상황일 때만 채택할 수 있는 프로토콜을 생성할 수 있습니다. 프로토콜의 필수 요구사항은 프로토콜과 같은 접근 수준으로 설정됩니다.
+ 이는 프로토콜을 채택하는 어떤 타입이든 프로토콜의 모든 필수 요구사항을 볼 수 있도록 보장합니다.
+ */
 
-/// Protocol Inheritance
+public protocol SomePublicProtocol {
+    var a: Int { get }
+    var b: Int { get set }
+    func update()
+}
 
-/// Protocol Conformance
+protocol SomeInternalProtocol {
+    // ...
+}
+
+fileprivate protocol someFilePrivateProtocol {
+    // ...
+}
+
+private protocol somePrivateProtocol {
+    // ...
+}
+
+//MARK: Protocol Inheritance
+/*
+ 기존 프로토콜을 상속하여 새로운 프로토콜을 정의할 경우, 하위 프로토콜은 상위 프로토콜보다 더 높은 접근 수준을 가질 수 없습니다.
+ */
+
+//MARK: Protocol Conformance
+/*
+ 타입은 타입 자신보다 더 낮은 수준의 프로토콜을 준수할 수 있습니다.
+ 다른 모듈에서 사용할 수 잇지만 내부 프로토콜에 대한 자신의 준수성은 내부 프로토콜을 정의한 모듈 안에서만 사용할 수 있는 public 타입을 정의할 수 있습니다.
+ 프로토콜을 준수하기 위해 타입을 작성하거나 확장할 때는 프로토콜 필수 요구사항에 대한 타입의 구현이 적어도 해당 프로토콜에 대한 타입의 준수성과 똑같은 접근 수준을 가지도록 반드시 보장해야 합니다.
+ */
+
+struct Excel: somePrivateProtocol {
+}
 
 /// Extensions
 
