@@ -43,21 +43,22 @@
  단위 테스트 대상은 @testable import 선언을 하면 internal 개체에 접근할 수 있습니다.
  */
 
-/// Access Control Syntax
+//MARK: - Access Control Syntax
 
+// 클래스
 open class SomeOpenClass {}
 public class SomePublicClass {}
-internal class SomeInternalClass {} // Defalut Access Level
+internal class SomeInternalClass {}
 fileprivate class SomeFilePrivateClass {}
 private class SomePrivateClass {}
 
 public func somePublicFunction() {}
-internal func someInternalFunction() {} // Defalut Access Level
+internal func someInternalFunction() {}
 fileprivate func someFilePrivateFunction() {}
 private func somePrivateFunction() {}
 
 public let someOpenConstant = 0
-internal let someInternalConstant = 0 // Defalut Access Level
+internal let someInternalConstant = 0
 fileprivate let someFilePrivateConstant = 0
 private let somePrivateConstant = 0
 
