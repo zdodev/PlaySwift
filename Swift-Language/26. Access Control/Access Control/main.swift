@@ -244,38 +244,40 @@ class B: A {
     }
 }
 
-/// Constants, Variables, Properties, and Subscripts
+//MARK: - Constants, Variables, Properties, and Subscripts
+/*
+ 상수, 변수, 프로퍼티, 서브스크립트는 자신의 타입보다 더 높은 접근 수준을 가질 수 없습니다.
+ 상수, 변수, 프로퍼티, 서브스크립트가 private 타입을 사용할 경우, 상수, 변수, 프로퍼티, 서브스크립트도 반드시 private 접근 수준으로 선언해야 합니다.
+ */
 
 private var privateInstance = SomePrivateClass()
 
-/// Getters and Setters
+//MARK: Getters and Setters
+/*
+ 기본적으로 게터와 세터는 자신이 속한 상수, 변수, 프로퍼티, 서브스크립트와 같은 접근 수준을 자동으로 가집니다.
+ 
+ 세터는 게터보다 더 낮은 접근 수준을 설정할 수 있습니다. 더 낮은 접근 수준은 다음과 같이 설정합니다.
+ internal(set)
+ fileprivate(set)
+ private(set)
+ */
 
 struct TrackedString {
     private(set) var numberOfEdits = 0
-    var value: String = "" {
+    var value = "" {
         didSet {
             numberOfEdits += 1
         }
     }
 }
 
-/*
-var stringToEdit = TrackedString()
-stringToEdit.value = "This is string will be tracked."
-stringToEdit.value += " This edit will increment numberOfEdits."
-stringToEdit.value += " So will this one."
- */
-//print("The nubmer of edits is \(stringToEdit.numberOfEdits)")
-
-public struct TrackedString1 {
+public struct TackedString1 {
     public private(set) var numberOfEdits = 0
     public var value: String = "" {
         didSet {
             numberOfEdits += 1
         }
     }
-    
-    public init() {}
 }
 
 /// Initializers
