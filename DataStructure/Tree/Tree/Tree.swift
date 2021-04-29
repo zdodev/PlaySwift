@@ -69,4 +69,22 @@ class BinaryTreeNode<T: Comparable> {
         traversePostOrder(node: node.rightChild)
         print(node.value)
     }
+    
+    func search(value: T) -> BinaryTreeNode? {
+        if self.value == value {
+            return self
+        }
+        
+        if self.value > value {
+            guard let left = leftChild else {
+                return nil
+            }
+            return left.search(value: value)
+        } else {
+            guard let right = rightChild else {
+                return nil
+            }
+            return right.search(value: value)
+        }
+    }
 }
