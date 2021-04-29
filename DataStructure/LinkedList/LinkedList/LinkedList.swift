@@ -1,13 +1,13 @@
-class Node<T> {
-    let data: T
-    fileprivate var next: Node?
-    
-    init(_ data: T) {
-        self.data = data
-    }
-}
-
 struct LinkedList<T: Equatable> {
+    class Node<T> {
+        let data: T
+        fileprivate var next: Node?
+        
+        init(_ data: T) {
+            self.data = data
+        }
+    }
+    
     private var head: Node<T>?
     private var tail: Node<T>?
     
