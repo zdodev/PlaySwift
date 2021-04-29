@@ -12,7 +12,7 @@ class BinaryTreeNode<T: Comparable> {
     }
     
     func insertNodeFromRoot(value: T) {
-        guard let _ = parent else {
+        if let _ = parent {
             print("not root node.")
             return
         }
@@ -38,5 +38,15 @@ class BinaryTreeNode<T: Comparable> {
                 rightChild = newNode
             }
         }
+    }
+    
+    func traverseInOrder(node: BinaryTreeNode?) {
+        guard let node = node else {
+            return
+        }
+        
+        traverseInOrder(node: node.leftChild)
+        print(node.value)
+        traverseInOrder(node: node.rightChild)
     }
 }
