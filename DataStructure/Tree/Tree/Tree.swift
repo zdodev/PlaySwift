@@ -10,4 +10,33 @@ class BinaryTreeNode<T: Comparable> {
         self.rightChild = rightChild
         self.parent = parent
     }
+    
+    func insertNodeFromRoot(value: T) {
+        guard let _ = parent else {
+            print("not root node.")
+            return
+        }
+        
+        addNode(value: value)
+    }
+    
+    private func addNode(value: T) {
+        if value < self.value {
+            if let leftChild = leftChild {
+                leftChild.addNode(value: value)
+            } else {
+                let newNode = BinaryTreeNode(value: value)
+                newNode.parent = self
+                leftChild = newNode
+            }
+        } else {
+            if let rightChild = rightChild {
+                rightChild.addNode(value: value)
+            } else {
+                let newNode = BinaryTreeNode(value: value)
+                newNode.parent = self
+                rightChild = newNode
+            }
+        }
+    }
 }
