@@ -5,4 +5,6 @@ rootNode.insertNodeFromRoot(value: 21)
 rootNode.insertNodeFromRoot(value: 8)
 rootNode.insertNodeFromRoot(value: 4)
 
-rootNode.traverseInOrder(node: rootNode)
+//rootNode.traverseInOrder(node: rootNode)
+//rootNode.traversePreOrder(node: rootNode)
+rootNode.traversePostOrder(node: rootNode)

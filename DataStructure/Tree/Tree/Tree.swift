@@ -49,4 +49,24 @@ class BinaryTreeNode<T: Comparable> {
         print(node.value)
         traverseInOrder(node: node.rightChild)
     }
+    
+    func traversePreOrder(node: BinaryTreeNode?) {
+        guard let node = node else {
+            return
+        }
+        
+        print(node.value)
+        traversePreOrder(node: node.leftChild)
+        traversePreOrder(node: node.rightChild)
+    }
+    
+    func traversePostOrder(node: BinaryTreeNode?) {
+        guard let node = node else {
+            return
+        }
+        
+        traversePostOrder(node: node.leftChild)
+        traversePostOrder(node: node.rightChild)
+        print(node.value)
+    }
 }
