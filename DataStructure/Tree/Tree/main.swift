@@ -9,5 +9,10 @@ rootNode.insertNodeFromRoot(value: 4)
 //rootNode.traversePreOrder(node: rootNode)
 //rootNode.traversePostOrder(node: rootNode)
 
-print("Search result: \(rootNode.search(value: 1)?.value)")
-print("Search result: \(rootNode.search(value: 4)?.value)")
+//print("Search result: \(rootNode.search(value: 1)?.value)")
+//print("Search result: \(rootNode.search(value: 4)?.value)")
+
+rootNode.leftChild?.delete()
+rootNode.traverseInOrder(node: rootNode)
+rootNode.rightChild?.delete()
+rootNode.traverseInOrder(node: rootNode)
