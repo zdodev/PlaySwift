@@ -1,3 +1,7 @@
+### 13597번 Tri-du
+
+- 구현
+
 ### 13136번 Do Not Touch Anything
 
 - 수학
