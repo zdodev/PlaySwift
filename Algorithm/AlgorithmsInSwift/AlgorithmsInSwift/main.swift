@@ -23,8 +23,35 @@ var array = [Int]()
 // 특정 값으로 저장된 배열 만들기
 var array2 = Array(repeating: 3, count: 5)
 
-// 2차원 배열 만들기
+// 빈 2차원 배열 만들기
 var matrix = [[Int]]()
+
+// 2차원 배열 탐색
+var matrix1 = [
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+]
+
+for row in 0..<matrix1.count {
+    for column in 0..<matrix1[0].count {
+        let val = matrix1[row][column]
+    }
+}
+
+// 2차원 배열 방향 탐색
+let dx = [0, -1, 0, 1]
+let dy = [1, 0, -1, 0]
+
+let x = 2
+let y = 2
+
+for index in 0...2 {
+    let nx = x + dx[index]
+    let ny = y + dy[index]
+}
 
 // 배열 뒤집기
 array.reverse()
