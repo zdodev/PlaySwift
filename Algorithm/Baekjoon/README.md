@@ -1,3 +1,7 @@
+### 14173번 Square Pasture
+
+- 수학
+
 ### 14065번 Gorivo
 
 - 수학
