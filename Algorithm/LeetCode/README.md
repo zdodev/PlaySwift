@@ -1,3 +1,10 @@
+### 17번 Letter Combinations of a Phone Number
+
+- String
+- Backtracking
+- Depth-first Search
+- Recursion
+
 ### 200번 Number of Islands
 
 - Depth-first Search
