@@ -1,3 +1,7 @@
+### 46번 Permutations
+
+- Backtracking
+
 ### 17번 Letter Combinations of a Phone Number
 
 - String
