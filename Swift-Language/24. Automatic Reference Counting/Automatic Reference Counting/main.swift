@@ -1,316 +1,125 @@
-/// Automatic Reference Counting
-class AutomaticReferenceCounting {
+//MARK: -  Automatic Reference Counting
+/*
+ Swift는 메모리를 추적하고 관리하기 위해 ARC를 사용합니다. ARC는 메모리 관리를 자동으로 해주며 프로그래머가 생각할 필요가 없게 만들어줍니다. ARC는 클래스 인스턴스가 더 이상 필요하지 않은 경우 그 인스턴스가 사용하는 메모리를 자동으로 해제합니다.
+ 
+ Swift ARC는 참조 타입인 클래스 인스턴스에만 적용됩니다. 갑 타입인 구조체와 열거형은 적용되지 않습니다.
+ */
+
+//MARK: - How ARC Works
+/*
+ 새로운 클래스 인스턴스를 생성할 때마다, ARC는 인스턴스 정보에 대한 정보를 저장하는 chunk를 할당합니다.
+ 
+ Reference Counting은 Swift의 메모리 관리 기법으로 메모리 관리 기법이란 동적 메모리를 자동으로 할당하고 해제하는 것을 말합니다.
+ 
+ 인스턴스가 더 이상 필요하지 않으면 ARC는 해당 인스턴스가 사용하는 메모리를 해제하여 메모리 공간을 확보합니다. 인스턴스가 존재하는 동안 ARC는 현재 각각의 클래스 인스턴스를 몇 개의 프로퍼티들이 참조하고 있는지 추적합니다. ARC는 해당 인스턴스에 대한 하나 이상의 참조가 존재하면 메모리에서 해제하지 않습니다.
+ 
+ 인스턴스 메모리 추적을 위해서 프로퍼티를 할당할 때마다 Strong Reference를 추가합니다.
+ */
+
+//MARK: - ARC in Action
+
+class Person {
+    let name: String
     
-    /// How ARC Works
-    
-    /// ARC in Action
-    
-    func ARCInAction() {
-        class Person {
-            let name: String
-            
-            init(name: String) {
-                self.name = name
-                print("\(name) is being initialized")
-            }
-            
-            deinit {
-                print("\(name) is being deinitialized")
-            }
-        }
-        
-        var reference1: Person?
-        var reference2: Person?
-        var reference3: Person?
-        
-        reference1 = Person(name: "ARC John Appleseed")
-        reference2 = reference1
-        reference3 = reference1
-        
-        reference1 = nil
-        reference2 = nil
-        reference3 = nil
+    init(name: String) {
+        self.name = name
+        print("\(name) is being initialized")
     }
     
-    /// Strong Reference Cycles between Class Instances
-    
-    func strongReferenceCyclesBetweenClassInstances() {
-        class Person {
-            let name: String
-            var apartment: Apartment?
-            
-            init(name: String) {
-                self.name = name
-            }
-            
-            deinit {
-                print("Person \(name) is being deinitialized")
-            }
-        }
-        
-        class Apartment {
-            let unit: String
-            var tenant: Person?
-            
-            init(unit: String) {
-                self.unit = unit
-            }
-            
-            deinit {
-                print("Apartment \(unit) is being deinitialized")
-            }
-        }
-        
-        var john: Person?
-        var unit4A: Apartment?
-        
-        john = Person(name: "John Appleseed")
-        unit4A = Apartment(unit: "4A")
-        
-        john?.apartment = unit4A
-        unit4A?.tenant = john
-        
-        john = nil
-        unit4A = nil
-    }
-    
-    /// Resolving Strong Reference Cycles between Class Instances
-    
-    /// Weak References
-    
-    func weakReferences() {
-        class Person {
-            let name: String
-            var apartment: Apartment?
-            
-            
-            init(name: String) {
-                self.name = name
-            }
-            
-            deinit {
-                print("\(name) is being deinitialized")
-            }
-        }
-        
-        class Apartment {
-            let unit: String
-            weak var tenant: Person?
-            
-            init(unit: String) {
-                self.unit = unit
-            }
-            
-            deinit {
-                print("Apartment \(unit) is being deinitialized")
-            }
-        }
-        
-        var john: Person?
-        var unit4A: Apartment?
-        
-        john = Person(name: "Grace Appleseed")
-        unit4A = Apartment(unit: "4A")
-        
-        john?.apartment = unit4A
-        unit4A?.tenant = john
-        
-        john = nil
-        unit4A = nil
-    }
-    
-    /// Unowned References
-    
-    func unownedReferences() {
-        class Customer {
-            let name: String
-            var card: CreditCard?
-            
-            init(name: String) {
-                self.name = name
-                print("\(name) is being initialized")
-            }
-            
-            deinit {
-                print("\(name) is being deinitialized")
-            }
-        }
-        
-        class CreditCard {
-            let number: UInt64
-            unowned let customer: Customer
-            
-            init(number: UInt64, customer: Customer) {
-                self.number = number
-                self.customer = customer
-                print("Card #\(number) is being initialized")
-            }
-            
-            deinit {
-                print("Card #\(number) is being deinitialized")
-            }
-        }
-        
-        var john: Customer?
-        john = Customer(name: "John Appleseed")
-        john?.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
-        
-        john = nil
-        
-        class UnownedUnsafe {
-            unowned(unsafe) var name: Customer?
-        }
-    }
-    
-    /// Unowned Optional References
-    
-    func unownedOptionalRefereces() {
-        class Department {
-            var name: String
-            var courses: [Course]
-            
-            init(name: String) {
-                self.name = name
-                self.courses = []
-            }
-        }
-        
-        class Course {
-            var name: String
-            unowned var department: Department
-            unowned var nextCourse: Course?
-            
-            init(name: String, in department: Department) {
-                self.name = name
-                self.department = department
-            }
-        }
-        
-        let department: Department = Department(name: "Horticulture")
-        
-        let intro = Course(name: "Survey of Plants", in: department)
-        let intermediate = Course(name: "Growing Common Herbs", in: department)
-        let advanced = Course(name: "Caring for Tropical Plants", in: department)
-        
-        intro.nextCourse = intermediate
-        intermediate.nextCourse = advanced
-        department.courses = [intro, intermediate, advanced]
-    }
-    
-    /// Unowned References and Implicitly Unwrapped Optional Properties
-    
-    func unownedReferencesAndImplicitlyUnwrappedOptionalProperties() {
-        class Country {
-            let name: String
-            var capitalCity: City!
-            
-            init(name: String, capitalName: String) {
-                self.name = name
-                self.capitalCity = City(name: capitalName, country: self)
-            }
-        }
-        
-        class City {
-            let name: String
-            unowned let country: Country
-            
-            init(name: String, country: Country) {
-                self.name = name
-                self.country = country
-            }
-        }
-        
-        let country = Country(name: "Korea", capitalName: "Seoul")
-        print("\(country.name)'s capital city is called \(country.capitalCity.name)")
-    }
-    
-    /// Strong Reference Cycles for Closures
-    
-    func strongReferenceCyclesForClosures() {
-        class HTMLElement {
-            let name: String
-            let text: String?
-            
-            lazy var asHTML: () -> String = {
-                if let text = self.text {
-                    return "<\(self.name)>\(text)</\(self.name)>"
-                } else {
-                    return "<\(self.name) />"
-                }
-            }
-            
-            init(name: String, text: String? = nil) {
-                self.name = name
-                self.text = text
-            }
-            
-            deinit {
-                print("\(name) is being deinitialized")
-            }
-        }
-        
-        let heading = HTMLElement(name: "h1")
-        let defaultText = "some default text"
-        heading.asHTML = {
-            "<\(heading.name)>\(heading.text ?? defaultText)</\(heading.name)>"
-        }
-        print(heading.asHTML())
-        
-        var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
-        print(paragraph!.asHTML())
-        
-        paragraph = nil
-    }
-    
-    /// Resolving Strong Reference Cycles for Closures
-    
-    /// Defining a Capture List
-    
-    func definingACaptureList() {
-        class SomeClass {
-            var delegate: SomeClass!
-            
-            lazy var someClosure1 = {
-                [unowned self, weak delegate = self.delegate]
-                (index: Int, stringToProcess: String) -> String in
-                "someClosure1"
-            }
-            
-            lazy var someClosure2 = {
-                [unowned self, weak delegate = self.delegate] in
-            }
-        }
-    }
-    
-    /// Weak and Unowned References
-    
-    func weakAndUnownedReferences() {
-        class HTMLElement {
-            let name: String
-            let text: String?
-            
-            lazy var asHTML: () -> String = {
-                [unowned self] in
-                if let text = self.text {
-                    return "<\(self.name)>\(text)</\(self.name)>"
-                } else {
-                    return "</\(self.name) />"
-                }
-            }
-            
-            init(name: String, text: String? = nil) {
-                self.name = name
-                self.text = text
-            }
-            
-            deinit {
-                print("\(name) is being deinitialized")
-            }
-        }
-        
-        var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
-        print(paragraph!.asHTML())
-        
-        paragraph = nil
+    deinit {
+        print("\(name) is being deinitialized")
     }
 }
+
+var reference1: Person?
+var reference2: Person?
+var reference3: Person?
+
+// 초기화가 일어납니다. Strong Reference가 생겼습니다.
+reference1 = Person(name: "John Appleseed")
+
+// Strong Reference가 2개 더 생겼습니다.
+reference2 = reference1
+reference3 = reference1
+
+// Strong Reference가 2개 삭제되었습니다.
+// 아직 deinitializer가 호출되지 않았습니다.
+reference1 = nil
+reference2 = nil
+
+// 하나 남은 Strong Reference가 삭제되었습니다.
+// deinitializer가 호출됩니다.
+reference3 = nil
+
+//MARK: - Strong  Reference Cycles Between Class Instances
+/*
+ 문제 1 - 인스턴스 사이에 Strong Reference Cycle이 발생할 수 있다.
+ 두 인스턴스가 서로를 Strong Reference로 참조하고 있을 경우 서로가 메모리에서 해제되지 않을 수 있습니다.
+ */
+
+class Person1 {
+    let name: String
+    // Apartment 타입 Strong Reference
+    var apartment: Apartment?
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    deinit {
+        print("\(name) is being deinitialized")
+    }
+}
+
+class Apartment {
+    let unit: String
+    // Person1 타입 Strong Reference
+    var tenant: Person1?
+    
+    init(unit: String) {
+        self.unit = unit
+    }
+    
+    deinit {
+        print("Apartment \(unit) is being deinitialized")
+    }
+}
+
+var john: Person1?
+var unit4A: Apartment?
+
+// person1 instance Reference Count 1
+john = Person1(name: "John Appleseed")
+// apartment instance Reference Count 1
+unit4A = Apartment(unit: "4A")
+
+// Strong Reference Cycle 발생
+// apartment instance Reference Count 2
+john!.apartment = unit4A
+// person1 instance Reference Count 2
+unit4A!.tenant = john
+
+john = nil
+unit4A = nil
+
+/*
+ Strong Reference Cycle은 메모리 leak을 유발합니다.
+ */
+
+//MARK: - Resolving Strong Reference Cycles Between Class Instances
+
+//MARK: Weak References
+
+//MARK: Unowned References
+
+//MARK: Unowned Optional References
+
+//MARK: Unowned References and Implicitly Unwrapped Optional Properties
+
+//MARK: - Strong Reference Cycles for Closures
+
+//MARK: - Resolving Strong Reference Cycles for Closures
+
+//MARK: Defining a Capture List
+
+//MARK: Weak and Unowned References
