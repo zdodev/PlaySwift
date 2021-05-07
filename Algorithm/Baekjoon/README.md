@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 14935번 FA
+
+- 구현
+
 ### 14924번 폰 노이만과 파리
 
 - 수학
