@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15025번 Judging Moose
+
+- 수학
+- 구현
+
 ### 14935번 FA
 
 - 구현
