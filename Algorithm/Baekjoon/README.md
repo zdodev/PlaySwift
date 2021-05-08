@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15048번 Jogo de Boca
+
+- 수학
+
 ### 15025번 Judging Moose
 
 - 수학
