@@ -16,3 +16,7 @@
     - 조건 설정
     - 실행 액션 설정
     - 액션 실행 후 브레이크 없이 자동 실행
+
+### Symbolic Debugging
+
+- Breakpoint navigator에서 Symbolic Breakpoint를 이용한 디버깅
