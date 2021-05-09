@@ -1,3 +1,8 @@
+### 125번 Valid Palindrome
+
+- Two Pointers
+- String
+
 ### 46번 Permutations
 
 - Backtracking
