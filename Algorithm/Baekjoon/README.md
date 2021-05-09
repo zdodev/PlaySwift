@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15080번 Every Second Counts
+
+- 구현
+
 ### 15059번 Hard choice
 
 - 수학
