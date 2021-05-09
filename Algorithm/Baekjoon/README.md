@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15128번 Congruent Numbers
+
+- 수학
+- 사칙연산
+
 ### 15080번 Every Second Counts
 
 - 구현
