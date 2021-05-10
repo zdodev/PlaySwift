@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15474번 鉛筆
+
+- 수학
+- 사칙연산
+
 ### 15236번 Dominos
 
 - 수학
