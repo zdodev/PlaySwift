@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15236번 Dominos
+
+- 수학
+
 ### 15128번 Congruent Numbers
 
 - 수학
