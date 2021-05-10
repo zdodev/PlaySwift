@@ -55,6 +55,8 @@ reference3 = nil
 /*
  문제 1 - 인스턴스 사이에 Strong Reference Cycle이 발생할 수 있다.
  두 인스턴스가 서로를 Strong Reference로 참조하고 있을 경우 서로가 메모리에서 해제되지 않을 수 있습니다.
+ 
+ 서로가 서로를 참조할 때 Strong Reference Cycle이 발생할 수 있으므로 이를 적절히 해결해야 합니다.
  */
 
 class Person1 {
@@ -168,11 +170,67 @@ unit4A1!.tenant = john1
 john1 = nil
 // 인스턴스가 해제되었으므로 ARC가 tenant 프로퍼티에 nil을 할당
 print(unit4A1?.tenant)
+// nil
 
 // 인스턴스 해제
 unit4A1 = nil
 
 //MARK: Unowned References
+/*
+ unowned reference도 참조하는 인스턴스의 reference couting을 증가시키지 않습니다. unowned reference는 unowned 키워드를 붙여서 선언합니다.
+ 
+ unowned reference는 weak reference와 다르게 항상 인스턴스가 존재한다고 생각하고 접근합니다. 그래서 unowned reference는 옵셔널이 될 수 없으며, ARC도 unowned reference 프로퍼티를 nil로 설정하지 않습니다.
+ 
+ unowned reference는 인스턴스가 절대 해제되지 않을 거라고 생각될 때 사용합니다. 만약 인스턴스가 해제되어 메모리에서 제거된 후 unowned reference 프로퍼티로 접근하면 런타임 에러가 발생합니다.
+ */
+
+class Customer {
+    let name: String
+    // 👀 신용카드는 옵셔널
+    var card: CreditCard?
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    deinit {
+        print("\(name) is being deinitialized")
+    }
+}
+
+class CreditCard {
+    let number: UInt64
+    // 👀 고객은 Unowned Reference
+    unowned private let customer: Customer
+    
+    init(number: UInt64, customer: Customer) {
+        self.number = number
+        self.customer = customer
+    }
+    
+    deinit {
+        print("Card #\(number) is being deinitialized")
+    }
+}
+
+// joy는 customer 인스턴스를 strong reference로 참조합니다.
+// customer 인스턴스는 creditcard 인스턴스를 strong reference로 참조합니다.
+// creditcard 인스턴스는 customer를 unowned reference로 참조합니다.
+var joy: Customer? = Customer(name: "John Appleseed")
+joy!.card = CreditCard(number: 1234_5678_9012_3456, customer: joy!)
+// joy가 customer 인스턴스 참조를 해제하면 reference counting이 0이 되어 customer 인스턴스는 메모리에서 해제됩니다.
+joy = nil
+
+/*
+ 위 예제는 런타임 안전성 검사를 하는 safe unowned reference에 대한 예시입니다.
+ */
+
+//MARK: Unsafe Unowned References
+/*
+ Swift에서는 런타임 안전성 검사를 비활성화하는 unsafe unowned reference도 제공합니다. unsafe unowned reference는 unowned(unsafe) 키워드를 붙여서 선언합니다.
+ 
+ unsafe unowned reference는 인스턴스가 해제되어도 해당 메모리에 접근합니다.
+ */
 
 //MARK: Unowned Optional References
 
