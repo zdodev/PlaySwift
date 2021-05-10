@@ -90,26 +90,12 @@ unit4A = nil
 // 인스턴스 간의 strong reference로 인해 인스턴스가 메모리에서 해제되지 않습니다.
 
 //MARK: - Resolving Strong Reference Cycles Between Class Instances
-/*
- Swift의 Strong Reference Cycle을 해결하기 위한 두 가지 방법을 제공합니다. 하나는 Weak Reference와 다른 하나는 Unowned Reference입니다.
- 
- Weak Reference와 Unowned Reference는 인스턴스를 참조할 때 Reference Counting을 증가시키지 않습니다.
- 
- Weak Reference는 인스턴스의 수명이 짧을 때 사용하고, Unowned Reference는 인스턴스의 수명이 길 때 사용합니다.
- */
 
 //MARK: Weak References
-/*
- Weak Reference는 인스턴스 Reference Counting을 증가시키지 않으며 Weak Reference로 인스턴스를 참조하고 있더라도 ARC가 인스턴스 메모리를 정리합니다. Weak Reference는 정의 앞에 weak 키워드를 붙여서 선언합니다. ARC는 인스턴스를 정리할 때 해당 인스턴스를 Weak Reference 참조하고 있는 프로퍼티에 자동으로 nil을 할당합니다.
- 
- Weak Reference 프로퍼티는 실행 중에 nil을 할당할 수 있어야 하기 때문에 var 옵셔널로 선언해야 합니다.
- 
- ⭐️ ARC가 프로퍼티에 nil을 할당할 경우 Property Observer가 호출되지 않습니다.
- */
 
 class Person2 {
     let name: String
-    // Apartment 타입 Strong Reference
+    // Apartment 타입 strong reference
     var apartment: Apartment1?
     
     init(name: String) {
@@ -123,6 +109,7 @@ class Person2 {
 
 class Apartment1 {
     let unit: String
+    // Person2 타입 weak reference
     weak var tenant: Person2?
     
     init(unit: String) {
@@ -137,24 +124,27 @@ class Apartment1 {
 var john1: Person2?
 var unit4A1: Apartment1?
 
-// Reference Count 1
+// person2 인스턴스 reference count 1
 john1 = Person2(name: "John Appleseed")
-// Reference Count 1
+// apartment1 인스턴스 reference count 1
 unit4A1 = Apartment1(unit: "4A")
 
-// unit4A1 Reference Count 2
+// apartment1 인스턴스 reference count 2
 john1!.apartment = unit4A1
-// john1 Reference Count 1
+// person2 인스턴스 reference count 1
 unit4A1!.tenant = john1
 
-// 인스턴스 해제
+// reference count 0으로 인해 메모리 해제
 john1 = nil
+// deinitializer 호출
+// apartment1 인스턴스 reference count 1
 // 인스턴스가 해제되었으므로 ARC가 tenant 프로퍼티에 nil을 할당
 print(unit4A1?.tenant)
 // nil
 
-// 인스턴스 해제
+// reference count 0으로 인해 메모리 해제
 unit4A1 = nil
+// deinitializer 호출
 
 //MARK: Unowned References
 /*
@@ -181,8 +171,8 @@ class Customer {
 
 class CreditCard {
     let number: UInt64
-    // 👀 고객은 Unowned Reference
-    unowned private let customer: Customer
+    // 👀 고객은 unowned reference
+    unowned let customer: Customer
     
     init(number: UInt64, customer: Customer) {
         self.number = number
@@ -201,17 +191,25 @@ var joy: Customer? = Customer(name: "John Appleseed")
 joy!.card = CreditCard(number: 1234_5678_9012_3456, customer: joy!)
 // joy가 customer 인스턴스 참조를 해제하면 reference counting이 0이 되어 customer 인스턴스는 메모리에서 해제됩니다.
 joy = nil
-
-/*
- 위 예제는 런타임 안전성 검사를 하는 safe unowned reference에 대한 예시입니다.
- */
+// customer deinitializer 호출
+// creditcard deinitializer 호출
 
 //MARK: Unsafe Unowned References
-/*
- Swift에서는 런타임 안전성 검사를 비활성화하는 unsafe unowned reference도 제공합니다. unsafe unowned reference는 unowned(unsafe) 키워드를 붙여서 선언합니다.
- 
- unsafe unowned reference는 인스턴스가 해제되어도 해당 메모리에 접근합니다.
- */
+
+class Coffee {
+    // caramel unsafe unowned reference
+    unowned(unsafe) let caramel: Caramel
+    
+    init(caramel: Caramel) {
+        self.caramel = caramel
+    }
+}
+
+class Caramel {
+    let flavor = "caramel"
+}
+
+let coffee = Coffee(caramel: Caramel())
 
 //MARK: Unowned Optional References
 
