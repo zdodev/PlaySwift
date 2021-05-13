@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 16017번 Telemarketer or not?
+
+- 구현
+
 ### 15963번 CASIO
 
 - 구현
