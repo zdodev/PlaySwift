@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 15963번 CASIO
+
+- 구현
+
 ### 15921번 수찬은 마린보이야!!
 
 - 수학
