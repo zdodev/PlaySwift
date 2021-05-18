@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 16693번 Pizza Deal
+
+- 수학
+- 구현
+
 ### 16648번 Accumulator Battery
 
 - 수학
