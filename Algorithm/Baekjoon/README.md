@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 16785번 ソーシャルゲーム
+
+- 수학
+- 구현
+
 ### 16727번 ICPC
 
 - 구현
