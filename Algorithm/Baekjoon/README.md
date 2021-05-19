@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 16727번 ICPC
+
+- 구현
+
 ### 16693번 Pizza Deal
 
 - 수학
