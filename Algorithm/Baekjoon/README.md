@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 17362번 수학은 체육과목 입니다 2
+
+- 수학
+
 ### 17009번 Winning Score
 
 - 수학
