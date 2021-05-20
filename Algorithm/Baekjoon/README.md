@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 17009번 Winning Score
+
+- 수학
+- 구현
+
 ### 16785번 ソーシャルゲーム
 
 - 수학
