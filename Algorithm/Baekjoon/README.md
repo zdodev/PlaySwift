@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 17863번 FYI
+
+- 구현
+- 문자열
+
 ### 17388번 와글와글 숭고한
 
 - 구현
