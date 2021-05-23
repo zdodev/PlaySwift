@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 17874번 Piece of Cake!
+
+- 수학
+- 사칙연산
+
 ### 17863번 FYI
 
 - 구현
