@@ -336,6 +336,25 @@ class Bread {
     }
 }
 
+class Cookie {
+    func test(_ completion: @escaping () -> Void) {
+        completion()
+    }
+}
+
+struct Cafe {
+    let cookie = Cookie()
+    var value = 1
+    
+    mutating func someTest1() {
+        cookie.test { [self] in
+            // Cannot assign to property: 'self' is an immutable capture
+            // value = 3
+            print(value)
+        }
+    }
+}
+
 //MARK: Weak and Unowned References
 
 class HTMLElement1 {
