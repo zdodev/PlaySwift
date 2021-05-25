@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 18330번 Petrol
+
+- 수학
+- 사칙연산
+
 ### 18005번 Even or Odd?
 
 - 수학
