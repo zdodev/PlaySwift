@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 18408번 3 つの整数
+
+- 구현
+
 ### 18330번 Petrol
 
 - 수학
