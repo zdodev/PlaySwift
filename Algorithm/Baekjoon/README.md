@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 19602번 Dog Treats
+
+- 수학
+- 사칙연산
+
 ### 18414번 X に最も近い値
 
 - 구현
