@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20215번 Cutting Corners
+
+- 기하학
+- 피타고라스 정리
+
 ### 19944번 뉴비의 기준은 뭘까?
 
 - 구현
