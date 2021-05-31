@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20233번 Bicycle
+
+- 수학
+- 사칙연산
+
 ### 20232번 Archivist
 
 - 구현
