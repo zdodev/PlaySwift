@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20352번 Circus
+
+- 수학
+- 기하학
+
 ### 20233번 Bicycle
 
 - 수학
