@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20839번 Betygsättning
+
+- 구현
+
 ### 20673번 Covid-19
 
 - 구현
