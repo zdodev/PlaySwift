@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20673번 Covid-19
+
+- 구현
+
 ### 20353번 Atrium
 
 - 수학
