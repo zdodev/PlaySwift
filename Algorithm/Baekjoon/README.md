@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20499번 Darius님 한타 안 함?
+
+- 수학
+- 사칙연산
+
 ### 20352번 Circus
 
 - 수학
