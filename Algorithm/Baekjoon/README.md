@@ -1,5 +1,11 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21612번 Boiling Water
+
+- 수학
+- 구현
+- 사칙연산
+
 ### 21598번 SciComLove
 
 - 구현
