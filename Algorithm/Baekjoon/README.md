@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21591번 Laptop Sticker
+
+- 수학
+- 구현
+
 ### 21354번 Äpplen och päron
 
 - 수학
