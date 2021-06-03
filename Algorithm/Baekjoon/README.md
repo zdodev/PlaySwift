@@ -1,5 +1,11 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21185번 Some Sum
+
+- 수학
+- 구현
+- 정수론
+
 ### 20976번 2-番目に大きい整数
 
 - 구현
