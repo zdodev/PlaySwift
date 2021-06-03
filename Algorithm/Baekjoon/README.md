@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21631번 Checkers
+
+- 구현
+
 ### 21612번 Boiling Water
 
 - 수학
