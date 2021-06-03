@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21335번 Another Eruption
+
+- 수학
+- 기하학
+
 ### 21185번 Some Sum
 
 - 수학
