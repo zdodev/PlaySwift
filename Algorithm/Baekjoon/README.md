@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 20976번 2-番目に大きい整数
+
+- 구현
+
 ### 20839번 Betygsättning
 
 - 구현
