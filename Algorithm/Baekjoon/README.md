@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 21638번 SMS from MCHS
+
+- 구현
+
 ### 21633번 Bank Tansfer
 
 - 수학
