@@ -1,6 +1,10 @@
-## playSwift
+# playSwift
 
 Swift 놀이 공간
+
+## Adopting Common Protocols
+
+- 애플 공식 문서 **Adopting Common Protocols**에 대한 내용을 정리해보았습니다.
 
 ### 🐛 LLDB Debugging
 
