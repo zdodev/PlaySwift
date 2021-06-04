@@ -6,10 +6,6 @@ Swift 놀이 공간
 
 LLDB Debugging 사용법에 대한 기록입니다.
 
-### Data Structure
-
-Swift data structure를 하나씩 기록해보고 있습니다.
-
 ### Swift Language 
 
 Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
