@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 1085번 직사각형에서 탈출
+
+- 수학
+- 기하학
+
 ### 21638번 SMS from MCHS
 
 - 구현
