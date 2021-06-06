@@ -6,9 +6,13 @@ Swift 놀이 공간
 
 - 애플 공식 문서 **Adopting Common Protocols**에 대한 내용을 정리해보았습니다.
 
-### 🐛 LLDB Debugging
+## LLDB Debugging
 
-LLDB Debugging 사용법에 대한 기록입니다.
+- LLDB Debugging 사용법에 대한 기록입니다.
+
+## Manual Memory Management
+
+- 수동 메모리 관리에 대한 기록입니다.
 
 ### Swift Language 
 
