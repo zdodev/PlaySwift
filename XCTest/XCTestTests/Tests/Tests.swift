@@ -126,4 +126,10 @@ class Tests: XCTestCase {
     func test_XCTAssertNoThrow() {
         XCTAssertNoThrow(try sut.throwError(0))
     }
+    
+    // MARK: - Unconditional Test Failures
+    
+    func test_XCTFail() {
+        XCTFail()
+    }
 }
