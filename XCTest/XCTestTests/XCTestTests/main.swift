@@ -22,7 +22,17 @@ struct TestObject {
     func returnOnePointOneTwoThreeFour() -> Double {
         1.1234
     }
+    
+    func throwError(_ number: Int) throws {
+        if number == 1 {
+            throw ErrorTest.error
+        }
+    }
 }
 
 class TestClass {
+}
+
+enum ErrorTest: Error {
+    case error
 }

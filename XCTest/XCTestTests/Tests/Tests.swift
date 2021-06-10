@@ -116,4 +116,14 @@ class Tests: XCTestCase {
         let expectedValue = 2
         XCTAssertLessThan(result, expectedValue)
     }
+    
+    // MARK: - Error Assertions
+    
+    func test_XCTAssertThrowsError() {
+        XCTAssertThrowsError(try sut.throwError(1))
+    }
+    
+    func test_XCTAssertNoThrow() {
+        XCTAssertNoThrow(try sut.throwError(0))
+    }
 }
