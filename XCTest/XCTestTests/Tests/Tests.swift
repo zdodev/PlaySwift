@@ -84,4 +84,36 @@ class Tests: XCTestCase {
         let expectedValue = 2
         XCTAssertNotEqual(result, expectedValue, accuracy: 0)
     }
+    
+    // MARK: - Comparable Value Assertions
+    
+    func test_XCTAssertGreaterThan() {
+        let result = sut.returnOne()
+        let expectedValue = 0
+        XCTAssertGreaterThan(result, expectedValue)
+    }
+    
+    func test_XCTAssertGreaterThanOrEqual() {
+        let result = sut.returnOne()
+        var expectedValue = 0
+        XCTAssertGreaterThanOrEqual(result, expectedValue)
+        
+        expectedValue = 1
+        XCTAssertGreaterThanOrEqual(result, expectedValue)
+    }
+    
+    func test_XCTAssertLessThanOrEqual() {
+        let result = sut.returnOne()
+        var expectedValue = 1
+        XCTAssertLessThanOrEqual(result, expectedValue)
+        
+        expectedValue = 2
+        XCTAssertLessThanOrEqual(result, expectedValue)
+    }
+    
+    func test_XCTAssertLessThan() {
+        let result = sut.returnOne()
+        let expectedValue = 2
+        XCTAssertLessThan(result, expectedValue)
+    }
 }
