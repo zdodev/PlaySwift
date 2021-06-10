@@ -19,3 +19,6 @@ struct TestObject {
         1
     }
 }
+
+class TestClass {
+}

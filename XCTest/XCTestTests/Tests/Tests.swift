@@ -2,6 +2,7 @@ import XCTest
 
 class Tests: XCTestCase {
     let sut = TestObject()
+    let sutClass = TestClass()
     
     // MARK: - Boolean Assertions
     
@@ -44,5 +45,17 @@ class Tests: XCTestCase {
         let result = sut.returnOne()
         let notExpectedValue = 2
         XCTAssertNotEqual(result, notExpectedValue)
+    }
+    
+    func test_XCTAssertIdentical() {
+        let result = sutClass
+        let expectedValue = sutClass
+        XCTAssertIdentical(result, expectedValue)
+    }
+    
+    func test_XCTAssertNotIdentical() {
+        let result = sutClass
+        let expectedValue = TestClass()
+        XCTAssertNotIdentical(result, expectedValue)
     }
 }
