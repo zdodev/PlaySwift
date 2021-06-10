@@ -18,7 +18,7 @@ Swift 놀이 공간
 
 Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
 
-### Algorithm 문제 풀이
+## Algorithm
 
 - 알고리즘 문제를 풀고 정리하는 저장소입니다.
 
