@@ -18,10 +18,6 @@ Swift 놀이 공간
 
 Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
 
-### Cafe
-
-[객체지향의 사실과 오해](https://book.naver.com/bookdb/book_detail.nhn?bid=9145968) 책 후반부에 나오는 커피 전문점 도메인에 따라 코드를 작성해보았습니다.
-
 ### Algorithm 문제 풀이
 
 - 알고리즘 문제를 풀고 정리하는 저장소입니다.
