@@ -4,6 +4,7 @@ class Tests: XCTestCase {
     let sut = TestObject()
     
     // MARK: - Boolean Assertions
+    
     func test_XCTAssert() {
         XCTAssert(sut.returnTrue())
     }
@@ -17,6 +18,7 @@ class Tests: XCTestCase {
     }
     
     // MARK: - Nil and Non-Nil Assertions
+    
     func test_XCTAssertNil() {
         XCTAssertNil(sut.returnNil())
     }
@@ -28,5 +30,19 @@ class Tests: XCTestCase {
     func test_XCTUnwrap() {
         let value = try? XCTUnwrap(sut.returnNotNil())
         XCTAssertEqual(value, 0)
+    }
+    
+    // MARK: - Equality and Inequality Assertions
+    
+    func test_XCTAssertEqual() {
+        let result = sut.returnOne()
+        let expectedValue = 1
+        XCTAssertEqual(result, expectedValue)
+    }
+    
+    func test_XCTAssertNotEqual() {
+        let result = sut.returnOne()
+        let notExpectedValue = 2
+        XCTAssertNotEqual(result, notExpectedValue)
     }
 }

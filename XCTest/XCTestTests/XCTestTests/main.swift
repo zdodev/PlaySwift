@@ -14,4 +14,8 @@ struct TestObject {
     func returnNotNil() -> Int? {
         0
     }
+    
+    func returnOne() -> Int {
+        1
+    }
 }
