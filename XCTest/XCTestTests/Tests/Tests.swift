@@ -147,6 +147,32 @@ class Tests: XCTestCase {
             XCTAssertTrue(result)
         }
     }
+    
+    // MARK: - Methods for Skipping Tests
+    
+    func test_XCTSkip() throws {
+        throw XCTSkip("Test skip.")
+        
+        let value = sut.returnOne()
+        let expectedValue = 0
+        XCTAssertEqual(value, expectedValue)
+    }
+    
+    func test_XCTSkipIf() throws {
+        try XCTSkipIf(true, "Test skip.")
+        
+        let value = sut.returnOne()
+        let expectedValue = 0
+        XCTAssertEqual(value, expectedValue)
+    }
+    
+    func test_XCTSkipUnless() throws {
+        try XCTSkipIf(true, "Test skip.")
+        
+        let value = sut.returnOne()
+        let expectedValue = 0
+        XCTAssertEqual(value, expectedValue)
+    }
 }
 
 
