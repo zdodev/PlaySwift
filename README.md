@@ -6,6 +6,10 @@ Swift 놀이 공간
 
 - 애플 공식 문서 **Adopting Common Protocols**에 대한 내용을 정리해보았습니다.
 
+## Algorithm
+
+- 알고리즘 문제를 풀고 정리하는 저장소입니다.
+
 ## LLDB Debugging
 
 - LLDB Debugging 사용법에 대한 기록입니다.
@@ -16,11 +20,11 @@ Swift 놀이 공간
 
 ## Swift Language
 
-Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
+- Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
 
-## Algorithm
+## XCTest
 
-- 알고리즘 문제를 풀고 정리하는 저장소입니다.
+- XCode에서 테스트를 작성할 수 있는 프레임워크인 XCTest에 대한 기록입니다.
 
 ### Design Pattern - Observer Pattern 구현
 
