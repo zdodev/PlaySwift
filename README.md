@@ -14,7 +14,7 @@ Swift 놀이 공간
 
 - 수동 메모리 관리에 대한 기록입니다.
 
-### Swift Language 
+## Swift Language
 
 Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
 
