@@ -18,6 +18,10 @@ struct TestObject {
     func returnOne() -> Int {
         1
     }
+    
+    func returnOnePointOneTwoThreeFour() -> Double {
+        1.1234
+    }
 }
 
 class TestClass {

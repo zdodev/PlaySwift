@@ -58,4 +58,30 @@ class Tests: XCTestCase {
         let expectedValue = TestClass()
         XCTAssertNotIdentical(result, expectedValue)
     }
+    
+    func test_XCTAssertEqualFloatingPoint() {
+        let result = sut.returnOnePointOneTwoThreeFour()
+        let expectedValue = 1.1233
+        // accuracy는 +/- 정확도를 의미한다.
+        XCTAssertEqual(result, expectedValue, accuracy: 0.0001)
+    }
+    
+    func test_XCTAssertEqualNumeric() {
+        let result = sut.returnOne()
+        let expectedValue = 2
+        XCTAssertEqual(result, expectedValue, accuracy: 1)
+    }
+    
+    func test_XCTAssertEqualNotEqualFloatingPoint() {
+        let result = sut.returnOnePointOneTwoThreeFour()
+        let expectedValue = 1.1
+        // accuracy는 +/- 정확도를 의미한다.
+        XCTAssertNotEqual(result, expectedValue, accuracy: 0)
+    }
+    
+    func test_XCTAssertNotEqualNumeric() {
+        let result = sut.returnOne()
+        let expectedValue = 2
+        XCTAssertNotEqual(result, expectedValue, accuracy: 0)
+    }
 }
