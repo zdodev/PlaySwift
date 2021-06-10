@@ -130,6 +130,24 @@ class Tests: XCTestCase {
     // MARK: - Unconditional Test Failures
     
     func test_XCTFail() {
-        XCTFail()
+//        XCTFail()
+    }
+    
+    // MARK: - Expected Failures
+    
+    func test_XCTExpectFailure() {
+        let result = sut.returnFalse()
+        XCTExpectFailure()
+        XCTAssertTrue(result)
+    }
+    
+    func test_XCTExpectFailureBlock() {
+        let result = sut.returnFalse()
+        XCTExpectFailure {
+            XCTAssertTrue(result)
+        }
     }
 }
+
+
+
