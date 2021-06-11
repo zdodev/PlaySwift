@@ -22,6 +22,10 @@ Swift 놀이 공간
 
 - Swift Lanuage Guide 정리 및 유용한 문법에 대한 기록입니다.
 
+## Tail Recursion
+
+- 꼬리 순환에 대한 기록입니다.
+
 ## XCTest
 
 - XCode에서 테스트를 작성할 수 있는 프레임워크인 XCTest에 대한 기록입니다.
