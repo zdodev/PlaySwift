@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 1975번 Number Game
+
+- 수학
+- 정수론
+
 ### 1964번 오각형, 오각형, 오각형...
 
 - 수학
