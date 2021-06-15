@@ -100,3 +100,31 @@ Money 클래스의 dollar 타입 메서드는 Dollar 인스턴스를 생성하�
 
 - Identity Operators
 - Pointers
+
+## Properties (프로퍼티)
+
+### Stored Properties
+
+- Stored Properties of Constant Structure Instances
+- Lazy Stored Properties
+- Stored Properties and Instance Variables
+
+### Computed Properties
+
+- Shorhand Setter Declaration
+- Read-Only Computed Properties
+
+### Property Observers
+
+### Property Wrappers
+
+- Setting Initial Values for Wrapped Properties
+- Projecting a Value From a Property Wrapper
+
+### Global and Local Variables
+
+### Type Properties
+
+- Type Propert Syntax
+- Querying and Setting Type Properties
+
