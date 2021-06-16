@@ -1,5 +1,11 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2010번 플러그
+
+- 수학
+- 구현
+- 사칙연산
+
 ### 1975번 Number Game
 
 - 수학
