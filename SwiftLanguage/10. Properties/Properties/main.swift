@@ -2,7 +2,18 @@
 
 // MARK: - Stored Properties
 
+struct FixedLengthRange {
+    var firstValue: Int
+    let length: Int
+}
+
+var rangeOfThreeItems = FixedLengthRange(firstValue: 0, length: 3)
+rangeOfThreeItems.firstValue = 6
+
 // MARK: Stored Properties of Constant Structure Instances
+
+let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
+//rangeOfFourItems = 6
 
 // MARK: Lazy Stored Properties
 
