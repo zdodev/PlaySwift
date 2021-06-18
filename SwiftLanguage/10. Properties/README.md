@@ -35,6 +35,26 @@ rangeOfFourItems = 6
 
 지연 저장 프로퍼티는 초기 값이 인스턴스를 초기화 할 때까지 알 수 없을 때 유용합니다. 그리고 설정이나 연산 비용이 많이 필요한 경우에 꼭 필요할 때까지는 사용하지 않을 경우에도 유용합니다.
 
+```swift
+class DataImpoter {
+    var filename = "data.txt"
+}
+
+class DataManager {
+    // importer 변수를 lazy로 선언
+    lazy var importer = DataImpoter()
+    var data = [String]()
+}
+
+let manager = DataManager()
+// importer를 사용하기 전까지는 생성되지 않습니다.
+manager.data.append("Some data")
+manager.data.append("Some more data")
+
+// 처음으로 importer에 접근하며, 이때 importer가 생성됩니다.
+print(manager.importer.filename)
+```
+
 // MARK: Stored Properties and Instance Variables
 
 

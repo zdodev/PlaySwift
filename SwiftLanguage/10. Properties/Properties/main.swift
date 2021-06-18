@@ -17,6 +17,21 @@ let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
 
 // MARK: Lazy Stored Properties
 
+class DataImpoter {
+    var filename = "data.txt"
+}
+
+class DataManager {
+    lazy var importer = DataImpoter()
+    var data = [String]()
+}
+
+let manager = DataManager()
+manager.data.append("Some data")
+manager.data.append("Some more data")
+
+print(manager.importer.filename)
+
 // MARK: Stored Properties and Instance Variables
 
 // MARK: - Computed Properties
