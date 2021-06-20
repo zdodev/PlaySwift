@@ -1,3 +1,5 @@
+import Foundation
+
 struct Solution {
     let arrayLength = 1_000_001
     lazy var sieveOfEratosthenesArray: [Bool] = {
@@ -70,3 +72,36 @@ struct Solution {
 
 var solution = Solution()
 solution.solution()
+
+struct Prime {
+    func createEratosthenesArray(_ maximum: Int) -> [Bool] {
+        var array = Array(repeating: false, count: maximum + 1)
+        let squareRoot = Int(sqrt(Double(maximum))) + 1
+        
+        for number in 2...squareRoot {
+            if array[number] == false {
+                var nextPrimeNumber = number * 2
+                while nextPrimeNumber <= maximum {
+                    array[nextPrimeNumber] = true
+                    nextPrimeNumber += number
+                }
+            }
+        }
+        
+        return array
+    }
+    
+    func primeNumberArray(_ maximum: Int) -> [Int] {
+        var primes = [Int]()
+        var numbers = Array(2...maximum)
+        
+        while let number = numbers.first {
+            primes.append(number)
+            numbers = numbers.filter { number in
+                number % numbers.first! != 0 ? true : false
+            }
+        }
+        
+        return primes
+    }
+}
