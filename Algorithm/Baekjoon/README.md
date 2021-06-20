@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2061번 좋은 암호
+
+- 구현
+
 ### 2052번 지수연산
 
 - 수학
