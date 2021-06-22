@@ -7,3 +7,7 @@
 - NSLog("%d")
 - @"string"
 - int i = 1;
+
+## Classes, Objects, and Methods
+
+## Data Types and Expressions
