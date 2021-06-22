@@ -55,9 +55,9 @@ manager.data.append("Some more data")
 print(manager.importer.filename)
 ```
 
-// MARK: Stored Properties and Instance Variables
+### Stored Properties and Instance Variables
 
-
+Objective-C에서는 클래스 인스턴스에서 값과 참조를 저장하기 위한 두 가지 방법을 제공합니다. Swift에서는 이 개념을 단일 속성 선언으로 통일하였습니다.
 
 // MARK: - Computed Properties
 
