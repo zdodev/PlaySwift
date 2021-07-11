@@ -24,6 +24,28 @@
 
 // MARK: Associated Types in Action
 
+protocol Container {
+    associatedtype Item
+    
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
+}
+
+struct Stack: Container {
+    mutating func append(_ item: Int) {
+        
+    }
+    
+    var count: Int
+    
+    subscript(i: Int) -> Int {
+        1
+    }
+    
+//    typealias Item = Int
+}
+
 // MARK: Extending an Existing Type to Specify an Associated Type
 
 // MARK: Adding Constraints to an Associated Type
