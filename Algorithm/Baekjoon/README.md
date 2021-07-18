@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2490번 윷놀이
+
+- 구현
+
 ### 2476번 주사위 게임
 
 - 수학
