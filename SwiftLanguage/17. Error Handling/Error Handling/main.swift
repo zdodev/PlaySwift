@@ -1,3 +1,4 @@
+import Foundation
 // MARK: - Error Handling
 
 // MARK: - Representing and Throwing Errors
@@ -116,6 +117,48 @@ func eat(item: String) throws {
 
 // MARK: Converting Errors to Optional Values
 
+func someThrowingFunction() throws -> Int {
+    1
+}
+
+let x = try? someThrowingFunction()
+
+let y: Int?
+do {
+    y = try someThrowingFunction()
+} catch {
+    y = nil
+}
+
+/*
+func fetchData() -> Data? {
+    if let data = try? fetchDataFromDisk() {
+        return data
+    }
+    if let data = try? fetchDataFromServer() {
+        return data
+    }
+    return nil
+}
+ */
+
 // MARK: Disabling Error Propagation
 
+//let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
+
 // MARK: - Specifying Cleanup Actions
+
+/*
+func processFile(filename: String) throws {
+    if exists(filename) {
+        let file = open(filename)
+        defer {
+            close(file)
+        }
+        while let line = try file.readline() {
+            //
+        }
+        //
+    }
+}
+ */

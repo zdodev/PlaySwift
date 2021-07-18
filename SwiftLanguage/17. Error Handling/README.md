@@ -1,5 +1,15 @@
 # Error Handling
 
+- 에러 타입 정의, Error
+- 에러 발생
+    - throws
+    - throw
+- 에러 핸들링
+    - do-catch
+    - try
+    - try?
+    - try!
+
 Swift의 모든 연산이 올바른 결과를 반환하는 것을 항상 보장하지 않습니다. 옵셔널이라는 기능을 사용하여 값의 유무를 쉽게 처리할 수 있지만 단순히 값이 없다는 것이 아니라, 작업이 실패했을 때 구체적으로 무엇을 실패했는지 알아내고 적절하게 처리하는 게 유용할 때가 있습니다.
 
 디스크에서 파일 자료를 불러오는 작업에서 에러가 발생했을 때, 파일이 존재하지 않는지, 파일에 대한 읽기 권한이 없는지, 올바르지 않은 파일 포맷으로 읽는지에 대한 여러 가지 이유로 파일 불러오기를 실패할 수 있습니다. Swift의 에러 처리는 다양한 에러 상황을 구체적으로 정의하고 처리할 수 있도록 도와줍니다.
@@ -102,6 +112,8 @@ func buyFavoriteSnake(person: String, vendingMachine: VendingMachine) throws {
 }
 ```
 
+
+
 ```swift
 struct PurchasedSnack {
     let name: String
@@ -174,7 +186,68 @@ func eat(item: String) throws {
 
 ### Converting Errors to Optional Values
 
+발생한 에러를 옵셔널로 처리할 수 있는 방법이 있습니다. try? 키워드를 사용하여 에러가 발생하지 않으면 정상적인 값을 반환하고, 에러가 발생하면 nil을 반환하도록 합니다. 이 함수의 반환값은 옵셔널입니다.
+
+```swift
+func someThrowingFunction() throws -> Int {
+    1
+}
+
+// 에러 옵셔널 처리 구문
+// 아래의 에러 처리 구문과 동일합니다.
+let x = try? someThrowingFunction()
+
+// do-catch문을 사용하여 옵셔널 처리하는 구문
+let y: Int?
+do {
+    y = try someThrowingFunction()
+} catch {
+    y = nil
+}
+```
+
+이러한 문법은 에러를 간결하게 처리할 때 유용합니다.
+
+```swift
+func fetchData() -> Data? {
+    if let data = try? fetchDataFromDisk() {
+        return data
+    }
+    if let data = try? fetchDataFromServer() {
+        return data
+    }
+    return nil
+}
+```
+
 ### Disabling Error Propagation
 
+옵셔널 강제 추출처럼 실행 시간에 에러가 발생하지 않는다고 확신할 때 사용하는 구문이 있습니다. try! 키워드를 사용하면 에러를 전파하지 않고 에러가 발생하지 않는다는 가정으로 에러 함수를 호출합니다. 만약에 try! 키워드를 사용하여 에러가 발생하면 런타임 에러가 발생합니다.
+
+```swift
+// 이미지 불러오기 함수 호출
+// 이미지가 해당 경로에 있을 것이라는 보장이 있으면 try! 구문을 사용하여 에러를 처리합니다.
+let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
+```
+
 ## Specifying Cleanup Actions
+
+현재 코드 블럭이 종료되고 실행해야할 구문을 작성할 수 있습니다. `defer` 키워드를 사용하면 에러, break, return과 관계없이 해당 블럭을 벗어나면 실행합니다.
+
+```swift
+func processFile(filename: String) throws {
+    if exists(filename) {
+        // 파일을 엽니다.
+        let file = open(filename)
+        // 블럭 종료 후 파일을 닫습니다.
+        defer {
+            close(file)
+        }
+        while let line = try file.readline() {
+            //
+        }
+        //
+    }
+}
+```
 
