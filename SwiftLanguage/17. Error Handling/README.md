@@ -9,6 +9,7 @@ Swift의 모든 연산이 올바른 결과를 반환하는 것을 항상 보장�
 Swift에서 에러를 정의할 때는 Error 프로토콜을 채택해야 합니다.
 
 ```swift
+// 에러 타입 정의
 enum VendingMachineError: Error {
     case invalidSelection
     case insufficientFunds(coinsNeeded: Int)
@@ -30,7 +31,7 @@ throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
 
 ### Propagating Errors Using Throwing Functions
 
-throws 키워드를 사용하여 상위 호출 코드로 에러를 전달할 수 있습니다.
+`throws` 키워드를 사용하여 상위 호출 코드로 에러를 전달할 수 있습니다.
 
 ```swift
 // 함수를 호출한 코드로 에러 전달
@@ -39,7 +40,7 @@ func canThrowErrors() throws -> String {
 }
 ```
 
-throws 키워드를 사용한 함수만이 에러를 전달할 수 있습니다.
+`throws` 키워드를 사용한 함수만이 에러를 전달할 수 있습니다.
 
 ```swift
 struct Item {
@@ -55,7 +56,7 @@ class VendingMachine {
     ]
     var coinsDeposited = 0
     
-    // 에러를 전달하기 때문에 throws 키워드를 사용한다.
+    // 에러를 전달하기 때문에 throws 키워드를 사용합니다.
     func vend(itemNamed name: String) throws {
         guard let item = inventory[name] else {
             // 목록에 없는 항목이 주어지면 VendingMachineError.invalidSelection 에러 전달
@@ -63,12 +64,12 @@ class VendingMachine {
         }
         
         guard item.count > 0 else {
-            // 재고가 없으면 VendingMachineError.outOfStock
+            // 재고가 없으면 VendingMachineError.outOfStock 에러 전달
             throw VendingMachineError.outOfStock
         }
         
         guard item.price <= coinsDeposited else {
-            // 물품 가격보다 현금이 적을 경우 VendingMachineError.insufficientFunds 에러를 전달한다.
+            // 물품 가격보다 현금이 적을 경우 VendingMachineError.insufficientFunds 에러 전달
             throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
         }
         
@@ -95,8 +96,8 @@ let favoriteSnaks = [
 // 에러 전달 메서드
 func buyFavoriteSnake(person: String, vendingMachine: VendingMachine) throws {
     let snackName = favoriteSnaks[person] ?? "Candy Bar"
-    // 에러가 발생할 수 있는 메서드는 try 키워드를 사용하여 호출한다.
-    // 에러 발생 시 메서드 호출 영역으로 에러가 전달된다. 위에 throws가 보이지 않는가?
+    // 에러가 발생할 수 있는 메서드는 try 키워드를 사용하여 호출합니다.
+    // 에러 발생 시 메서드 호출 영역으로 에러가 전달됩니다. 
     try vendingMachine.vend(itemNamed: snackName)
 }
 ```
@@ -105,7 +106,7 @@ func buyFavoriteSnake(person: String, vendingMachine: VendingMachine) throws {
 struct PurchasedSnack {
     let name: String
     
-    // 이니셜라이저에서도 에러를 전달하는 식으로 처리하는 구문이다.
+    // 이니셜라이저에서도 에러를 전달하는 식으로 처리하는 구문입니다.
     init(name: String, vendingMachine: VendingMachine) throws {
         try vendingMachine.vend(itemNamed: name)
         self.name = name
@@ -114,6 +115,62 @@ struct PurchasedSnack {
 ```
 
 ### Handling Errors Using Do-Catch
+
+발생한 에러를 처리할 때 do-catch 문을 사용할 수 있습니다. 에러가 발생할 수 있는 구문을 do 괄호안에서 try 키워드와 함께 호출합니다. 에러가 발생하지 않으면 그대로 이어서 실행합니다. 에러가 발생하면 catch 문이 실행됩니다. 발생한 에러에 대한 catch 문이 실행되고 이어서 실행합니다.
+
+```swift
+var vendingMachine = VendingMachine()
+vendingMachine.coinsDeposited = 8
+
+// do 구문
+do {
+    // 에러가 발생할 수 있는 코드는 try 키워드를 사용하여 호출합니다.
+    try buyFavoriteSnake(person: "Alice", vendingMachine: vendingMachine)
+    print("Success! Yum.")
+// VendingMachineError.invalidSelection 에러 발생 시 실행될 catch 문
+} catch VendingMachineError.invalidSelection {
+    print("Invalid Selection.")
+} catch VendingMachineError.outOfStock {
+    print("Out of Stock.")
+} catch VendingMachineError.insufficientFunds(let coinsNeeded) {
+    print("Insufficient funds. Please insert an additional \(coinsNeeded) coins.")
+} catch {
+    print("Unexpected error: \(error)")
+}
+```
+
+꼭 VendingMachineError가 아니더라도 모든 에러를 상위 코드에서 처리할 수 있도록 구현할 수 있습니다. nourish 함수에서는 VendingMachineError 에러에 관한 모든 에러를 처리하며, 나머지 에러는 상위로 전달됩니다. 상위에서는 단순히 catch만 명시하여 모든 에러를 처리합니다.
+
+```swift
+func nourish(with item: String) throws {
+    do {
+        try vendingMachine.vend(itemNamed: item)
+    // 모든 VendingMachineError 에러 처리
+    } catch is VendingMachineError {
+        print("Invalid selection, out of stock, or not enough money.")
+    }
+}
+
+do {
+    try nourish(with: "Beet-Flavored Chips")
+// nourish() 메서드에서 처리되지 않은 모든 에러 처리
+} catch {
+    print("Unexpected non-vending-machine-related error: \(error)")
+}
+```
+
+catch문에 에러를 나열하여 선언할 수도 있습니다.
+
+```swift
+func eat(item: String) throws {
+    do {
+        try vendingMachine.vend(itemNamed: item)
+    // 에러 나열
+    } catch VendingMachineError.invalidSelection, VendingMachineError.insufficientFunds, VendingMachineError.outOfStock {
+        print("Invalid selection, out of stock, or not enough money.")
+    }
+}
+```
 
 ### Converting Errors to Optional Values
 
