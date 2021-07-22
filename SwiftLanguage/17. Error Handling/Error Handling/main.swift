@@ -9,7 +9,14 @@ enum VendingMachineError: Error {
     case outOfStock
 }
 
+enum TaskError: Error {
+    case read
+    case write
+}
+
 //throw VendingMachineError.insufficientFunds(coinsNeeded: 5)
+
+//throw TaskError.create
 
 // MARK: - Handling Errors
 
@@ -72,6 +79,36 @@ struct PurchasedSnack {
     init(name: String, vendingMachine: VendingMachine) throws {
         try vendingMachine.vend(itemNamed: name)
         self.name = name
+    }
+}
+
+struct Task {
+    func read() throws {
+        throw TaskError.read
+    }
+    
+    func write() throws {
+        throw TaskError.write
+    }
+}
+
+struct MyTask {
+    let task = Task()
+    
+    // 에러 전파 처리
+    func handling1() throws {
+        try task.read()
+    }
+    
+    // do-catch 에러 처리
+    func handling2() {
+        do {
+            try task.write()
+        } catch TaskError.write {
+        }
+//        } catch TaskError.write {
+//
+//        }
     }
 }
 
