@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2511번 카드놀이
+
+- 구현
+
 ### 2506번 점수계산
 
 - 수학
