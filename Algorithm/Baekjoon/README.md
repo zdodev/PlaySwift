@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2741번 N 찍기
+
+- 구현
+
 ### 2739번 구구단
 
 - 수학
