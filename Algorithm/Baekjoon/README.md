@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2742 기찍 N
+
+- 구현
+
 ### 2741번 N 찍기
 
 - 구현
