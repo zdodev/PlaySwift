@@ -1,5 +1,10 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2875번 대회 or 인턴
+
+- 수학
+- 구현
+
 ### 2863번 이게 분수?
 
 - 수학
