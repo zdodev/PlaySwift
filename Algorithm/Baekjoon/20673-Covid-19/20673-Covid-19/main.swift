@@ -9,10 +9,10 @@ struct Solution {
         
         if q >= 30 {
             print("Red")
-        } else if q >= 11 {
-            print("Yellow")
-        } else {
+        } else if p <= 50 && q <= 10 {
             print("White")
+        } else {
+            print("Yellow")
         }
     }
 }
