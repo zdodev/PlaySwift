@@ -46,3 +46,5 @@ Observer pattern은 객체의 상태 변화를 관찰하는 Observer들의 목�
 
 ### Delegate Pattern 구현
 
+- 원격 테스트
+
