@@ -1,5 +1,9 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2965번 캥거루 세마리
+
+- 수학
+
 ### 2959번 거북이
 
 - 수학
