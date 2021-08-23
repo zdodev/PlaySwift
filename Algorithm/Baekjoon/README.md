@@ -1,5 +1,11 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2975번 Transactions
+
+-   수학
+-   구현
+-   사칙연산
+
 ### 2965번 캥거루 세마리
 
 - 수학
