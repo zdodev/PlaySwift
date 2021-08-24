@@ -1,5 +1,11 @@
 > https://www.acmicpc.net/user/iver0945
 
+### 2985번 세 수
+
+-   수학
+-   구현
+-   사칙연산
+
 ### 2975번 Transactions
 
 -   수학
