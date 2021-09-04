@@ -27,6 +27,21 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 // MARK: - Generic Functions
 
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+someInt = 3
+anotherInt = 107
+swapTwoValues(&someInt, &anotherInt)
+
+var someString = "hello"
+var anotherString = "world"
+
+swapTwoValues(&someString, &anotherString)
+
 // MARK: - Type Parameters
 
 // MARK: - Naming Type Parameters
