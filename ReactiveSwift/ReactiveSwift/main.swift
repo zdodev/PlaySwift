@@ -1,11 +1,12 @@
 import Foundation
-import RxSwift
 
 let reactive = ReactiveEx()
 
-reactive.just()
+//reactive.just()
 //reactive.interval()
-reactive.create()
-reactive.downloadJSONData()
+//reactive.create()
+//reactive.downloadJSONData()
+reactive.publishSubject()
 
 RunLoop.main.run()
+

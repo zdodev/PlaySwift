@@ -65,6 +65,30 @@ struct ReactiveEx {
         
         return observable
     }
+    
+    func publishSubject() {
+        let subject = PublishSubject<String>()
+        subject.onNext("Is anyone listening?")
+        // No
+        
+        let subscription1 = subject.subscribe { event in
+            print("first \(event)")
+        }
+        
+        subject.onNext("1234")
+        subject.onNext("2345")
+        
+        let subscription2 = subject.subscribe { event in
+            print("second \(event)")
+        }
+        
+        subject.onNext("3456")
+        subject.onNext("4567")
+        subject.onCompleted()
+        subject.dispose()
+
+        subject.onNext("no")
+    }
 }
 
 struct JSONPlaceholder: Decodable {
