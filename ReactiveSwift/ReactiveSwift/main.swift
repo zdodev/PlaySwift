@@ -6,6 +6,6 @@ let reactive = ReactiveEx()
 reactive.just()
 //reactive.interval()
 reactive.create()
-reactive.downloadImage()
+reactive.downloadJSONData()
 
 RunLoop.main.run()

@@ -31,18 +31,18 @@ struct ReactiveEx {
         .dispose()
     }
     
-    func downloadImage() {
-        let url = URL(string: "https://images.pexels.com/photos/3052361/pexels-photo-3052361.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260")!
+    func downloadJSONData() {
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts/1")!
 
-        loadImage(url: url)
+        loadTitle(url: url)
             .observe(on: MainScheduler.instance)
             .subscribe { element in
                 print(element)
             }
     }
     
-    private func loadImage(url: URL) -> Observable<Data?> {
-        let observable = Observable<Data?>.create { streamElement in
+    private func loadTitle(url: URL) -> Observable<String?> {
+        let observable = Observable<String?>.create { streamElement in
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 
                 guard let data = data else {
@@ -51,7 +51,9 @@ struct ReactiveEx {
                     return
                 }
                 
-                streamElement.onNext(data)
+                let decodedData = try? JSONDecoder().decode(JSONPlaceholder.self, from: data)
+                
+                streamElement.onNext(decodedData?.title)
                 streamElement.onCompleted()
             }
             task.resume()
@@ -63,4 +65,8 @@ struct ReactiveEx {
         
         return observable
     }
+}
+
+struct JSONPlaceholder: Decodable {
+    let title: String
 }
