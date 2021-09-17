@@ -12,6 +12,7 @@
 		846BFD6626F434F300B40B7C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6526F434F300B40B7C /* RxRelay */; };
 		846BFD6826F434F300B40B7C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6726F434F300B40B7C /* RxCocoa */; };
 		846BFD6A26F434F300B40B7C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6926F434F300B40B7C /* RxBlocking */; };
+		846BFD6C26F441B600B40B7C /* ReactiveEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFD6B26F441B600B40B7C /* ReactiveEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		846BFD5826F434CF00B40B7C /* ReactiveSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ReactiveSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BFD5B26F434CF00B40B7C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		846BFD6B26F441B600B40B7C /* ReactiveEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveEx.swift; sourceTree = "<group>"; };
+		846BFD6D26F45F5300B40B7C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +52,7 @@
 		846BFD4F26F434CF00B40B7C = {
 			isa = PBXGroup;
 			children = (
+				846BFD6D26F45F5300B40B7C /* README.md */,
 				846BFD5A26F434CF00B40B7C /* ReactiveSwift */,
 				846BFD5926F434CF00B40B7C /* Products */,
 			);
@@ -66,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				846BFD5B26F434CF00B40B7C /* main.swift */,
+				846BFD6B26F441B600B40B7C /* ReactiveEx.swift */,
 			);
 			path = ReactiveSwift;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846BFD5C26F434CF00B40B7C /* main.swift in Sources */,
+				846BFD6C26F441B600B40B7C /* ReactiveEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

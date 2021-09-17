@@ -1,6 +1,11 @@
+import Foundation
 import RxSwift
 
-var observer = Observable<Int>.just(1)
-observer.subscribe { element in
-    print(element)
-}.dispose()
+let reactive = ReactiveEx()
+
+reactive.just()
+//reactive.interval()
+reactive.create()
+reactive.downloadImage()
+
+RunLoop.main.run()

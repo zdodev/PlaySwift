@@ -2,6 +2,11 @@
 
 Swift 놀이 공간
 
+## RunLoop
+
+-   macOS Command Line Tool 프로젝트에서 비동기 또는 서브 스레드를 사용하는 프로그램이 종료되지 않도록 하기 위해서 RunLoop를 실행시켜야 한다.
+-   https://babbab2.tistory.com/68
+
 ## Adopting Common Protocols
 
 - 애플 공식 문서 **Adopting Common Protocols**에 대한 내용을 정리해보았습니다.
