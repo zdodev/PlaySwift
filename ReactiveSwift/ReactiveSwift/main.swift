@@ -6,7 +6,18 @@ let reactive = ReactiveEx()
 //reactive.interval()
 //reactive.create()
 //reactive.downloadJSONData()
-reactive.publishSubject()
+//reactive.publishSubject()
+
+let syncAsync = SyncAsync()
+//syncAsync.viewDidLoad()
+//syncAsync.onLoadSync()
+//syncAsync.onLoadAsync()
+
+let rxSwift4Hours = RxSwiftIn4Hours()
+rxSwift4Hours.viewDidLoad()
+rxSwift4Hours.onLoadImage()
+
+
 
 RunLoop.main.run()
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41EBB71026F84E04007CB90B /* RxSwiftIn4Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EBB70F26F84E04007CB90B /* RxSwiftIn4Hours.swift */; };
+		41EBB71226F8521D007CB90B /* SyncAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EBB71126F8521D007CB90B /* SyncAsync.swift */; };
 		846BFD5C26F434CF00B40B7C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFD5B26F434CF00B40B7C /* main.swift */; };
 		846BFD6426F434F300B40B7C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6326F434F300B40B7C /* RxSwift */; };
 		846BFD6626F434F300B40B7C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6526F434F300B40B7C /* RxRelay */; };
@@ -28,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41EBB70F26F84E04007CB90B /* RxSwiftIn4Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftIn4Hours.swift; sourceTree = "<group>"; };
+		41EBB71126F8521D007CB90B /* SyncAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAsync.swift; sourceTree = "<group>"; };
 		846BFD5826F434CF00B40B7C /* ReactiveSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ReactiveSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BFD5B26F434CF00B40B7C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		846BFD6B26F441B600B40B7C /* ReactiveEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveEx.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				846BFD5B26F434CF00B40B7C /* main.swift */,
 				846BFD6B26F441B600B40B7C /* ReactiveEx.swift */,
+				41EBB71126F8521D007CB90B /* SyncAsync.swift */,
+				41EBB70F26F84E04007CB90B /* RxSwiftIn4Hours.swift */,
 			);
 			path = ReactiveSwift;
 			sourceTree = "<group>";
@@ -142,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				846BFD5C26F434CF00B40B7C /* main.swift in Sources */,
+				41EBB71226F8521D007CB90B /* SyncAsync.swift in Sources */,
+				41EBB71026F84E04007CB90B /* RxSwiftIn4Hours.swift in Sources */,
 				846BFD6C26F441B600B40B7C /* ReactiveEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
