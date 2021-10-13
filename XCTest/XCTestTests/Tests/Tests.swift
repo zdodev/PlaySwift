@@ -167,10 +167,53 @@ class Tests: XCTestCase {
     }
     
     func test_XCTSkipUnless() throws {
-        try XCTSkipIf(true, "Test skip.")
+        try XCTSkipUnless(false, "Test skip.")
         
         let value = sut.returnOne()
         let expectedValue = 0
         XCTAssertEqual(value, expectedValue)
+    }
+    
+    // MARK: - Asynchronous Tests and Expectations
+    
+    func test_XCTestExpectation() {
+        // XCTestExpectation 생성
+        let expectation = XCTestExpectation(description: "Download apple.com home page")
+        
+        let url = URL(string: "https://apple.com")!
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, _) in
+            // 데이터 수신 테스트
+            XCTAssertNotNil(data)
+            // expectation fulfill 실행
+            expectation.fulfill()
+        }
+        
+        dataTask.resume()
+        // expectation fulfill 실행까지 10.0초 대기
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func test_XCTKVOExpectation() {
+        let sut = KVOClass()
+        let expectation = XCTKVOExpectation(keyPath: "value", object: sut, expectedValue: "white")
+        sut.value = "white"
+        wait(for: [expectation], timeout: 3.0)
+    }
+    
+    func test_XCTNSNotificationExpectation() {
+        let expectation = XCTNSNotificationExpectation(name: .init("notification"))
+        NotificationCenter.default.post(name: .init("notification"), object: nil)
+        wait(for: [expectation], timeout: 3.0)
+    }
+    
+    func test_XCTNSPredicateExpectation() {
+        let publisher = ArticlePublisher()
+        var article = Article(isPublished: false)
+        
+        let predicate = NSPredicate(format: "%K == YES", #keyPath(Article.isPublished))
+        let publishExpectation = XCTNSPredicateExpectation(predicate: predicate, object: article)
+        publisher.publish(&article)
+        wait(for: [publishExpectation], timeout: 10.0)
     }
 }

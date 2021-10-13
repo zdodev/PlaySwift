@@ -1,3 +1,5 @@
+import Foundation
+
 struct TestObject {
     func returnTrue() -> Bool {
         true
@@ -35,4 +37,22 @@ class TestClass {
 
 enum ErrorTest: Error {
     case error
+}
+
+class KVOClass: NSObject {
+    @objc dynamic var value = ""
+}
+
+final class Article: NSObject {
+    @objc var isPublished: Bool
+    
+    init(isPublished: Bool) {
+        self.isPublished = isPublished
+    }
+}
+
+struct ArticlePublisher {
+    func publish(_ article: inout Article) {
+        article.isPublished = true
+    }
 }
