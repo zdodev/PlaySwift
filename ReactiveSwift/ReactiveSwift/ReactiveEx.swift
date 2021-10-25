@@ -1,13 +1,17 @@
 import Foundation
 import RxSwift
 
-struct ReactiveEx {
+final class ReactiveEx {
+    private let disposeBag = DisposeBag()
+    
     func just() {
-        let observer = Observable<Int>.just(1)
+        let observable = Observable.just(1)
         
-        observer.subscribe { element in
-            print(element)
-        }.dispose()
+        observable.subscribe { event in
+            if let element = event.element {
+                print(element)
+            }
+        }.disposed(by: disposeBag)
     }
     
     func interval() {

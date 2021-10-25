@@ -1,10 +1,9 @@
 import Foundation
 
 let reactive = ReactiveEx()
-
 //reactive.just()
 //reactive.interval()
-//reactive.create()
+reactive.create()
 //reactive.downloadJSONData()
 //reactive.publishSubject()
 
@@ -14,8 +13,8 @@ let syncAsync = SyncAsync()
 //syncAsync.onLoadAsync()
 
 let rxSwift4Hours = RxSwiftIn4Hours()
-rxSwift4Hours.viewDidLoad()
-rxSwift4Hours.onLoadImage()
+//rxSwift4Hours.viewDidLoad()
+//rxSwift4Hours.onLoadImage()
 
 
 
