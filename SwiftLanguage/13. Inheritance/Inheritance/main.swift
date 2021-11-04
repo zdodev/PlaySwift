@@ -2,6 +2,17 @@
 
 // MARK: - Defining a Base Class
 
+class Vehicle {
+    var currentSpeed = 0.0
+    var description: String {
+        "traveling at \(currentSpeed) miles per hour"
+    }
+    
+    func makeNoise() {
+        // do nothing - an arbitrary vehicle doesn't necessarily make a noise
+    }
+}
+
 // MARK: - Subclassing
 
 // MARK: - Overriding
