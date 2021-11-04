@@ -1,5 +1,7 @@
 //MARK: -  Automatic Reference Counting
 
+import CoreFoundation
+
 //MARK: - How ARC Works
 
 //MARK: - ARC in Action
@@ -90,6 +92,18 @@ unit4A = nil
 // 인스턴스 간의 strong reference로 인해 인스턴스가 메모리에서 해제되지 않습니다.
 
 //MARK: - Resolving Strong Reference Cycles Between Class Instances
+
+//MARK: Check Object's Reference Count
+
+class ReferenceCount {
+}
+
+let referenceCount1 = ReferenceCount()
+print("reference count: \(CFGetRetainCount(referenceCount1))")
+let referenceCount2 = referenceCount1
+print("reference count: \(CFGetRetainCount(referenceCount1))")
+let referenceCount3 = referenceCount1
+print("reference count: \(CFGetRetainCount(referenceCount1))")
 
 //MARK: Weak References
 
