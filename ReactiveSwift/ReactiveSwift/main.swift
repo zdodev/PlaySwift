@@ -16,7 +16,8 @@ let rxSwift4Hours = RxSwiftIn4Hours()
 //rxSwift4Hours.viewDidLoad()
 //rxSwift4Hours.onLoadImage()
 
-
+let subjectT = SubjectT()
+subjectT.subject1()
 
 RunLoop.main.run()
 
