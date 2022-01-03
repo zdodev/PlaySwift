@@ -9,7 +9,6 @@ struct Main {
     
     mutating func main() {
         loadOneMemo()
-//        loadAllMemo()
     }
     
     mutating func loadOneMemo() {
