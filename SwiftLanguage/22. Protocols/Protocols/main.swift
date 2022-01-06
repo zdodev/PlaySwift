@@ -18,7 +18,7 @@ class SomeSuperclass {
     
 }
 
-// 상속 관계 시 상위 클래스를 입력하고 프로토콜을 입력한다.
+// 상속 관계 시 상위 클래스를 입력하고 프로토콜을 입력합니다.
 class SomeClass: SomeSuperclass, SomeProtocol {
     
 }
@@ -26,27 +26,28 @@ class SomeClass: SomeSuperclass, SomeProtocol {
 // MARK: - Property Requirements
 
 // 프로퍼티는 var 키워드로 선언합니다.
-// 읽기 가능 get, 쓰기 가능 set
+// 읽기 가능 속성은 get, 쓰기 가능 속성 set 키워드를 사용합니다.
 protocol SomeProtocol1 {
     var mustBeSettable: Int { get set }
     var doesNotNeedToBeSettable: Int { get }
 }
 
-// 타입 프로퍼티의 경우 static 키워드를 사용한다.
+// 타입 프로퍼티의 경우 static 키워드를 사용합니다.
 protocol AnotherProtocol {
     static var someTypeProperty: Int { get set }
 }
 
-// FullyNamed 프로토콜을 채택하면 fullName 이라는 String 타입의 프로퍼티를 가져야 한다. get, set에 따라 별도로 구현
+// FullyNamed 프로토콜을 채택하면 fullName 이라는 String 타입의 프로퍼티를 가져야 한다. get, set 속성에 따라 별도로 구현합니다.
 protocol FullyNamed {
     var fullName: String { get }
 }
 
-// Person 타입이 FullyNamed 프로토콜을 채택한다.
+// Person 타입이 FullyNamed 프로토콜을 채택합니다.
 struct Person: FullyNamed {
     var fullName: String
 }
 
+// 프로토콜 속성에 따라 연산 프로퍼티로 구현할 수 있습니다.
 class Starship: FullyNamed {
     var prefix: String?
     var name: String
@@ -132,21 +133,21 @@ protocol SomeProtocol3 {
 // MARK: Class Implementations of Protocol Initializer Requirements
 
 // Initializer 구현을 요구하는 프로토콜 채택
-// class에서 채택 시 required 키워드 필수
+// class에서 채택 시 required 키워드를 필수로 사용해야 합니다.
 class SomeClass1: SomeProtocol3 {
     required init(someParameter: Int) {
         print("init")
     }
 }
 
-// final class에서 채택 시 required 키워드 생략 가능
+// final class에서 채택 시 required 키워드를 생략할 수 있습니다.
 final class SomeClass2: SomeProtocol3 {
     init(someParameter: Int) {
         print("init")
     }
 }
 
-// 상위 클래스에서 initializer 정의를 강제하고 있을 때, 하위 클래스에서 다른 initializer를 정의할 경우 상위 클래스에서 요구하는 initializer도 정의해야 한다.
+// 상위 클래스에서 initializer 정의를 강제하고 있을 때, 하위 클래스에서 다른 initializer를 정의할 경우 상위 클래스에서 요구하는 initializer도 정의해야 합니다.
 class SomeSubClass: SomeClass1 {
     // init()만 있으면 에러
     init() {
@@ -284,7 +285,7 @@ protocol TextRepresentable {
     var textualDescription: String { get }
 }
 
-// 익스텐션을 사용하여 프로토콜 채택하고 준수할 수 있습니다.
+// 기존 타입에 익스텐션을 사용하여 프로토콜 채택하고 준수할 수 있습니다.
 extension Dice: TextRepresentable {
     var textualDescription: String {
         "A \(sides)-sided dice"
@@ -300,12 +301,12 @@ extension SnakesAndLadders: TextRepresentable {
     }
 }
 
-// MARK: Conditionally Conforming to a Protocol
+// MARK: Conditionally Conforming to a Protocol(Where)
 
 // 정해진 조건에서만 프로토콜의 요구사항을 만족할 수 있습니다.
 
-// Array의 Element 타입이 TextRepresentable 프로토콜을 준수한 경우에만 Array가 TextRepresentable을 준수한다.
-// 프로토콜 채택 시 프로토콜 준수 조건을 만족할 때만 해당 타입이 프로토콜을 준수하고 사용할 수 있다.
+// Array의 Element 타입이 TextRepresentable 프로토콜을 준수한 경우에만 Array가 TextRepresentable을 준수합니다.
+// 프로토콜 채택 시 프로토콜 준수 조건을 만족할 때만 해당 타입이 프로토콜을 준수하고 사용할 수 있습니다.
 extension Array: TextRepresentable where Element: TextRepresentable {
     var textualDescription: String {
         let itemsAsText = map {
@@ -327,8 +328,8 @@ struct Hamster {
     }
 }
 
-// 나중에 TextRepresentable 프로토콜을 채택해도 상관없다.
-// 익스텐션에서 프로토콜을 채택했다고 하더라도 정의를 현재 익스텐션에서 할 필요가 없다.
+// 나중에 TextRepresentable 프로토콜을 채택해도 상관없습니다.
+// 익스텐션에서 프로토콜을 채택했다고 하더라도 정의를 현재 익스텐션에서 할 필요가 없습니다.
 extension Hamster: TextRepresentable {}
 
 let simonTheHamster = Hamster(name: "Simon")
@@ -337,6 +338,7 @@ print(simonTheHamster.textualDescription)
 
 // MARK: - Adopting a Protocol Using a Synthesized Implementation
 
+//
 struct Vector3D: Equatable {
     var x = 0.0
     var y = 0.0
@@ -429,6 +431,7 @@ struct Person1: Named, Aged {
 }
 
 // & 기호를 써서 프로토콜 합성을 나타냅니다.
+// 두 가지의 프로토콜을 준수하는 인자를 전달할 수 있습니다.
 func wishHappyBirthday(to celebrator: Named & Aged) {
     print("Happy birthday, \(celebrator.name), you're \(celebrator.age)!")
 }
@@ -599,14 +602,14 @@ struct Pretty: PrettyTextRepresentable {
 }
 
 let pretty = Pretty()
-// PrettyTextRepresentable 프로토콜의 요구사항인 prettyTextualDescription을 구현하지 않았지만 기본 구현을 통해서 사용할 수 있다.
-// 그리고 기본 구현은 기존 요구사항의 내용을 가져다 쓸 수 있다.
+// PrettyTextRepresentable 프로토콜의 요구사항인 prettyTextualDescription을 구현하지 않았지만 기본 구현을 통해서 사용할 수 있습니다.
+// 그리고 기본 구현은 기존 요구사항의 내용을 가져다 쓸 수 있습니다.
 print(pretty.prettyTextualDescription)
 
 // MARK: Adding Constraints to Protocol Extensions(where)
 // 프로토콜 익스텐션을 정의할 때 익스텐션에 정의한 메서드와 속성을 사용하기 전에 만족해야할 조건을 지정할 수 있습니다.
 
-// Collection 프로토콜에서 Element가 Equatable을 만족해야 allEqual 메서드를 사용할 수 있다.
+// Collection 프로토콜에서 Element가 Equatable을 만족해야 allEqual 메서드를 사용할 수 있습니다.
 extension Collection where Element: Equatable {
     func allEqual() -> Bool {
         for element in self {
@@ -621,6 +624,6 @@ extension Collection where Element: Equatable {
 let equalNumbers = [100, 100, 100, 100, 100]
 let differentNumbers = [100, 100, 200, 100, 200]
 
-// 배열은 Collection을 준수하고 또 Element는 Equatable을 준수하고 있으니 Collection 익스텐션의 allEqual() 메서드를 사용할 수 있습니다.
+// 배열은 Collection을 준수하고 또 Element는 Equatable을 준수하고 있으므로 Collection 익스텐션의 allEqual() 메서드를 사용할 수 있습니다.
 print(equalNumbers.allEqual())
 print(differentNumbers.allEqual())
