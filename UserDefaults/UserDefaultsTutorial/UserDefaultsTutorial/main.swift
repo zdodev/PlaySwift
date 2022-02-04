@@ -1,53 +1,65 @@
 import Foundation
 
-struct Defaults {
-    private let testDefaults = UserDefaults(suiteName: "test")!
+@propertyWrapper
+struct Storage<T: Codable> {
+    private let key: String
+    private let defaultValue: T
     
-    enum KeyBundle<T> {
-        case value1(T)
-        
-        var key: String {
-            switch self {
-            case .value1(_):
-                return "value1"
+    init(key: String, defaultValue: T) {
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    
+    var wrappedValue: T {
+        get {
+            guard let data = UserDefaults.standard.object(forKey: key) as? Data else {
+                return defaultValue
             }
+            
+            let value = try? JSONDecoder().decode(T.self, from: data)
+            return value ?? defaultValue
+        }
+        
+        set {
+            let data = try? JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(data, forKey: key)
         }
     }
-    
-    enum Keys: String {
-        case key1 = "key1"
-        case key2 = "key2"
-    }
-    
-//    struct Keys<T> {
-//        let isVCissued = Key<Double>.key1(<#T##Double#>)
-//    }
-    
-    func get() {
-    }
-    
-    func set<T>(value: T, for keyBundle: String) {
-        testDefaults.set(value, forKey: keyBundle)
-    }
-    
-//    func object<T>(for key: KeyBundle<T>) -> T {
-//        testDefaults.object(forKey: key.key)
-//    }
-    
-//    func removeValue(for key: Keys) {
-//        testDefaults.removeObject(forKey: key.rawValue)
-//    }
-//
-//    func removeAllValues() {
-//        Keys.allCases.forEach { key in
-//            testDefaults.removeObject(forKey: key.rawValue)
-//        }
-//    }
 }
 
-let defaults = Defaults()
-defaults.set(value: 1, for: "key1")
+struct AppData {
+    @Storage(key: "username_key", defaultValue: "")
+    static var username: String
+    
+    @Storage(key: "enable_auto_login_key", defaultValue: false)
+    static var enableAutoLogin: Bool
+    
+    @Storage(key: "user_key", defaultValue: User(firstName: "", lastName: "", lastLogin: nil))
+    static var user: User
+    
+    private static let keys = ["username_key", "enable_auto_login_key", "user_key"]
+    
+    static func removeAll() {
+        keys.forEach { key in
+            UserDefaults.standard.removeObject(forKey: key)
+        }
+    }
+}
 
+struct User: Codable {
+    var firstName: String
+    var lastName: String
+    var lastLogin: Date?
+}
 
-RunLoop.main.run()
+AppData.removeAll()
 
+AppData.username = "Swift"
+print(AppData.username)
+
+AppData.enableAutoLogin = true
+print(AppData.enableAutoLogin)
+
+let johnWick = User(firstName: "John", lastName: "Wick", lastLogin: Date())
+AppData.user = johnWick
+print(AppData.user)
