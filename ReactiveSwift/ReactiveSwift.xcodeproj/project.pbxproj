@@ -13,7 +13,6 @@
 		846BFD6426F434F300B40B7C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6326F434F300B40B7C /* RxSwift */; };
 		846BFD6626F434F300B40B7C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6526F434F300B40B7C /* RxRelay */; };
 		846BFD6826F434F300B40B7C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6726F434F300B40B7C /* RxCocoa */; };
-		846BFD6A26F434F300B40B7C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 846BFD6926F434F300B40B7C /* RxBlocking */; };
 		846BFD6C26F441B600B40B7C /* ReactiveEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BFD6B26F441B600B40B7C /* ReactiveEx.swift */; };
 		84CCD43E2779891D00270FB1 /* SubjectT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCD43D2779891D00270FB1 /* SubjectT.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +45,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				846BFD6826F434F300B40B7C /* RxCocoa in Frameworks */,
-				846BFD6A26F434F300B40B7C /* RxBlocking in Frameworks */,
 				846BFD6626F434F300B40B7C /* RxRelay in Frameworks */,
 				846BFD6426F434F300B40B7C /* RxSwift in Frameworks */,
 			);
@@ -104,7 +102,6 @@
 				846BFD6326F434F300B40B7C /* RxSwift */,
 				846BFD6526F434F300B40B7C /* RxRelay */,
 				846BFD6726F434F300B40B7C /* RxCocoa */,
-				846BFD6926F434F300B40B7C /* RxBlocking */,
 			);
 			productName = ReactiveSwift;
 			productReference = 846BFD5826F434CF00B40B7C /* ReactiveSwift */;
@@ -322,8 +319,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -343,11 +340,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 846BFD6226F434F300B40B7C /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
-		};
-		846BFD6926F434F300B40B7C /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 846BFD6226F434F300B40B7C /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
